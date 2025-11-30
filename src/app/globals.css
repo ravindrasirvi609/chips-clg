@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optimized body styles for better performance */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #e6e6e6;
+  background-attachment: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    /* Card and UI elements */
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --card-glass-bg: rgba(255, 255, 255, 0.1);
+    --card-glass-border: rgba(255, 255, 255, 0.2);
+    --card-glass-shadow: rgba(0, 0, 0, 0.25);
+
+    /* Popover and overlay elements */
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary brand colors */
+    --primary: 170 80% 50%;
+    --primary-foreground: 222 47% 11%;
+
+    /* Secondary colors */
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted UI elements */
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent colors */
+    --accent: 170 80% 30%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Destructive actions */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI borders and inputs */
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 170 80% 50%;
+
+    /* Chart colors */
+    --chart-1: 170 80% 50%;
+    --chart-2: 190 80% 50%;
+    --chart-3: 210 80% 50%;
+    --chart-4: 250 80% 50%;
+    --chart-5: 270 80% 50%;
+
+    /* Border radius */
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 170 80% 50%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 170 80% 30%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 170 80% 50%;
+    --chart-1: 170 80% 50%;
+    --chart-2: 190 80% 50%;
+    --chart-3: 210 80% 50%;
+    --chart-4: 250 80% 50%;
+    --chart-5: 270 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Simple card styles without glassmorphism */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 255, 204, 0.3);
+}
+
+/* Simple container without heavy animations */
+.main-container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle background elements */
+.bg-accent-light {
+  background: rgba(0, 255, 204, 0.05);
+}
+
+.bg-accent-dark {
+  background: rgba(204, 0, 255, 0.05);
+}
+
+/* Simplified text gradients with better performance */
+.text-gradient {
+  background: linear-gradient(90deg, rgb(0, 255, 204), rgb(0, 204, 255));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-alt {
+  background: linear-gradient(
+    90deg,
+    rgba(204, 0, 255, 1),
+    rgba(0, 204, 255, 1)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Responsive utilities with scroll optimization */
+@media (max-width: 640px) {
+  .card {
+    padding: 1rem;
+  }
+
+  /* Optimize scroll on mobile */
+  body {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+}
+
+/* Utility classes */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
