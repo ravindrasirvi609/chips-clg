@@ -120,59 +120,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Follow Us */}
-            <div className="glassmorphism-card p-6 rounded-xl">
-              <h4 className="text-xl font-bold mb-4 text-gradient">
-                Follow Us
-              </h4>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="p-3 rounded-full glassmorphism hover:bg-[#00FFCC]/10 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={20} className="text-[#00FFCC]" />
-                </a>
-                <a
-                  href="#"
-                  className="p-3 rounded-full glassmorphism hover:bg-[#00FFCC]/10 transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter size={20} className="text-[#00FFCC]" />
-                </a>
-                <a
-                  href="#"
-                  className="p-3 rounded-full glassmorphism hover:bg-[#00FFCC]/10 transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={20} className="text-[#00FFCC]" />
-                </a>
-                <a
-                  href="#"
-                  className="p-3 rounded-full glassmorphism hover:bg-[#00FFCC]/10 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={20} className="text-[#00FFCC]" />
-                </a>
-              </div>
-
-              <div className="mt-8">
-                <h5 className="text-lg font-medium mb-3 text-white">
-                  Newsletter
-                </h5>
-                <div className="flex">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="glassmorphism border border-[#00FFCC]/20 rounded-l-lg px-4 py-2 w-full bg-transparent text-white focus:outline-none focus:border-[#00FFCC]/50"
-                  />
-                  <button className="bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black font-medium px-4 rounded-r-lg">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-            </div>
-
             {/* About Company */}
             <div className="glassmorphism-card p-6 rounded-xl">
               <div className="flex justify-center mb-4">

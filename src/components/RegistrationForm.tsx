@@ -272,18 +272,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
           )}
         </div>
 
-        {selectedPlanName === "OPF Members" && (
-          <FormField
-            label="OPF Member ID"
-            name="memberId"
-            value={formData.memberId || ""}
-            onChange={onInputChange}
-            required
-            error={errors.memberId}
-            note="Enter correct Membership No. Incorrect membership No. is subject to rejection of registration & payment will be non-refundable."
-          />
-        )}
-
         {/* Personal Information */}
         <div className="mb-5">
           <label className="block text-white font-medium mb-2">

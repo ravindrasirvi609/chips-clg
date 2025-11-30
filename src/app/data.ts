@@ -2,13 +2,6 @@ import { Plan } from "@/lib/interface";
 
 export const plans: Plan[] = [
   {
-    name: "OPF Members",
-    description: "Includes entry to all sessions and conference kit.",
-    earlyBird: 700,
-    regular: 1000,
-    spot: 2000,
-  },
-  {
     name: "Students (UG & PG)",
     description: "Includes entry to all sessions and conference kit.",
     earlyBird: 800,
