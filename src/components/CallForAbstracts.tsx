@@ -33,7 +33,7 @@ const CallForAbstracts = () => {
       icon: <Calendar className="w-6 h-6 text-[#00FFCC]" />,
       title: "Submission Deadline",
       description:
-        "All abstracts must be submitted by July 15, 2025, for review and consideration.",
+        "All abstracts must be submitted by December 31, 2025, for review and consideration.",
     },
     {
       icon: <Award className="w-6 h-6 text-[#00FFCC]" />,

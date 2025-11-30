@@ -26,16 +26,16 @@ export default function Home() {
 
           <CollegeInfo />
 
-          <OrganizingCommittee />
+          {/* <OrganizingCommittee /> */}
 
           <CallForAbstracts />
 
           <div className="relative">
             <div className="absolute inset-0 bg-accent-dark pointer-events-none" />
-            <EventScheduleTeaser />
+            {/* <EventScheduleTeaser /> */}
           </div>
 
-          <SponsorsPartnersSection />
+          {/* <SponsorsPartnersSection /> */}
 
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#00FFCC]/5 pointer-events-none" />

@@ -7,9 +7,9 @@ const AbstractFormPage: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
 
-  // const handleSubmitClick = () => {
-  //   setShowDialog(true);
-  // };
+  const handleSubmitClick = () => {
+    setShowDialog(true);
+  };
 
   const handleDialogClose = () => {
     setShowDialog(false);
@@ -103,7 +103,7 @@ const AbstractFormPage: React.FC = () => {
                     into the designated space on the submission portal.
                   </li>
                   <li>Abstracts must be submitted online only.</li>
-                  <li>The deadline for submission is 5 August, 2025.</li>
+                  <li>The deadline for submission is 31 December, 2025.</li>
                   <li>
                     A model abstract is available for reference on the website.
                   </li>
@@ -192,7 +192,7 @@ const AbstractFormPage: React.FC = () => {
             </div>
           </div>
 
-          {/* <section className="mt-8 bg-[#D94814] p-6 rounded-lg shadow-md text-white">
+          <section className="mt-8 bg-[#D94814] p-6 rounded-lg shadow-md text-white">
             <h3 className="text-xl font-semibold mb-4">Submit Abstract</h3>
             <button
               onClick={handleSubmitClick}
@@ -200,7 +200,7 @@ const AbstractFormPage: React.FC = () => {
             >
               Submit Abstract
             </button>
-          </section> */}
+          </section>
 
           {showDialog && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">

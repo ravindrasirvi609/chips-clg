@@ -28,7 +28,7 @@ const Registration = () => {
               Registrations for the International Conference 2026
             </span>{" "}
             began on{" "}
-            <span className="text-white font-semibold">1st June 2025</span>.
+            <span className="text-white font-semibold">1st December 2025</span>.
           </p>
 
           {/* Registration Option */}
@@ -104,7 +104,8 @@ const Registration = () => {
           <p className="text-lg leading-relaxed mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] font-bold">
             <span className="text-white font-semibold">Early Bird Offer:</span>{" "}
             Valid until{" "}
-            <span className="text-white font-semibold">31st July 2025</span>.
+            <span className="text-white font-semibold">31st December 2025</span>
+            .
           </p>
           <p className="text-gray-300 text-lg leading-relaxed mb-4">
             All prices mentioned are{" "}
