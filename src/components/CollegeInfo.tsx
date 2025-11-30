@@ -31,7 +31,7 @@ const CollegeInfo = () => {
                   Excellence in Pharmacy Education
                 </h3>
                 <p className="text-gray-300">
-                  Established 2018 | Affiliated with The TN Dr. MGR Medical
+                  Established 2005 | Affiliated with Acharya Nagarjuna
                   University
                 </p>
               </div>
@@ -41,101 +41,77 @@ const CollegeInfo = () => {
 
         {/* Trust Information */}
         <div className="glassmorphism-card rounded-2xl p-8 mb-12">
-          <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
-            Vellalar Educational Trust
+          {/* <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+            Nagarjuna Education Society
           </h3>
           <div className="text-gray-300 space-y-4">
             <p>
-              Vellalar Educational Trust was established in 1969 under S.no 20
-              of Societies Registration Act XX1 of 1860, which runs a variety of
-              educational institutions. The main motto of the trust is to
-              emphasize on women education. Today, more than 3000 faculty
-              members instruct 15,000 Students approximately.
+              The Nagarjuna Education Society (Regd.), Guntur, was established 
+              and registered in 1967 by Philanthropists, Medical Doctors, Industrial 
+              and Commercial houses with a mission of serving the Society through 
+              promotion of Education, Literature and Culture.
             </p>
             <p>
-              The institution generates financial aid programs that ensure the
-              talented students from all economic backgrounds can afford
-              education at Vellalar Educational Trust. A wide range of cultural,
-              educational, athletic and social activities are available to
-              students, faculty and other staff. Campus life activities are
-              built around the concepts of encouraging each member to express
-              his or her talents and to respect all members of our pluralistic
-              culture.
+              It is purely an educational society to which numerous people, 
+              organizations and individuals have donated, only to contribute to 
+              the cause of education. Quality of instruction through student-centered 
+              teaching and developing personality in students are the guiding principles.
             </p>
           </div>
 
           <h4 className="text-xl font-bold mt-8 mb-4 text-white">
-            Branches of Vellalar Educational Trust since 1970
+            Institutions Run by N.E.S
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                1970-1971 - Vellalar College for Women (Aided)
+                1968 - J.K.C College
               </span>
             </div>
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                1980-1981 - Vellalar Matriculation Higher Secondary School
+                1968 - S.G.V.R. High School
               </span>
             </div>
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                2000-2001 - Velalar College of Engineering and Technology
-                (co-ed)
+                1983 - Dr. K.L.P Public School
               </span>
             </div>
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                2005-2006 - Vellalar College of Education
+                1985 - R.V.R.R College Of Education
               </span>
             </div>
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                2006-2007 - Vellalar Teacher Training Institute
+                1985 - R.V.R & JC College of Engineering
               </span>
             </div>
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                2006-2007 - Vellalar High School (State board)
+                1990 - JC College Of Law
               </span>
             </div>
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                2008-2009 - Vellalar College of Nursing
+                2005 - Chebrolu Hanumaiah Institute of Pharmaceutical Sciences (CHIPS)
               </span>
             </div>
             <div className="flex items-center space-x-3">
               <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
               <span className="text-gray-300">
-                2010-2011 - Velalar Vidyalaya Senior Secondary School (co-ed)
+                2006 - MSB College Of Nursing
               </span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
-              <span className="text-gray-300">
-                2018-2019 - Vellalar College of Pharmacy (co-ed)
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
-              <span className="text-gray-300">
-                2019-2020 - VET Institute of Arts & Science (co-ed)
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <CalendarClock className="w-5 h-5 text-[#00FFCC]" />
-              <span className="text-gray-300">
-                2024-2025 - Vellalar Physiotherapy College (co-ed)
-              </span>
-            </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Institution Information */}
@@ -145,18 +121,12 @@ const CollegeInfo = () => {
           </h3>
           <div className="text-gray-300 space-y-4">
             <p>
-              Chebrolu Hanumaiah Institute of Pharmaceutical Sciences was
-              established in the year 2018 by Vellalar Educational Trust under
-              the dynamic leadership Mr. C. Jayakumar B.A., B.L, President, S.D
-              Chandrasekar, Secretary cum correspondence, a renowned
-              Educationalist and Industrialist having more than Five decades of
-              rich experience in promoting and administering Professional
-              colleges. The institution is committed to provide quality
-              education in the pharmacy to cater the needs of the society in
-              healthcare sector and also uplift of socio-economic status of
-              human being. The college is approved by Directorate of Medical
-              Education, PCI and affiliated with The TN Dr. MGR Medical
-              University, Chennai. Tamilnadu.
+              Chebrolu Hanumaiah Institute of Pharmaceutical Sciences (CHIPS)
+              was established in the year 2005 as the 7th institute under the
+              philanthropic organization Nagarjuna Education Society (NES).
+              CHIPS is situated in Guntur, Andhra Pradesh, and is recognized for
+              its excellence in pharmaceutical sciences. The college is approved
+              by AICTE, PCI and affiliated with Acharya Nagarjuna University.
             </p>
             <p>
               The college has pollution free environment, excellent academic

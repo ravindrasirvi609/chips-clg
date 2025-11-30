@@ -138,7 +138,7 @@ const HeroSection = () => {
                   </button>
                 </Link>
                 {/* Resource buttons moved from CallForAbstracts */}
-                <a
+                {/* <a
                   href="https://docs.google.com/presentation/d/1L_e3SSNTSXFWkthYOO5wOk3xhSzYhPBc/edit?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -173,7 +173,7 @@ const HeroSection = () => {
                   <button className="px-6 py-3 glassmorphism text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors hover:scale-105">
                     Oral Presentation Guidelines
                   </button>
-                </a>
+                </a> */}
               </div>
             </div>
 

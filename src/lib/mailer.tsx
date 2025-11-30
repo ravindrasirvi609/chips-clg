@@ -216,7 +216,7 @@ SendEmailParams): Promise<any> => {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "admin@opf.org.in",
+        from: "admin@chips.ac.in",
         to: EMAIL,
         subject: subject,
         html: emailHtml, // Now this is definitely a string

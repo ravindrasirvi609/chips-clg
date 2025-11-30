@@ -446,10 +446,10 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
           <p>
             For any queries, please contact our support team at{" "}
             <a
-              href="mailto:conferences@opf.org.in"
+              href="mailto:chipsguntur@gmail.com"
               className="text-[#FF6B6B] hover:underline font-semibold"
             >
-              conferences@opf.org.in
+              chipsguntur@gmail.com
             </a>
           </p>
         </div>

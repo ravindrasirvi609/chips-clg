@@ -21,12 +21,12 @@ const AbstractFormPage: React.FC = () => {
       <div className="max-w-7xl mx-auto bg-[#F2F2F2] rounded-lg shadow-2xl overflow-hidden">
         <div className="p-6 sm:p-10">
           <h1 className="text-3xl font-extrabold text-[#021373] text-center mb-8">
-            National Conference
+            International Conference
           </h1>
 
           <section className="mt-8 bg-[#D94814] p-6 my-2 rounded-lg shadow-md text-white">
             <p className="mb-4">
-              The National Conference Scientific Committee (NSC) invites
+              The International Conference Scientific Committee (NSC) invites
               delegates to submit their original scientific work as abstracts
               for presentation during the Congress as Poster and/or Oral
               presentations.
@@ -116,7 +116,7 @@ const AbstractFormPage: React.FC = () => {
                     NATIONAL CONFERENCE MODEL ABSTRACT
                   </a>
                   <div className="flex flex-wrap gap-3 mt-4">
-                    <a
+                    {/* <a
                       href="https://docs.google.com/presentation/d/1L_e3SSNTSXFWkthYOO5wOk3xhSzYhPBc/edit?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -147,7 +147,7 @@ const AbstractFormPage: React.FC = () => {
                       className="px-4 py-2 rounded-md bg-[#021373] text-white text-sm font-semibold hover:bg-[#032b7a] transition"
                     >
                       Oral Presentation Guidelines
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </section>

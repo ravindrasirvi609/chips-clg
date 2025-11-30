@@ -36,21 +36,21 @@ const CommitteeMember: React.FC<CommitteeMemberProps> = ({
 const OrganizingCommittee = () => {
   const committeeMembers = {
     chiefPatron: {
-      name: "Mr. C. JAYAKUMAR B.A., B.L",
+      name: "Dr. Rayapati Srinivas",
       role: "Chief Patron",
-      designation: "President",
+      designation: "President, NES",
       imageUrl: "/members/President.jpg",
     },
     patron: {
-      name: "Mr. S. D. CHANDRASEKAR B.A.",
+      name: "Dr. Chebrolu N. Srinivas",
       role: "Patron",
-      designation: "Secretary",
+      designation: "Secretary & Correspondent, NES",
       imageUrl: "/members/Secretary.jpg",
     },
     convener: {
-      name: "Dr. A. SARAVANAKUMAR M.Pharm, Ph.D., Post Doc (South Korea)",
+      name: "Dr. S. Vidyadhara",
       role: "Convener",
-      designation: "Principal",
+      designation: "Principal, CHIPS",
       imageUrl: "/members/Dr. A. Saravanakumar.jpg",
     },
     organizingSecretary: {
@@ -124,7 +124,7 @@ const OrganizingCommittee = () => {
           </h2>
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full"></div>
           <p className="mt-6 text-gray-300 text-lg max-w-3xl mx-auto">
-            Vellalar College of Pharmacy
+            Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
           </p>
           <p className="mt-2 text-[#00FFCC] text-xl font-medium max-w-3xl mx-auto">
             &quot;Artificial Intelligence and machine learning: A Game changer

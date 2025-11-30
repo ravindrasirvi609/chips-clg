@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       "images.unsplash.com",
-      "opf.org.in",
+      "chips.ac.in",
       "jssaherstoragenew.blob.core.windows.net",
       "azpireeducations.com",
       "via.placeholder.com",

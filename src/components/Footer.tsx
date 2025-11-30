@@ -53,7 +53,7 @@ const Footer = () => {
                     <Phone size={18} className="text-[#00FFCC]" />
                   </div>
                   <span className="text-gray-300 group-hover:text-white transition-colors">
-                    +91 94609-71652
+                    +91 738 200 8494
                   </span>
                 </div>
                 <div className="flex items-center gap-3 group">
@@ -61,7 +61,7 @@ const Footer = () => {
                     <Mail size={18} className="text-[#00FFCC]" />
                   </div>
                   <span className="text-gray-300 group-hover:text-white transition-colors">
-                    conferences@opf.org.in
+                    chipsguntur@gmail.com
                   </span>
                 </div>
                 <div className="flex items-center gap-3 group">

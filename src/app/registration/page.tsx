@@ -93,10 +93,10 @@ const Registration = () => {
             </span>{" "}
             at additional charges. For more details, please write to us at:{" "}
             <Link
-              href="mailto:conferences@opf.org.in"
+              href="mailto:chipsguntur@gmail.com"
               className="text-[#00FFCC] hover:text-[#00CCFF] underline transition-colors"
             >
-              conferences@opf.org.in
+              chipsguntur@gmail.com
             </Link>
           </p>
 

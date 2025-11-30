@@ -24,10 +24,6 @@ const About = () => {
             <span className="text-white font-semibold">
               Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
             </span>{" "}
-            and{" "}
-            <span className="text-white font-semibold">
-              Operant Pharmacy Federation (OPF)
-            </span>{" "}
             that we proudly support.
           </p>
         </div>
@@ -50,24 +46,21 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#FF3366] to-[#FF9966]">
                 About Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
               </h2>
-              <div className="space-y-4 text-gray-300">
+              {/* <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
                   <span className="text-white font-semibold">
                     Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
                   </span>{" "}
-                  was established in the year 2018 by Vellalar Educational Trust
-                  under the dynamic leadership of Mr. C. Jayakumar B.A., B.L,
-                  President, and S.D Chandrasekar, Secretary cum correspondence,
-                  renowned Educationalists and Industrialists having more than
-                  five decades of rich experience in promoting and administering
-                  Professional colleges.
+                  was established in the year 2005 under Nagarjuna Education 
+                  Society (NES), Guntur. CHIPS stands as a beacon of pharmaceutical 
+                  education and research, committed to producing skilled professionals 
+                  who drive innovation in healthcare.
                 </p>
                 <p className="leading-relaxed">
                   The institution is committed to provide quality education in
                   pharmacy to cater to the needs of the society in the
-                  healthcare sector. The college is approved by Directorate of
-                  Medical Education, PCI and affiliated with The TN Dr. MGR
-                  Medical University, Chennai, Tamil Nadu.
+                  healthcare sector. The college is approved by AICTE, PCI and 
+                  affiliated with Acharya Nagarjuna University, Andhra Pradesh.
                 </p>
                 <p className="leading-relaxed">
                   The college has a pollution-free environment, excellent
@@ -76,37 +69,41 @@ const About = () => {
                   and qualified faculty with their passion in Teaching &
                   Research in Pharmacy.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
 
-        {/* About Vellalar Educational Trust Section */}
+        {/* About Nagarjuna Education Society Section */}
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 mb-12 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
-                About Vellalar Educational Trust
+                About Nagarjuna Education Society
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  Vellalar Educational Trust was established in 1969 under S.no
-                  20 of Societies Registration Act XX1 of 1860, which runs a
-                  variety of educational institutions. The main motto of the
-                  trust is to emphasize on women education. Today, more than
-                  3000 faculty members instruct 15,000 Students approximately.
+                  The Nagarjuna Education Society (Regd.), Guntur, was
+                  established and registered in 1967 by Philanthropists, Medical
+                  Doctors, Industrial and Commercial houses with a mission of
+                  serving the Society through promotion of Education, Literature
+                  and Culture. The society was registered on 27th December, 1967
+                  (No.56 of 1967) under Societies Act XXI of 1860.
                 </p>
                 <p className="leading-relaxed">
-                  The institution generates financial aid programs that ensure
-                  the talented students from all economic backgrounds can afford
-                  education at Vellalar Educational Trust. A wide range of
-                  cultural, educational, athletic and social activities are
-                  available to students, faculty and other staff.
+                  The strength of the Society is that it is purely an
+                  educational society to which numerous people, organizations
+                  and individuals have donated, only to contribute to the cause
+                  of education. Quality of instruction through student-centered
+                  teaching, updating teacher-capability and qualifications, and
+                  developing personality and citizenship in students are the
+                  guiding principles.
                 </p>
                 <p className="leading-relaxed">
-                  Campus life activities are built around the concepts of
-                  encouraging each member to express his or her talents and to
-                  respect all members of our pluralistic culture.
+                  NES runs multiple prestigious institutions including J.K.C
+                  College, RVR & JC College of Engineering, JC College of Law,
+                  MSB College of Nursing, and Chebrolu Hanumaiah Institute of
+                  Pharmaceutical Sciences.
                 </p>
               </div>
             </div>
@@ -114,69 +111,8 @@ const About = () => {
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg transform transition-transform duration-500 hover:scale-105">
                 <Image
                   src="/college.jpg"
-                  alt="Vellalar Educational Trust"
+                  alt="Nagarjuna Education Society"
                   className="object-cover w-full"
-                  width={540}
-                  height={360}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* About OPF Section */}
-        <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 mb-12 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
-                About Operant Pharmacy Federation (OPF)
-              </h2>
-              <div className="space-y-4 text-gray-300">
-                <p className="leading-relaxed">
-                  Operant Pharmacy Federation (OPF) is committed to advancing
-                  the{" "}
-                  <span className="text-white font-semibold">
-                    pharmacy profession
-                  </span>{" "}
-                  by hosting exhibitions, conferences, workshops, and more. With
-                  a national reputation in biomedical and pharmaceutical
-                  studies, OPF serves as a hub for high-quality research,
-                  education forums, ethical discussions, and collaboration
-                  across the country.
-                </p>
-                <p className="leading-relaxed">
-                  At OPF, we prioritize{" "}
-                  <span className="text-white font-semibold">
-                    national healthcare impact
-                  </span>{" "}
-                  by fostering research, community wellness, and ethical
-                  business practices. Our goal is to promote innovations in the{" "}
-                  <span className="text-white font-semibold">
-                    pharmaceutical industry
-                  </span>
-                  , benefiting both professionals and the wider community.
-                </p>
-                <p className="leading-relaxed">
-                  We are proud to assist researchers in their dissertation work,
-                  providing support through{" "}
-                  <span className="text-white font-semibold">
-                    editorial services
-                  </span>{" "}
-                  and{" "}
-                  <span className="text-white font-semibold">
-                    publication opportunities
-                  </span>
-                  . Our open-access research papers empower students and
-                  professionals to stay informed about industry advancements.
-                </p>
-              </div>
-            </div>
-            <div>
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg transform transition-transform duration-500 hover:scale-105">
-                <Image
-                  src="/opflogo.png"
-                  alt="About OPF"
-                  className="object-cover w-full bg-white"
                   width={540}
                   height={360}
                 />
@@ -189,7 +125,7 @@ const About = () => {
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#9900FF] to-[#FF66CC]">
-              Programs Offered by Vellalar College of Pharmacy
+              Programs Offered by CHIPS
             </h2>
           </div>
 
