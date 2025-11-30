@@ -24,7 +24,8 @@ const GroupRegistration = () => {
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 mb-12 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <p className="text-gray-300 text-lg leading-relaxed mb-6 text-center">
             <span className="text-white font-semibold">
-              Submit your group registration for the National Conference 2025
+              Submit your group registration for the International Conference
+              2026
             </span>
             <br />
             <span className="text-sm text-gray-400">

@@ -14,7 +14,7 @@ const HeroSection = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    const countdownDate = new Date("2025-09-03T00:00:00").getTime();
+    const countdownDate = new Date("2026-01-22T00:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -76,7 +76,7 @@ const HeroSection = () => {
           <div className="flex items-center space-x-4 mb-8">
             <div className="inline-flex items-center px-4 py-2 glassmorphism rounded-full text-white font-semibold transform hover:scale-105 transition-transform cursor-pointer">
               <Clock className="w-4 h-4 mr-2 text-[#00FFCC]" />
-              <span>Conference 2025</span>
+              <span>Conference 2026</span>
             </div>
             <div className="h-px flex-1 bg-gradient-to-r from-[#00FFCC] to-transparent"></div>
           </div>
@@ -86,11 +86,13 @@ const HeroSection = () => {
             <div className="space-y-8">
               {/* Title with gradient text */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-gradient">National Conference</span>
+                <span className="text-gradient">International Conference</span>
                 <br />
-                <span className="text-white mt-2 block">AI & ML:</span>
+                <span className="text-white mt-2 block">
+                  Emerging Innovations in
+                </span>
                 <span className="text-gradient-alt block mt-2">
-                  A Game Changer in the Healthcare
+                  Pharmaceutical Sciences and Drug Discovery
                 </span>
               </h1>
 
@@ -99,12 +101,12 @@ const HeroSection = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
                     <Calendar className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
-                    <span className="text-white">3-4 September, 2025</span>
+                    <span className="text-white">22nd & 23rd January 2026</span>
                   </div>
                   <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
                     <MapPin className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
                     <span className="text-white">
-                      Vellalar College of Pharmacy
+                      Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
                     </span>
                   </div>
                 </div>
@@ -202,7 +204,7 @@ const HeroSection = () => {
 
               <div className="mt-8 p-4 glassmorphism rounded-lg border border-[#00FFCC]/20">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  What&apos;s New in the National Conference
+                  What&apos;s New in the International Conference
                 </h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -220,7 +222,7 @@ const HeroSection = () => {
                   <li className="flex items-start">
                     <span className="text-[#00FFCC] mr-2">•</span>
                     <span className="text-white text-sm">
-                      National Healthcare Innovation Showcase
+                      International Healthcare Innovation Showcase
                     </span>
                   </li>
                 </ul>

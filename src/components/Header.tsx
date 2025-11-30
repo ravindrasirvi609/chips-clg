@@ -65,7 +65,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="flex items-center justify-center text-white font-bold text-xl">
-              National Conference
+              International Conference
             </div>
           </div>
 
@@ -127,7 +127,7 @@ const Header = () => {
         >
           <div className="p-6">
             <div className="flex justify-center mb-8 text-white font-bold text-xl">
-              National Conference
+              International Conference
             </div>
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (

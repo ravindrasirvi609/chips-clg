@@ -173,7 +173,7 @@ const GroupRegistrationForm = () => {
             onChange={(e) => setGroupCode(e.target.value)}
             required
             className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
-            placeholder="Enter a unique group code/name (e.g., 'XYZ_College_Group_2025')"
+            placeholder="Enter a unique group code/name (e.g., 'XYZ_College_Group_2026')"
           />
           <p className="text-gray-400 text-sm mt-1">
             This code will be used to identify all members of your group. Make

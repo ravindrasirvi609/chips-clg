@@ -22,7 +22,7 @@ const About = () => {
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
             Know more about{" "}
             <span className="text-white font-semibold">
-              Vellalar College of Pharmacy
+              Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
             </span>{" "}
             and{" "}
             <span className="text-white font-semibold">
@@ -39,7 +39,7 @@ const About = () => {
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg transform transition-transform duration-500 hover:scale-105">
                 <Image
                   src="/college.jpg"
-                  alt="Vellalar College of Pharmacy"
+                  alt="Chebrolu Hanumaiah Institute of Pharmaceutical Sciences"
                   className="object-cover w-full"
                   width={540}
                   height={360}
@@ -48,12 +48,12 @@ const About = () => {
             </div>
             <div className="order-1 lg:order-2">
               <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#FF3366] to-[#FF9966]">
-                About Vellalar College of Pharmacy
+                About Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
                   <span className="text-white font-semibold">
-                    Vellalar College of Pharmacy
+                    Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
                   </span>{" "}
                   was established in the year 2018 by Vellalar Educational Trust
                   under the dynamic leadership of Mr. C. Jayakumar B.A., B.L,

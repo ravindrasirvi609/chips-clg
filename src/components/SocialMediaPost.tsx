@@ -32,7 +32,7 @@ const SocialMediaPost = ({
             fontWeight: "bold",
           }}
         >
-          National Conference
+          International Conference
         </h1>
 
         <p
@@ -41,7 +41,7 @@ const SocialMediaPost = ({
             margin: "0 0 20px",
           }}
         >
-          National Conference on
+          International Conference on
         </p>
 
         <h2
@@ -52,8 +52,8 @@ const SocialMediaPost = ({
             lineHeight: "1.4",
           }}
         >
-          &quot;Artificial Intelligence and machine learning: A Game changer in
-          the Pharma field&quot;
+          &quot;Emerging Innovations in Pharmaceutical Sciences and Drug
+          Discovery&quot;
         </h2>
 
         <p
@@ -62,7 +62,7 @@ const SocialMediaPost = ({
             margin: "0 0 40px",
           }}
         >
-          3<sup>rd</sup> and 4<sup>th</sup> September, 2025
+          22<sup>nd</sup> and 23<sup>rd</sup> January, 2026
         </p>
       </div>
 
@@ -113,7 +113,7 @@ const SocialMediaPost = ({
           margin: "0",
         }}
       >
-        Hey! I&apos;m Attending the National Conference 2025
+        Hey! I&apos;m Attending the International Conference 2026
       </p>
 
       <div
@@ -125,7 +125,9 @@ const SocialMediaPost = ({
         <p style={{ margin: "5px 0" }}>
           Organized by Department of Pharmaceutical Chemistry,
         </p>
-        <p style={{ margin: "5px 0" }}>Vellalar College of Pharmacy</p>
+        <p style={{ margin: "5px 0" }}>
+          Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
+        </p>
       </div>
     </div>
   );

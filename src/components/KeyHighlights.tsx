@@ -88,9 +88,9 @@ const KeyHighlights = () => {
           </h2>
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Explore the groundbreaking features of the National Conference that
-            make it the premier conference for AI and pharmaceutical innovation
-            in India.
+            Explore the groundbreaking features of the International Conference
+            that make it the premier conference for AI and pharmaceutical
+            innovation in India.
           </p>
         </div>
 
@@ -221,7 +221,7 @@ const KeyHighlights = () => {
 
                 <div className="mt-6 glassmorphism rounded-xl p-5">
                   <h4 className="font-bold text-white mb-4">
-                    National Conference Advantages:
+                    International Conference Advantages:
                   </h4>
                   <ul className="space-y-3">
                     {networkingBenefits.map((benefit, index) => (

@@ -5,7 +5,6 @@ import Registration from "@/Model/RegistrationModel";
 import RegistrationModel from "@/Model/RegistrationModel";
 import AbstractModel from "@/Model/AbstractModel";
 import { sendEmail } from "@/lib/mailer";
-import { whatsappService } from "@/lib/whatsapp";
 
 connect();
 
@@ -73,29 +72,6 @@ export async function POST(req: NextRequest) {
       emailType: "REGISTRATION_SUCCESS",
       _id: updatedRegistration._id,
     });
-
-    // Send WhatsApp message for registration success
-    try {
-      if (updatedRegistration.whatsappNumber) {
-        await whatsappService.sendRegistrationSuccessMessage(
-          updatedRegistration.whatsappNumber,
-          updatedRegistration.name,
-          updatedRegistration.registrationCode,
-          transactionDetails.planName
-        );
-
-        // // Also send payment confirmation message
-        // await whatsappService.sendPaymentConfirmationMessage(
-        //   updatedRegistration.whatsappNumber,
-        //   updatedRegistration.name,
-        //   transactionDetails.amount,
-        //   transactionDetails.razorpay_payment_id
-        // );
-      }
-    } catch (whatsappError) {
-      console.error("Failed to send WhatsApp message:", whatsappError);
-      // Don't fail the entire request if WhatsApp fails
-    }
 
     return NextResponse.json(
       {

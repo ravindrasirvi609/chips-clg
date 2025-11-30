@@ -17,9 +17,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "National Conference | Vellalar College of Pharmacy",
+  title:
+    "International Conference | Chebrolu Hanumaiah Institute of Pharmaceutical Sciences",
   description:
-    "Artificial Intelligence and machine learning: A Game changer in the Pharma field - National Conference at Vellalar College of Pharmacy",
+    "Emerging Innovations in Pharmaceutical Sciences and Drug Discovery - International Conference at Chebrolu Hanumaiah Institute of Pharmaceutical Sciences",
 };
 
 export default function RootLayout({

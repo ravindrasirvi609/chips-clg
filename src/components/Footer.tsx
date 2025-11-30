@@ -69,7 +69,7 @@ const Footer = () => {
                     <MapPin size={18} className="text-[#00FFCC]" />
                   </div>
                   <span className="text-gray-300 group-hover:text-white transition-colors">
-                    Vellalar College of Pharmacy
+                    Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
                   </span>
                 </div>
               </div>
@@ -87,7 +87,7 @@ const Footer = () => {
                     className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#00FFCC]/50 group-hover:bg-[#00FFCC] transition-colors"></span>
-                    About the National Conference
+                    About the International Conference
                   </Link>
                 </li>
                 <li>
@@ -204,8 +204,8 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2025 National Conference. Vellalar College of Pharmacy. All
-              rights reserved.
+              © 2026 International Conference. Chebrolu Hanumaiah Institute of
+              Pharmaceutical Sciences. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm">
               Designed & Developed by{" "}

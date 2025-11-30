@@ -10,7 +10,7 @@ const CollegeInfo = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-gradient">
-            Vellalar College of Pharmacy
+            Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
           </h2>
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full"></div>
         </div>
@@ -20,7 +20,7 @@ const CollegeInfo = () => {
           <div className="relative h-80 w-full glassmorphism-card overflow-hidden rounded-2xl">
             <Image
               src="/college.jpg"
-              alt="Vellalar College of Pharmacy"
+              alt="Chebrolu Hanumaiah Institute of Pharmaceutical Sciences"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 1200px"
@@ -145,16 +145,17 @@ const CollegeInfo = () => {
           </h3>
           <div className="text-gray-300 space-y-4">
             <p>
-              Vellalar College of Pharmacy was established in the year 2018 by
-              Vellalar Educational Trust under the dynamic leadership Mr. C.
-              Jayakumar B.A., B.L, President, S.D Chandrasekar, Secretary cum
-              correspondence, a renowned Educationalist and Industrialist having
-              more than Five decades of rich experience in promoting and
-              administering Professional colleges. The institution is committed
-              to provide quality education in the pharmacy to cater the needs of
-              the society in healthcare sector and also uplift of socio-economic
-              status of human being. The college is approved by Directorate of
-              Medical Education, PCI and affiliated with The TN Dr. MGR Medical
+              Chebrolu Hanumaiah Institute of Pharmaceutical Sciences was
+              established in the year 2018 by Vellalar Educational Trust under
+              the dynamic leadership Mr. C. Jayakumar B.A., B.L, President, S.D
+              Chandrasekar, Secretary cum correspondence, a renowned
+              Educationalist and Industrialist having more than Five decades of
+              rich experience in promoting and administering Professional
+              colleges. The institution is committed to provide quality
+              education in the pharmacy to cater the needs of the society in
+              healthcare sector and also uplift of socio-economic status of
+              human being. The college is approved by Directorate of Medical
+              Education, PCI and affiliated with The TN Dr. MGR Medical
               University, Chennai. Tamilnadu.
             </p>
             <p>

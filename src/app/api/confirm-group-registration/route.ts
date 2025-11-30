@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connect } from "@/dbConfig/dbConfig";
 import { sendEmail } from "@/lib/mailer";
-import { whatsappService } from "@/lib/whatsapp";
 import { uploadQRCodeToFirebase } from "@/lib/firebase";
 import QRCode from "qrcode";
 import RegistrationModel from "@/Model/RegistrationModel";
@@ -82,24 +81,6 @@ export async function POST(req: NextRequest) {
       emailType: "REGISTRATION_SUCCESS",
       _id: updatedRegistration._id,
     });
-
-    // Send WhatsApp message for group registration confirmation
-    try {
-      if (registration.whatsappNumber) {
-        await whatsappService.sendRegistrationSuccessMessage(
-          updatedRegistration.whatsappNumber,
-          updatedRegistration.name,
-          updatedRegistration.registrationCode,
-          "Group Registration"
-        );
-      }
-    } catch (whatsappError) {
-      console.error(
-        "Failed to send WhatsApp message for group registration:",
-        whatsappError
-      );
-      // Don't fail the entire request if WhatsApp fails
-    }
 
     return NextResponse.json(
       {

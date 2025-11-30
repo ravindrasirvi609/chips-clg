@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
       company: "BioTech Innovations",
       image: undefined,
       quote:
-        "The collaborative atmosphere at the National Conference fostered connections that led to two major research partnerships. The workshops on machine learning applications in clinical trials were particularly valuable.",
+        "The collaborative atmosphere at the International Conference fostered connections that led to two major research partnerships. The workshops on machine learning applications in clinical trials were particularly valuable.",
       rating: 5,
       type: "Attendee",
       year: "2024",
@@ -170,7 +170,7 @@ const TestimonialsSection = () => {
               <div className="flex items-center justify-between">
                 <RatingStars rating={testimonials[activeIndex].rating} />
                 <span className="text-sm text-gray-400">
-                  National Conference {testimonials[activeIndex].year}
+                  International Conference {testimonials[activeIndex].year}
                 </span>
               </div>
             </div>

@@ -25,7 +25,7 @@ const Registration = () => {
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 mb-12 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <p className="text-gray-300 text-lg leading-relaxed mb-6">
             <span className="text-white font-semibold">
-              Registrations for the National Conference 2025
+              Registrations for the International Conference 2026
             </span>{" "}
             began on{" "}
             <span className="text-white font-semibold">1st June 2025</span>.
@@ -40,8 +40,9 @@ const Registration = () => {
             <span className="text-white font-semibold">
               registration is mandatory
             </span>{" "}
-            to participate in the National Conference. Candidates must register
-            by filling out the online form available on our official website.
+            to participate in the International Conference. Candidates must
+            register by filling out the online form available on our official
+            website.
           </p>
 
           {/* Cancellation Policy */}
