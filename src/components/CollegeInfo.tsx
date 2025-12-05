@@ -152,13 +152,13 @@ const CollegeInfo = () => {
               <p className="text-gray-300">100 seats (04 Years)</p>
             </div>
 
-            <div className="glassmorphism p-6 rounded-xl">
+            {/* <div className="glassmorphism p-6 rounded-xl">
               <div className="flex items-center mb-3">
                 <BookOpen className="w-6 h-6 text-[#00FFCC] mr-3" />
                 <h5 className="font-bold text-white">D. Pharm</h5>
               </div>
               <p className="text-gray-300">60 Seats (02 Years)</p>
-            </div>
+            </div> */}
 
             <div className="glassmorphism p-6 rounded-xl">
               <div className="flex items-center mb-3">

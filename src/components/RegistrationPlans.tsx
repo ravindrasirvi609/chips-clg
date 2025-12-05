@@ -231,7 +231,7 @@ const RegistrationPlans: React.FC = () => {
     }
 
     try {
-      totalAmount = includeGalaDinner ? plan.spot + 1000 : plan.spot;
+      totalAmount = includeGalaDinner ? plan.earlyBird + 1000 : plan.earlyBird;
 
       // Create Razorpay order
       const orderResponse = await fetch("/api/razorpay-order", {
@@ -345,17 +345,17 @@ const RegistrationPlans: React.FC = () => {
       </div>
       <div className="p-6">
         <p className="text-gray-300 mb-6">{plan.description}</p>
-        {/* Spot pricing now active */}
-        <PriceDisplay label="Spot" price={plan.spot} planName={plan.name} />
+        {/* Early Bird pricing now active */}
+        <PriceDisplay label="Early Bird" price={plan.earlyBird} planName={plan.name} />
         <PriceDisplay
-          label="Regular (Closed)"
+          label="Late Fee"
           price={plan.regular}
           className="text-gray-400 line-through"
           planName={plan.name}
         />
         <PriceDisplay
-          label="Early Bird (Ended)"
-          price={plan.earlyBird}
+          label="Spot"
+          price={plan.spot}
           className="text-gray-400 line-through"
           planName={plan.name}
         />
@@ -390,40 +390,7 @@ const RegistrationPlans: React.FC = () => {
             <RegistrationCard key={index} plan={plan} />
           ))}
 
-          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(153,0,255,0.2)]">
-            <div className="bg-gradient-to-r from-[#9900FF]/30 to-[#FF66CC]/30 border-b border-white/10 py-4 px-6">
-              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#9900FF] to-[#FF66CC]">
-                Accompanying Person
-              </h3>
-            </div>
-            <div className="p-6">
-              <p className="text-gray-300 mb-6">
-                Access Food Area and lunch, No Kit and Entry for scientific
-                session
-              </p>
-              <PriceDisplay
-                label="Regular"
-                price={1200}
-                planName="Accompanying Person"
-              />
-              <PriceDisplay
-                label="Early Bird (Ended)"
-                price={1200}
-                className="text-gray-400 line-through"
-                planName="Accompanying Person"
-              />
-              `Register and Pay ($
-              {selectedPlan?.name === "International Delegates" ? "$" : "₹"}$
-              {includeGalaDinner
-                ? selectedPlan?.name === "International Delegates"
-                  ? (selectedPlan?.regular || 0) / 83 + 12
-                  : (selectedPlan?.regular || 0) + 1000
-                : selectedPlan?.name === "International Delegates"
-                ? (selectedPlan?.regular || 0) / 83
-                : selectedPlan?.regular}
-              )`
-            </div>
-          </div>
+
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 py-8">
@@ -480,11 +447,10 @@ const RegistrationPlans: React.FC = () => {
                   <button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className={`flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 ${
-                      isSubmitting
-                        ? "bg-gray-600 cursor-not-allowed"
-                        : "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] hover:shadow-[0_0_20px_rgba(0,204,255,0.5)]"
-                    }`}
+                    className={`flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 ${isSubmitting
+                      ? "bg-gray-600 cursor-not-allowed"
+                      : "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] hover:shadow-[0_0_20px_rgba(0,204,255,0.5)]"
+                      }`}
                   >
                     {isSubmitting ? (
                       <div className="flex items-center justify-center">
@@ -510,18 +476,16 @@ const RegistrationPlans: React.FC = () => {
                         Submitting...
                       </div>
                     ) : (
-                      `Register and Pay (${
-                        selectedPlan?.name === "International Delegates"
-                          ? "$"
-                          : "₹"
-                      }${
-                        includeGalaDinner
-                          ? selectedPlan?.name === "International Delegates"
-                            ? (selectedPlan?.spot || 0) / 83 + 12
-                            : (selectedPlan?.spot || 0) + 1000
-                          : selectedPlan?.name === "International Delegates"
-                          ? (selectedPlan?.spot || 0) / 83
-                          : selectedPlan?.spot
+                      `Register and Pay (${selectedPlan?.name === "International Delegates"
+                        ? "$"
+                        : "₹"
+                      }${includeGalaDinner
+                        ? selectedPlan?.name === "International Delegates"
+                          ? (selectedPlan?.earlyBird || 0) / 83 + 12
+                          : (selectedPlan?.earlyBird || 0) + 1000
+                        : selectedPlan?.name === "International Delegates"
+                          ? (selectedPlan?.earlyBird || 0) / 83
+                          : selectedPlan?.earlyBird
                       })`
                     )}
                   </button>

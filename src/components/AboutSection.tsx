@@ -75,8 +75,7 @@ const AboutSection = () => {
                     Jointly Organized By
                   </h4>
                   <p className="text-gray-300">
-                    Chebrolu Hanumaiah Institute of Pharmaceutical Sciences &
-                    Operant Pharmacy Federation
+                    Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
                   </p>
                 </div>
               </CardContent>
