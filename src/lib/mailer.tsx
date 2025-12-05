@@ -15,7 +15,7 @@ export const sendEmail = async ({
   _id,
   emailType,
 }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-SendEmailParams): Promise<any> => {
+  SendEmailParams): Promise<any> => {
   try {
     // Validate email type
     if (
@@ -216,7 +216,7 @@ SendEmailParams): Promise<any> => {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "admin@chips.ac.in",
+        from: "admin@opf.org.in",
         to: EMAIL,
         subject: subject,
         html: emailHtml, // Now this is definitely a string
@@ -239,8 +239,7 @@ SendEmailParams): Promise<any> => {
   } catch (error) {
     console.error("Error sending email:", error);
     throw new Error(
-      `Failed to send email: ${
-        error instanceof Error ? error.message : String(error)
+      `Failed to send email: ${error instanceof Error ? error.message : String(error)
       }`
     );
   }
