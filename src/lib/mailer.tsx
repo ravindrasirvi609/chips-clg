@@ -209,6 +209,7 @@ export const sendEmail = async ({
     }
 
     // Send email via Resend API
+    console.log(`Sending email to ${EMAIL} with subject: ${subject}`);
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -235,7 +236,9 @@ export const sendEmail = async ({
     }
 
     // Return parsed response
-    return await response.json();
+    const data = await response.json();
+    console.log("Email sent successfully:", data);
+    return data;
   } catch (error) {
     console.error("Error sending email:", error);
     throw new Error(

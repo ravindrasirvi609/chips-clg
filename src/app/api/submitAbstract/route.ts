@@ -126,9 +126,10 @@ export async function POST(req: NextRequest) {
       message: "Abstract submitted successfully",
       abstract: updatedAbstract,
     });
-  } catch {
+  } catch (error) {
+    console.error("Abstract submission error:", error);
     return NextResponse.json(
-      { message: "Internal server error" },
+      { message: "Internal server error", error: String(error) },
       { status: 500 }
     );
   }
