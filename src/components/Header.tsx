@@ -42,7 +42,8 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Registration", href: "/registration" },
-    // { name: "Speakers", href: "/speakers" },
+    { name: "Speakers", href: "/speakers" },
+    { name: "Committee", href: "/committee" },
     { name: "Abstract", href: "/abstractForm" },
     { name: "Contact", href: "/contact" },
   ];
@@ -54,18 +55,17 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#1a1a2e]/95 backdrop-blur-sm py-2 shadow-lg border-b border-white/10"
-          : "bg-[#1a1a2e]/80 py-4"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
+        ? "bg-[#1a1a2e]/95 backdrop-blur-sm py-2 shadow-lg border-b border-white/10"
+        : "bg-[#1a1a2e]/80 py-4"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="flex items-center justify-center text-white font-bold text-xl">
-              International Conference
+              INNOVATE PHARMA 2026
             </div>
           </div>
 
@@ -76,17 +76,15 @@ const Header = () => {
                 href={item.href}
                 key={item.name}
                 onClick={() => handleNavClick(item.name)}
-                className={`relative px-3 py-2 text-sm font-bold transition-all duration-300 ${
-                  activeItem === item.name
-                    ? "text-white"
-                    : "text-gray-300 hover:text-white"
-                }`}
+                className={`relative px-3 py-2 text-sm font-bold transition-all duration-300 ${activeItem === item.name
+                  ? "text-white"
+                  : "text-gray-300 hover:text-white"
+                  }`}
               >
                 {item.name}
                 <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] transform transition-transform duration-300 ${
-                    activeItem === item.name ? "scale-x-100" : "scale-x-0"
-                  }`}
+                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] transform transition-transform duration-300 ${activeItem === item.name ? "scale-x-100" : "scale-x-0"
+                    }`}
                 />
               </Link>
             ))}
@@ -114,15 +112,13 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`md:hidden fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setIsOpen(false)}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-64 bg-[#16213e] border-l border-white/10 transition-transform duration-300 ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          } overflow-y-auto shadow-2xl`}
+          className={`absolute right-0 top-0 h-full w-64 bg-[#16213e] border-l border-white/10 transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
+            } overflow-y-auto shadow-2xl`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6">
@@ -135,19 +131,17 @@ const Header = () => {
                   href={item.href}
                   key={item.name}
                   onClick={() => handleNavClick(item.name)}
-                  className={`flex items-center justify-between p-3 rounded-lg transition-colors font-bold text-base ${
-                    activeItem === item.name
-                      ? "bg-[#00FFCC]/20 text-white border border-[#00FFCC]/30"
-                      : "text-gray-300 hover:bg-white/10 hover:text-white"
-                  }`}
+                  className={`flex items-center justify-between p-3 rounded-lg transition-colors font-bold text-base ${activeItem === item.name
+                    ? "bg-[#00FFCC]/20 text-white border border-[#00FFCC]/30"
+                    : "text-gray-300 hover:bg-white/10 hover:text-white"
+                    }`}
                 >
                   <span>{item.name}</span>
                   <ChevronRight
-                    className={`h-4 w-4 transition-transform ${
-                      activeItem === item.name
-                        ? "text-[#00FFCC] translate-x-1"
-                        : ""
-                    }`}
+                    className={`h-4 w-4 transition-transform ${activeItem === item.name
+                      ? "text-[#00FFCC] translate-x-1"
+                      : ""
+                      }`}
                   />
                 </Link>
               ))}
