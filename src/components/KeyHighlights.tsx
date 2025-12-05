@@ -161,7 +161,7 @@ const KeyHighlights = () => {
                 {topics.map((topic, index) => (
                   <div
                     key={index}
-                    className="glassmorphism rounded-xl p-5 transition-all duration-300 hover:border hover:border-[#00FFCC]/30 group"
+                    className="bg-card border border-border/50 rounded-xl p-5 transition-all duration-300 hover:border-primary/50 group"
                   >
                     <div className="flex items-center mb-3">
                       <div className="p-2 bg-[#00FFCC]/10 rounded-lg mr-3 group-hover:bg-[#00FFCC]/20 transition-colors">
@@ -193,7 +193,7 @@ const KeyHighlights = () => {
               </div>
 
               <div className="space-y-6">
-                <div className="glassmorphism rounded-xl p-5">
+                <div className="bg-card border border-border/50 rounded-xl p-5">
                   <div className="flex items-center mb-3">
                     <Users className="w-5 h-5 text-[#00FFCC] mr-3" />
                     <h4 className="font-bold text-white">
@@ -206,7 +206,7 @@ const KeyHighlights = () => {
                   </p>
                 </div>
 
-                <div className="glassmorphism rounded-xl p-5">
+                <div className="bg-card border border-border/50 rounded-xl p-5">
                   <div className="flex items-center mb-3">
                     <Calendar className="w-5 h-5 text-[#00FFCC] mr-3" />
                     <h4 className="font-bold text-white">
@@ -219,7 +219,7 @@ const KeyHighlights = () => {
                   </p>
                 </div>
 
-                <div className="mt-6 glassmorphism rounded-xl p-5">
+                <div className="mt-6 bg-card border border-border/50 rounded-xl p-5">
                   <h4 className="font-bold text-white mb-4">
                     International Conference Advantages:
                   </h4>

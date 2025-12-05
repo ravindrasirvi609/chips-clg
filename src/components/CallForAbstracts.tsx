@@ -81,7 +81,7 @@ const CallForAbstracts = () => {
                 {topics.map((topic, index) => (
                   <div
                     key={index}
-                    className="flex items-center p-4 rounded-lg glassmorphism hover:border hover:border-[#00FFCC]/30 transition-all duration-300 group"
+                    className="flex items-center p-4 rounded-lg bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 group"
                   >
                     <ArrowRight className="w-5 h-5 mr-3 flex-shrink-0 text-[#00FFCC] group-hover:translate-x-1 transition-transform" />
                     <span className="text-gray-300 group-hover:text-white transition-colors">
@@ -109,7 +109,7 @@ const CallForAbstracts = () => {
                 {guidelines.map((guideline, index) => (
                   <div
                     key={index}
-                    className="flex items-start p-4 rounded-lg glassmorphism hover:border hover:border-[#00FFCC]/30 transition-all duration-300"
+                    className="flex items-start p-4 rounded-lg bg-card border border-border/50 hover:border-primary/50 transition-all duration-300"
                   >
                     <div className="p-2 bg-[#00FFCC]/10 rounded-full mr-4">
                       {guideline.icon}
@@ -129,7 +129,7 @@ const CallForAbstracts = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <Card className="inline-block glassmorphism-card border-none">
+          <Card className="inline-block bg-card border border-border/50">
             <CardContent className="p-8">
               <div className="flex justify-center mb-4">
                 <Sparkles className="w-8 h-8 text-[#00FFCC]" />
@@ -149,7 +149,7 @@ const CallForAbstracts = () => {
                   </button>
                 </Link>
                 <Link href="/abstractForm">
-                  <button className="px-8 py-3 rounded-lg font-semibold text-white glassmorphism border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-all duration-300 hover:scale-105">
+                  <button className="px-8 py-3 rounded-lg font-semibold text-white bg-card border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-all duration-300 hover:scale-105">
                     View Guidelines
                   </button>
                 </Link>

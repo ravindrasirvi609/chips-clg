@@ -89,9 +89,8 @@ const TestimonialsSection = () => {
       {[...Array(5)].map((_, index) => (
         <Star
           key={index}
-          className={`w-4 h-4 ${
-            index < rating ? "fill-[#00FFCC] text-[#00FFCC]" : "text-gray-500"
-          }`}
+          className={`w-4 h-4 ${index < rating ? "fill-[#00FFCC] text-[#00FFCC]" : "text-gray-500"
+            }`}
         />
       ))}
     </div>
@@ -122,7 +121,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="relative glassmorphism-card rounded-2xl p-8 mb-12">
+        <div className="relative card rounded-2xl p-8 mb-12">
           <div className="absolute top-0 left-0 transform -translate-x-4 -translate-y-4">
             <Quote className="w-12 h-12 text-[#00FFCC] opacity-20" />
           </div>
@@ -184,15 +183,14 @@ const TestimonialsSection = () => {
                   return (
                     <div
                       key={testimonial.id}
-                      className={`absolute w-full p-6 bg-[#0a182f] border border-[#1e2a45] rounded-xl transition-all duration-500 ${
-                        isActive
+                      className={`absolute w-full p-6 bg-[#0a182f] border border-[#1e2a45] rounded-xl transition-all duration-500 ${isActive
                           ? "opacity-100 z-20 transform scale-100"
                           : offset === 1
-                          ? "opacity-60 z-10 transform translate-y-4 scale-95"
-                          : offset === 2
-                          ? "opacity-30 z-0 transform translate-y-8 scale-90"
-                          : "opacity-0 z-0 transform translate-y-12 scale-85"
-                      }`}
+                            ? "opacity-60 z-10 transform translate-y-4 scale-95"
+                            : offset === 2
+                              ? "opacity-30 z-0 transform translate-y-8 scale-90"
+                              : "opacity-0 z-0 transform translate-y-12 scale-85"
+                        }`}
                     >
                       <div className="flex items-center space-x-4 mb-4">
                         <div className="w-12 h-12 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
@@ -230,7 +228,7 @@ const TestimonialsSection = () => {
         <div className="flex justify-center items-center space-x-4">
           <button
             onClick={handlePrevious}
-            className="p-3 glassmorphism rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
+            className="p-3 bg-card border border-border/50 rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
             aria-label="Previous testimonial"
           >
             <ArrowLeft className="w-6 h-6 text-[#00FFCC] group-hover:translate-x-[-2px] transition-transform" />
@@ -244,11 +242,10 @@ const TestimonialsSection = () => {
                   setIsAutoPlaying(false);
                   setActiveIndex(index);
                 }}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === activeIndex
+                className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
                     ? "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] w-8"
                     : "bg-gray-700 hover:bg-gray-600 w-2"
-                }`}
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
@@ -256,7 +253,7 @@ const TestimonialsSection = () => {
 
           <button
             onClick={handleNext}
-            className="p-3 glassmorphism rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
+            className="p-3 bg-card border border-border/50 rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
             aria-label="Next testimonial"
           >
             <ArrowRight className="w-6 h-6 text-[#00FFCC] group-hover:translate-x-[2px] transition-transform" />

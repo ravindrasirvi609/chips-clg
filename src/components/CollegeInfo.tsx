@@ -17,7 +17,7 @@ const CollegeInfo = () => {
 
         {/* College Image */}
         <div className="mb-12">
-          <div className="relative h-80 w-full glassmorphism-card overflow-hidden rounded-2xl">
+          <div className="relative h-80 w-full card overflow-hidden rounded-2xl">
             <Image
               src="/college.jpg"
               alt="Chebrolu Hanumaiah Institute of Pharmaceutical Sciences"
@@ -40,7 +40,7 @@ const CollegeInfo = () => {
         </div>
 
         {/* Trust Information */}
-        <div className="glassmorphism-card rounded-2xl p-8 mb-12">
+        <div className="card rounded-2xl p-8 mb-12">
           {/* <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
             Nagarjuna Education Society
           </h3>
@@ -115,7 +115,7 @@ const CollegeInfo = () => {
         </div>
 
         {/* Institution Information */}
-        <div className="glassmorphism-card rounded-2xl p-8">
+        <div className="card rounded-2xl p-8">
           <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
             About the Institution
           </h3>
@@ -144,7 +144,7 @@ const CollegeInfo = () => {
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glassmorphism p-6 rounded-xl">
+            <div className="bg-card border border-border/50 p-6 rounded-xl">
               <div className="flex items-center mb-3">
                 <GraduationCap className="w-6 h-6 text-[#00FFCC] mr-3" />
                 <h5 className="font-bold text-white">B. Pharmacy</h5>
@@ -152,7 +152,7 @@ const CollegeInfo = () => {
               <p className="text-gray-300">100 seats (04 Years)</p>
             </div>
 
-            {/* <div className="glassmorphism p-6 rounded-xl">
+            {/* <div className="bg-card border border-border/50 p-6 rounded-xl">
               <div className="flex items-center mb-3">
                 <BookOpen className="w-6 h-6 text-[#00FFCC] mr-3" />
                 <h5 className="font-bold text-white">D. Pharm</h5>
@@ -160,7 +160,7 @@ const CollegeInfo = () => {
               <p className="text-gray-300">60 Seats (02 Years)</p>
             </div> */}
 
-            <div className="glassmorphism p-6 rounded-xl">
+            <div className="bg-card border border-border/50 p-6 rounded-xl">
               <div className="flex items-center mb-3">
                 <Building className="w-6 h-6 text-[#00FFCC] mr-3" />
                 <h5 className="font-bold text-white">Pharm.D</h5>
@@ -168,7 +168,7 @@ const CollegeInfo = () => {
               <p className="text-gray-300">30 Seats (06 Years)</p>
             </div>
 
-            <div className="glassmorphism p-6 rounded-xl">
+            <div className="bg-card border border-border/50 p-6 rounded-xl">
               <div className="flex items-center mb-3">
                 <BookOpen className="w-6 h-6 text-[#00FFCC] mr-3" />
                 <h5 className="font-bold text-white">M.Pharmacy</h5>

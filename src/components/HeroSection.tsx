@@ -64,7 +64,7 @@ const HeroSection = () => {
           {/* Alert for registration */}
           {showAlert && (
             <div className="fixed top-4 right-4 z-50">
-              <Alert className="glassmorphism border-none animate-slideIn">
+              <Alert className="bg-card border-border animate-slideIn">
                 <AlertDescription className="text-white">
                   Registration process initiated! Check your email.
                 </AlertDescription>
@@ -74,7 +74,7 @@ const HeroSection = () => {
 
           {/* Conference badge */}
           <div className="flex items-center space-x-4 mb-8">
-            <div className="inline-flex items-center px-4 py-2 glassmorphism rounded-full text-white font-semibold transform hover:scale-105 transition-transform cursor-pointer">
+            <div className="inline-flex items-center px-4 py-2 bg-card border border-border/50 rounded-full text-white font-semibold transform hover:scale-105 transition-transform cursor-pointer">
               <Clock className="w-4 h-4 mr-2 text-[#00FFCC]" />
               <span>Conference 2026</span>
             </div>
@@ -99,11 +99,11 @@ const HeroSection = () => {
               {/* Event details with hover effects */}
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
+                  <div className="flex items-center space-x-3 bg-card border border-border/50 p-3 rounded-lg hover:border-[#00FFCC]/50 transition-all group">
                     <Calendar className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
                     <span className="text-white">22nd & 23rd January 2026</span>
                   </div>
-                  <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
+                  <div className="flex items-center space-x-3 bg-card border border-border/50 p-3 rounded-lg hover:border-[#00FFCC]/50 transition-all group">
                     <MapPin className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
                     <span className="text-white">
                       Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
@@ -132,7 +132,7 @@ const HeroSection = () => {
                 </Link>
 
                 <Link href="/abstractForm">
-                  <button className="px-6 py-3 glassmorphism text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors flex items-center group">
+                  <button className="px-6 py-3 bg-card text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors flex items-center group">
                     <Download className="w-5 h-5 mr-2 text-[#00FFCC] group-hover:scale-110 transition-transform" />
                     Submit Abstract
                   </button>
@@ -177,8 +177,8 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Countdown section with glass morphism effect */}
-            <div className="glassmorphism-card rounded-2xl p-8">
+            {/* Countdown section with solid card effect */}
+            <div className="card rounded-2xl p-8">
               <h2 className="text-2xl font-bold text-gradient text-center mb-8">
                 Conference Begins In
               </h2>
@@ -191,7 +191,7 @@ const HeroSection = () => {
                 ].map((item, index) => (
                   <div
                     key={item.label}
-                    className="flex flex-col items-center justify-center p-4 glassmorphism rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/40 transition-all hover:transform hover:scale-105 duration-300"
+                    className="flex flex-col items-center justify-center p-4 bg-background/50 rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/40 transition-all hover:transform hover:scale-105 duration-300"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <span className="text-4xl font-bold text-white mb-2">
@@ -202,7 +202,7 @@ const HeroSection = () => {
                 ))}
               </div>
 
-              <div className="mt-8 p-4 glassmorphism rounded-lg border border-[#00FFCC]/20">
+              <div className="mt-8 p-4 bg-background/50 rounded-lg border border-[#00FFCC]/20">
                 <h3 className="text-lg font-semibold text-white mb-2">
                   What&apos;s New in the International Conference
                 </h3>

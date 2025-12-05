@@ -337,8 +337,8 @@ const RegistrationPlans: React.FC = () => {
   };
 
   const RegistrationCard = ({ plan }: { plan: Plan }) => (
-    <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,204,255,0.2)]">
-      <div className="bg-gradient-to-r from-[#00FFCC]/30 to-[#00CCFF]/30 border-b border-white/10 py-4 px-6">
+    <div className="bg-card border border-border/50 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,204,255,0.2)]">
+      <div className="bg-card border-b border-border/10 py-4 px-6">
         <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
           {plan.name}
         </h3>
@@ -409,8 +409,8 @@ const RegistrationPlans: React.FC = () => {
 
       {/* Modal Dialog */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="backdrop-blur-lg bg-[#070B39]/90 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-white">
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+          <div className="bg-card border border-border/50 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-white">
             {isProcessingTransaction ? (
               <div className="flex flex-col items-center justify-center p-8">
                 <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-[#00CCFF] mb-6"></div>

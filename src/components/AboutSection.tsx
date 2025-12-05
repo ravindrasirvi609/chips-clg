@@ -17,7 +17,7 @@ const AboutSection = () => {
         {/* Main Content */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Main text */}
-          <div className="space-y-6 glassmorphism-card rounded-2xl p-8">
+          <div className="space-y-6 card rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-gradient">
               Emerging Innovations in Pharmaceutical Sciences and Drug Discovery
             </h3>
@@ -37,7 +37,7 @@ const AboutSection = () => {
               clinical decision-making, personalized medicine, and operational
               efficiency in healthcare.
             </p>
-            <div className="mt-6 p-4 glassmorphism rounded-xl">
+            <div className="mt-6 p-4 bg-card border border-border/50 rounded-xl">
               <h4 className="text-xl font-semibold mb-2 text-white">Theme</h4>
               <p className="text-[#00FFCC] italic font-medium">
                 &quot;Emerging Innovations in Pharmaceutical Sciences and Drug
@@ -46,7 +46,7 @@ const AboutSection = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-6">
-              <div className="flex flex-col items-center glassmorphism p-4 rounded-lg text-center">
+              <div className="flex flex-col items-center bg-card border border-border/50 p-4 rounded-lg text-center">
                 <div className="bg-[#00FFCC]/10 p-3 rounded-full mb-3">
                   <Globe className="w-6 h-6 text-[#00FFCC]" />
                 </div>
@@ -54,7 +54,7 @@ const AboutSection = () => {
                   International Platform
                 </span>
               </div>
-              <div className="flex flex-col items-center glassmorphism p-4 rounded-lg text-center">
+              <div className="flex flex-col items-center bg-card border border-border/50 p-4 rounded-lg text-center">
                 <div className="bg-[#00FFCC]/10 p-3 rounded-full mb-3">
                   <Zap className="w-6 h-6 text-[#00FFCC]" />
                 </div>

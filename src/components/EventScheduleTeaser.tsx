@@ -92,17 +92,15 @@ const EventScheduleTeaser = () => {
             <button
               key={day.day}
               onClick={() => setActiveDay(day.day)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                activeDay === day.day
+              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${activeDay === day.day
                   ? "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black shadow-lg transform scale-105"
-                  : "glassmorphism text-white hover:border hover:border-[#00FFCC]/30"
-              }`}
+                  : "bg-card border border-border/50 text-white hover:border-primary/50"
+                }`}
             >
               <div className="flex items-center">
                 <CalendarDays
-                  className={`w-5 h-5 mr-2 ${
-                    activeDay === day.day ? "text-black" : "text-[#00FFCC]"
-                  }`}
+                  className={`w-5 h-5 mr-2 ${activeDay === day.day ? "text-black" : "text-[#00FFCC]"
+                    }`}
                 />
                 Day {day.day}
               </div>
@@ -111,7 +109,7 @@ const EventScheduleTeaser = () => {
         </div>
 
         {/* Schedule Content */}
-        <div className="glassmorphism-card rounded-2xl p-6">
+        <div className="card rounded-2xl p-6">
           {scheduleData.map(
             (day) =>
               day.day === activeDay && (
@@ -123,7 +121,7 @@ const EventScheduleTeaser = () => {
                     {day.events.map((event, index) => (
                       <div
                         key={index}
-                        className="glassmorphism p-5 rounded-xl hover:border hover:border-[#00FFCC]/30 transition-all duration-300 group"
+                        className="bg-card border border-border/50 p-5 rounded-xl hover:border-primary/50 transition-all duration-300 group"
                       >
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                           <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-3 md:mb-0">
@@ -141,15 +139,14 @@ const EventScheduleTeaser = () => {
                           </div>
                           <div className="flex items-center">
                             <span
-                              className={`px-3 py-1 rounded-full text-sm font-bold ${
-                                event.type === "keynote"
+                              className={`px-3 py-1 rounded-full text-sm font-bold ${event.type === "keynote"
                                   ? "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black"
                                   : event.type === "workshop"
-                                  ? "bg-[#00FFCC]/20 text-[#00FFCC] border border-[#00FFCC]/30"
-                                  : event.type === "panel"
-                                  ? "bg-[#CC00FF]/20 text-[#CC00FF] border border-[#CC00FF]/30"
-                                  : "bg-white/10 text-white"
-                              }`}
+                                    ? "bg-[#00FFCC]/20 text-[#00FFCC] border border-[#00FFCC]/30"
+                                    : event.type === "panel"
+                                      ? "bg-[#CC00FF]/20 text-[#CC00FF] border border-[#CC00FF]/30"
+                                      : "bg-white/10 text-white"
+                                }`}
                             >
                               {event.type.charAt(0).toUpperCase() +
                                 event.type.slice(1)}

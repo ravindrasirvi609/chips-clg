@@ -16,7 +16,7 @@ const CommitteeMember: React.FC<CommitteeMemberProps> = ({
   designation,
 }) => {
   return (
-    <div className="glassmorphism-card rounded-xl p-6 text-center transform transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,204,255,0.2)] hover:-translate-y-1">
+    <div className="bg-card border border-border/50 rounded-xl p-6 text-center transform transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,204,255,0.2)] hover:-translate-y-1">
       <div className="mb-4 relative mx-auto w-32 h-32 overflow-hidden rounded-full border-4 border-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
         <Image
           src={imageUrl}

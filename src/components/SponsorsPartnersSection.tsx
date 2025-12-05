@@ -92,11 +92,10 @@ const SponsorsPartnersSection = () => {
                 onClick={() =>
                   setActiveTab(type as "platinum" | "gold" | "silver")
                 }
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                  activeTab === type
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${activeTab === type
                     ? "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black shadow-lg transform scale-105"
-                    : "glassmorphism text-white hover:border hover:border-[#00FFCC]/30"
-                }`}
+                    : "bg-card border border-border/50 text-white hover:border-primary/50"
+                  }`}
               >
                 <div className="flex items-center">
                   {type === "platinum" && <Diamond className="w-5 h-5 mr-2" />}
@@ -112,9 +111,9 @@ const SponsorsPartnersSection = () => {
             {sponsors[activeTab].map((sponsor) => (
               <div
                 key={sponsor.id}
-                className="glassmorphism-card rounded-xl p-6 transition-all duration-300"
+                className="card rounded-xl p-6 transition-all duration-300"
               >
-                <div className="flex items-center justify-center h-40 glassmorphism rounded-lg mb-6 p-4">
+                <div className="flex items-center justify-center h-40 bg-card/50 border border-border/30 rounded-lg mb-6 p-4">
                   {/* Placeholder for sponsor logo */}
                   <div className="max-w-[200px] max-h-[80px] flex items-center justify-center text-white font-bold text-lg bg-[#00FFCC]/10 rounded-lg">
                     {sponsor.name}
@@ -130,13 +129,12 @@ const SponsorsPartnersSection = () => {
                     {sponsor.name}
                   </h3>
                   <span
-                    className={`text-sm px-3 py-1 rounded-full ${
-                      sponsor.type === "platinum"
+                    className={`text-sm px-3 py-1 rounded-full ${sponsor.type === "platinum"
                         ? "bg-[#00FFCC]/20 text-[#00FFCC]"
                         : sponsor.type === "gold"
-                        ? "bg-[#00CCFF]/20 text-[#00CCFF]"
-                        : "bg-gray-600/30 text-gray-300"
-                    }`}
+                          ? "bg-[#00CCFF]/20 text-[#00CCFF]"
+                          : "bg-gray-600/30 text-gray-300"
+                      }`}
                   >
                     {sponsor.type.charAt(0).toUpperCase() +
                       sponsor.type.slice(1)}{" "}
@@ -163,9 +161,9 @@ const SponsorsPartnersSection = () => {
             {partners.map((partner) => (
               <div
                 key={partner.id}
-                className="glassmorphism rounded-xl p-5 hover:border hover:border-[#00FFCC]/30 transition-all duration-300"
+                className="bg-card border border-border/50 rounded-xl p-5 hover:border-primary/50 transition-all duration-300"
               >
-                <div className="flex items-center justify-center h-32 glassmorphism-dark rounded-lg mb-4 p-3">
+                <div className="flex items-center justify-center h-32 bg-card/50 border border-border/30 rounded-lg mb-4 p-3">
                   {/* Placeholder for partner logo */}
                   <div className="max-w-[160px] max-h-[60px] flex items-center justify-center text-white font-bold text-base bg-[#00FFCC]/10 rounded-lg">
                     {partner.name}
@@ -180,7 +178,7 @@ const SponsorsPartnersSection = () => {
         </div>
 
         {/* Become a Sponsor CTA */}
-        <div className="text-center glassmorphism-card rounded-2xl p-8 border border-[#00FFCC]/20">
+        <div className="text-center card rounded-2xl p-8 border border-[#00FFCC]/20">
           <div className="flex justify-center mb-4">
             <Building className="w-8 h-8 text-[#00FFCC]" />
           </div>

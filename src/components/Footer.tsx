@@ -39,11 +39,11 @@ const Footer = () => {
       </div>
 
       {/* Main footer content */}
-      <div className="glassmorphism-dark pt-20 pb-8">
+      <div className="bg-background pt-20 pb-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Contact Information */}
-            <div className="glassmorphism-card p-6 rounded-xl">
+            <div className="card p-6 rounded-xl">
               <h4 className="text-xl font-bold mb-4 text-gradient">
                 Contact Information
               </h4>
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="glassmorphism-card p-6 rounded-xl">
+            <div className="card p-6 rounded-xl">
               <h4 className="text-xl font-bold mb-4 text-gradient">
                 Quick Links
               </h4>
@@ -121,7 +121,7 @@ const Footer = () => {
             </div>
 
             {/* About Company */}
-            <div className="glassmorphism-card p-6 rounded-xl">
+            <div className="card p-6 rounded-xl">
               <div className="flex justify-center mb-4">
                 {/* Remove the image */}
               </div>
@@ -132,7 +132,7 @@ const Footer = () => {
               <div className="flex justify-center">
                 <button
                   onClick={scrollToTop}
-                  className="p-3 glassmorphism rounded-full hover:bg-[#00FFCC]/10 transition-colors group"
+                  className="p-3 bg-card border border-border/50 rounded-full hover:bg-[#00FFCC]/10 transition-colors group"
                   aria-label="Scroll to top"
                 >
                   <ArrowUp
@@ -147,7 +147,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="glassmorphism-dark border-t border-[#00FFCC]/10">
+      <div className="bg-background border-t border-[#00FFCC]/10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">

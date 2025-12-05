@@ -27,9 +27,9 @@ html {
     /* Card and UI elements */
     --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-    --card-glass-bg: rgba(255, 255, 255, 0.1);
-    --card-glass-border: rgba(255, 255, 255, 0.2);
-    --card-glass-shadow: rgba(0, 0, 0, 0.25);
+    /* --card-glass-bg: removed */
+    /* --card-glass-border: removed */
+    /* --card-glass-shadow: removed */
 
     /* Popover and overlay elements */
     --popover: 222 47% 11%;
@@ -108,18 +108,13 @@ html {
   }
 }
 
-/* Simple card styles without glassmorphism */
+/* Simple solid card styles */
 .card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  @apply bg-card border border-border/50 rounded-xl shadow-sm transition-all duration-300;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(0, 255, 204, 0.3);
+  @apply border-primary/30 shadow-md transform -translate-y-[2px];
 }
 
 /* Simple container without heavy animations */
