@@ -147,10 +147,10 @@ const About = () => {
                 <span className="text-[#070B39] text-2xl">📚</span>
               </div>
               <h4 className="text-xl font-bold mb-3 text-center text-white">
-                D. Pharm
+                Pharm.D
               </h4>
               <p className="text-gray-300 text-center">
-                2-year diploma program with 60 seats available.
+                6-year diploma program with 30 seats available.
               </p>
             </div>
 
@@ -159,7 +159,7 @@ const About = () => {
                 <span className="text-[#070B39] text-2xl">🔬</span>
               </div>
               <h4 className="text-xl font-bold mb-3 text-center text-white">
-                Pharm.D & M.Pharmacy
+                M.Pharmacy
               </h4>
               <p className="text-gray-300 text-center">
                 Advanced pharmaceutical education with specializations in
