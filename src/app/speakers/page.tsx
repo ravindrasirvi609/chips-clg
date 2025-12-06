@@ -38,7 +38,7 @@ const speakers: Speaker[] = [
     id: 5,
     name: "Assoc. Prof. Dr. Shazia Jamshed",
     designation: "Associate Professor, Department of Pharmacy Practice, School of Pharmacy, IMU University, Malaysia",
-    image: "/speakers/Assoc Prof Dr Shazia Jamshed.jfif",
+    image: "/speakers/Assoc Prof Dr Shazia Jamshed.jpg",
   },
   {
     id: 6,
