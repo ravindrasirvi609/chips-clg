@@ -150,11 +150,10 @@ const About = () => {
                 Pharm.D
               </h4>
               <p className="text-gray-600 text-center">
-                6-year diploma program with 30 seats available.
-              </p>
+                6 year Professional Pharmacy Doctoral program with 30 seats              </p>
             </div>
 
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white transition-all duration-300 hover:shadow-lg">
+            <div className="bg-gray-50 border -order-gray-100 rounded-2xl p-6 hover:bg-white transition-all duration-300 hover:shadow-lg">
               <div className="w-16 h-16 mb-6 rounded-full bg-purple-100 flex items-center justify-center mx-auto">
                 <span className="text-purple-600 text-2xl">🔬</span>
               </div>

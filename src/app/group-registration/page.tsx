@@ -51,10 +51,10 @@ const GroupRegistration = () => {
               <li>
                 For queries, contact us at:
                 <a
-                  href="mailto:chipsguntur@gmail.com"
+                  href="mailto:innovatepharma2026@gmail.com"
                   className="text-[#00FFCC] hover:text-[#00CCFF] underline ml-1"
                 >
-                  chipsguntur@gmail.com
+                  innovatepharma2026@gmail.com
                 </a>
               </li>
             </ul>
