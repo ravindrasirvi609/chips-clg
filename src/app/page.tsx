@@ -7,6 +7,7 @@ import SponsorsPartnersSection from "@/components/SponsorsPartnersSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import OrganizingCommittee from "@/components/OrganizingCommittee";
 import CollegeInfo from "@/components/CollegeInfo";
+import LeadershipSection from "@/components/LeadershipSection";
 
 export default function Home() {
   return (
@@ -24,9 +25,10 @@ export default function Home() {
             <KeyHighlights />
           </div>
 
+
           <CollegeInfo />
 
-          {/* <OrganizingCommittee /> */}
+          <LeadershipSection />
 
           <CallForAbstracts />
 
