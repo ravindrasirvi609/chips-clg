@@ -378,6 +378,7 @@ const CommitteePage = () => {
                         <LeadershipCard
                             name={mediaPartner.name}
                             title={mediaPartner.title}
+                            image={mediaPartner.image}
                         />
                     </div>
                 </motion.section>
