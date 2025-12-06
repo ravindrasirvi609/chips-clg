@@ -48,12 +48,12 @@ const HeroSection = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-[url('/college.jpg')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('/assets/brochure.jpg')] bg-cover bg-center opacity-10"></div>
 
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#00FFCC] opacity-5 blur-[100px] animate-pulse"></div>
+        <div className="absolute top-0 right-[10%] w-[40vw] h-[40vw] rounded-full bg-primary/5 blur-[100px] animate-pulse"></div>
         <div
-          className="absolute bottom-0 left-[10%] w-[40vw] h-[40vw] rounded-full bg-[#CC00FF] opacity-5 blur-[100px] animate-pulse"
+          className="absolute bottom-0 left-[10%] w-[40vw] h-[40vw] rounded-full bg-blue-500/5 blur-[100px] animate-pulse"
           style={{ animationDelay: "-5s" }}
         ></div>
       </div>
@@ -74,11 +74,11 @@ const HeroSection = () => {
 
           {/* Conference badge */}
           <div className="flex items-center space-x-4 mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-card border border-border/50 rounded-full text-white font-semibold transform hover:scale-105 transition-transform cursor-pointer">
-              <Clock className="w-4 h-4 mr-2 text-[#00FFCC]" />
+            <div className="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 font-semibold transform hover:scale-105 transition-transform cursor-pointer shadow-sm">
+              <Clock className="w-4 h-4 mr-2 text-primary" />
               <span>Conference 2026</span>
             </div>
-            <div className="h-px flex-1 bg-gradient-to-r from-[#00FFCC] to-transparent"></div>
+            <div className="h-px flex-1 bg-gradient-to-r from-primary to-transparent"></div>
           </div>
 
           {/* Main content grid */}
@@ -88,10 +88,10 @@ const HeroSection = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="text-gradient">International Conference</span>
                 <br />
-                <span className="text-white mt-2 block">
+                <span className="text-gray-900 mt-2 block">
                   Emerging Innovations in
                 </span>
-                <span className="text-gradient-alt block mt-2">
+                <span className="text-primary block mt-2">
                   Pharmaceutical Sciences and Drug Discovery
                 </span>
               </h1>
@@ -99,13 +99,13 @@ const HeroSection = () => {
               {/* Event details with hover effects */}
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center space-x-3 bg-card border border-border/50 p-3 rounded-lg hover:border-[#00FFCC]/50 transition-all group">
-                    <Calendar className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
-                    <span className="text-white">22nd & 23rd January 2026</span>
+                  <div className="flex items-center space-x-3 bg-white border border-gray-200 p-3 rounded-lg hover:border-primary/50 transition-all group shadow-sm">
+                    <Calendar className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-gray-700">22nd & 23rd January 2026</span>
                   </div>
-                  <div className="flex items-center space-x-3 bg-card border border-border/50 p-3 rounded-lg hover:border-[#00FFCC]/50 transition-all group">
-                    <MapPin className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
-                    <span className="text-white">
+                  <div className="flex items-center space-x-3 bg-white border border-gray-200 p-3 rounded-lg hover:border-primary/50 transition-all group shadow-sm">
+                    <MapPin className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-gray-700">
                       Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
                     </span>
                   </div>
@@ -121,7 +121,7 @@ const HeroSection = () => {
                 >
                   <button
                     onClick={handleRegisterClick}
-                    className="group relative px-6 py-3 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black font-semibold rounded-lg overflow-hidden transition-all hover:shadow-lg hover:shadow-[#00FFCC]/30"
+                    className="group relative px-6 py-3 bg-primary text-white font-semibold rounded-lg overflow-hidden transition-all hover:shadow-lg hover:shadow-primary/30"
                   >
                     <span className="relative z-10 flex items-center">
                       Registration Now
@@ -132,8 +132,8 @@ const HeroSection = () => {
                 </Link>
 
                 <Link href="/abstractForm">
-                  <button className="px-6 py-3 bg-card text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors flex items-center group">
-                    <Download className="w-5 h-5 mr-2 text-[#00FFCC] group-hover:scale-110 transition-transform" />
+                  <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-primary hover:text-primary transition-colors flex items-center group shadow-sm hover:shadow-md">
+                    <Download className="w-5 h-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
                     Submit Abstract
                   </button>
                 </Link>
@@ -178,8 +178,8 @@ const HeroSection = () => {
             </div>
 
             {/* Countdown section with solid card effect */}
-            <div className="card rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-gradient text-center mb-8">
+            <div className="card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">
                 Conference Begins In
               </h2>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -191,37 +191,37 @@ const HeroSection = () => {
                 ].map((item, index) => (
                   <div
                     key={item.label}
-                    className="flex flex-col items-center justify-center p-4 bg-background/50 rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/40 transition-all hover:transform hover:scale-105 duration-300"
+                    className="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-primary/40 transition-all hover:transform hover:scale-105 duration-300 shadow-sm"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <span className="text-4xl font-bold text-white mb-2">
+                    <span className="text-4xl font-bold text-primary mb-2">
                       {String(item.value).padStart(2, "0")}
                     </span>
-                    <span className="text-sm text-[#00FFCC]">{item.label}</span>
+                    <span className="text-sm text-gray-500">{item.label}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 p-4 bg-background/50 rounded-lg border border-[#00FFCC]/20">
-                <h3 className="text-lg font-semibold text-white mb-2">
+              <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   What&apos;s New in the International Conference
                 </h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="text-[#00FFCC] mr-2">•</span>
-                    <span className="text-white text-sm">
+                    <span className="text-primary mr-2">•</span>
+                    <span className="text-gray-600 text-sm">
                       Advanced Applications of AI in Pharmaceutical Research
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#00FFCC] mr-2">•</span>
-                    <span className="text-white text-sm">
+                    <span className="text-primary mr-2">•</span>
+                    <span className="text-gray-600 text-sm">
                       Personalized Medicine Breakthroughs
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#00FFCC] mr-2">•</span>
-                    <span className="text-white text-sm">
+                    <span className="text-primary mr-2">•</span>
+                    <span className="text-gray-600 text-sm">
                       International Healthcare Innovation Showcase
                     </span>
                   </li>

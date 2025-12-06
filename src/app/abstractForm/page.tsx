@@ -17,14 +17,14 @@ const AbstractFormPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#034C8C] to-[#022873] py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto bg-[#F2F2F2] rounded-lg shadow-2xl overflow-hidden">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-200">
         <div className="p-6 sm:p-10">
           <h1 className="text-3xl font-extrabold text-[#021373] text-center mb-8">
             International Conference
           </h1>
 
-          <section className="mt-8 bg-[#D94814] p-6 my-2 rounded-lg shadow-md text-white">
+          <section className="mt-8 bg-blue-600 p-6 my-2 rounded-lg shadow-md text-white">
             <p className="mb-4">
               The International Conference Scientific Committee (NSC) invites
               delegates to submit their original scientific work as abstracts
@@ -35,7 +35,7 @@ const AbstractFormPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-8">
-              <section className="bg-white p-6 rounded-lg shadow-md">
+              <section className="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-semibold text-[#021373] mb-4">
                   Areas of Specialization
                 </h3>
@@ -63,7 +63,7 @@ const AbstractFormPage: React.FC = () => {
                 </ul>
               </section>
 
-              <section className="bg-white p-6 rounded-lg shadow-md">
+              <section className="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-semibold text-[#021373] mb-4">
                   Abstract Content
                 </h3>
@@ -89,7 +89,7 @@ const AbstractFormPage: React.FC = () => {
             </div>
 
             <div className="space-y-8">
-              <section className="bg-white p-6 rounded-lg shadow-md">
+              <section className="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-semibold text-[#021373] mb-4">
                   Submission Instructions
                 </h3>
@@ -152,7 +152,7 @@ const AbstractFormPage: React.FC = () => {
                 </div>
               </section>
 
-              <section className="bg-white p-6 rounded-lg shadow-md">
+              <section className="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-semibold text-[#021373] mb-4">
                   Review Process
                 </h3>
@@ -170,7 +170,7 @@ const AbstractFormPage: React.FC = () => {
                 </ul>
               </section>
 
-              <section className="bg-white p-6 rounded-lg shadow-md">
+              <section className="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-semibold text-[#021373] mb-4">
                   Presentation Guidelines & Rewards
                 </h3>
@@ -192,11 +192,11 @@ const AbstractFormPage: React.FC = () => {
             </div>
           </div>
 
-          <section className="mt-8 bg-[#D94814] p-6 rounded-lg shadow-md text-white">
+          <section className="mt-8 bg-blue-600 p-6 rounded-lg shadow-md text-white">
             <h3 className="text-xl font-semibold mb-4">Submit Abstract</h3>
             <button
               onClick={handleSubmitClick}
-              className="bg-white text-[#D94814] hover:bg-[#F2F2F2] font-bold py-2 px-4 rounded transition duration-300"
+              className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300"
             >
               Submit Abstract
             </button>
@@ -236,18 +236,18 @@ const AbstractFormPage: React.FC = () => {
                   <div className="flex items-center">
                     <FaWhatsapp className="mr-2" size={24} />
                     <a
-                      href="https://wa.me/918107199052"
+                      href="https://wa.me/919866204171"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
+                      className="text-blue-600 hover:underline"
                     >
-                      +91 8107199052
+                      +91 9866204171
                     </a>
                   </div>
                 </div>
                 <button
                   onClick={handleDialogClose}
-                  className="bg-[#D94814] text-white hover:bg-[#C13700] font-bold py-2 px-4 rounded transition duration-300"
+                  className="bg-blue-600 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded transition duration-300"
                 >
                   Proceed to Submit
                 </button>
@@ -256,7 +256,7 @@ const AbstractFormPage: React.FC = () => {
           )}
 
           {showForm && (
-            <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
+            <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
               <AbstractForm />
             </div>
           )}

@@ -38,7 +38,7 @@ export default function Home() {
           {/* <SponsorsPartnersSection /> */}
 
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#00FFCC]/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
             <TestimonialsSection />
           </div>
         </div>

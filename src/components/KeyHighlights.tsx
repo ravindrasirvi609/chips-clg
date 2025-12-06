@@ -73,9 +73,9 @@ const KeyHighlights = () => {
     <section className="py-20 bg-background relative">
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-[20%] w-[30vw] h-[30vw] rounded-full bg-[#00FFCC] opacity-5 blur-[100px] animate-pulse"></div>
+        <div className="absolute top-20 left-[20%] w-[30vw] h-[30vw] rounded-full bg-primary/20 blur-[100px] animate-pulse"></div>
         <div
-          className="absolute bottom-20 right-[20%] w-[25vw] h-[25vw] rounded-full bg-[#CC00FF] opacity-5 blur-[100px] animate-pulse"
+          className="absolute bottom-20 right-[20%] w-[25vw] h-[25vw] rounded-full bg-blue-500/20 blur-[100px] animate-pulse"
           style={{ animationDelay: "-5s" }}
         ></div>
       </div>
@@ -87,7 +87,7 @@ const KeyHighlights = () => {
             Key Highlights
           </h2>
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Explore the groundbreaking features of the International Conference
             that make it the premier conference for AI and pharmaceutical
             innovation in India.
@@ -149,10 +149,10 @@ const KeyHighlights = () => {
           <Card className="col-span-3 lg:col-span-2">
             <CardContent className="p-8">
               <div className="flex items-center mb-8">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mr-4">
-                  <BrainCircuit className="w-6 h-6 text-black" />
+                <div className="p-3 rounded-lg bg-gradient-to-r from-primary to-blue-500 mr-4">
+                  <BrainCircuit className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-2xl font-bold text-gray-900">
                   Pioneering Topics
                 </h3>
               </div>
@@ -161,17 +161,17 @@ const KeyHighlights = () => {
                 {topics.map((topic, index) => (
                   <div
                     key={index}
-                    className="bg-card border border-border/50 rounded-xl p-5 transition-all duration-300 hover:border-primary/50 group"
+                    className="bg-white border border-gray-200 rounded-xl p-5 transition-all duration-300 hover:border-primary/50 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center mb-3">
-                      <div className="p-2 bg-[#00FFCC]/10 rounded-lg mr-3 group-hover:bg-[#00FFCC]/20 transition-colors">
+                      <div className="p-2 bg-primary/10 rounded-lg mr-3 group-hover:bg-primary/20 transition-colors">
                         {topic.icon}
                       </div>
-                      <h4 className="font-bold text-white group-hover:text-gradient transition-colors duration-500">
+                      <h4 className="font-bold text-gray-800 group-hover:text-primary transition-colors duration-500">
                         {topic.title}
                       </h4>
                     </div>
-                    <p className="text-gray-300 text-sm pl-2 border-l border-[#00FFCC]/30">
+                    <p className="text-gray-600 text-sm pl-2 border-l border-primary/30">
                       {topic.description}
                     </p>
                   </div>
@@ -184,53 +184,53 @@ const KeyHighlights = () => {
           <Card className="col-span-3 lg:col-span-1">
             <CardContent className="p-8">
               <div className="flex items-center mb-8">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mr-4">
-                  <Network className="w-6 h-6 text-black" />
+                <div className="p-3 rounded-lg bg-gradient-to-r from-primary to-blue-500 mr-4">
+                  <Network className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-2xl font-bold text-gray-900">
                   Connect & Collaborate
                 </h3>
               </div>
 
               <div className="space-y-6">
-                <div className="bg-card border border-border/50 rounded-xl p-5">
+                <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
                   <div className="flex items-center mb-3">
-                    <Users className="w-5 h-5 text-[#00FFCC] mr-3" />
-                    <h4 className="font-bold text-white">
+                    <Users className="w-5 h-5 text-primary mr-3" />
+                    <h4 className="font-bold text-gray-800">
                       Global Innovation Network
                     </h4>
                   </div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-600 text-sm">
                     Join an exclusive community of innovators, researchers, and
                     industry leaders from around the world.
                   </p>
                 </div>
 
-                <div className="bg-card border border-border/50 rounded-xl p-5">
+                <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
                   <div className="flex items-center mb-3">
-                    <Calendar className="w-5 h-5 text-[#00FFCC] mr-3" />
-                    <h4 className="font-bold text-white">
+                    <Calendar className="w-5 h-5 text-primary mr-3" />
+                    <h4 className="font-bold text-gray-800">
                       Strategic Networking Events
                     </h4>
                   </div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-600 text-sm">
                     Curated opportunities for meaningful connections through
                     targeted sessions and digital matchmaking.
                   </p>
                 </div>
 
-                <div className="mt-6 bg-card border border-border/50 rounded-xl p-5">
-                  <h4 className="font-bold text-white mb-4">
+                <div className="mt-6 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+                  <h4 className="font-bold text-gray-800 mb-4">
                     International Conference Advantages:
                   </h4>
                   <ul className="space-y-3">
                     {networkingBenefits.map((benefit, index) => (
                       <li
                         key={index}
-                        className="flex items-center text-gray-300 group"
+                        className="flex items-center text-gray-600 group"
                       >
-                        <ArrowRight className="w-4 h-4 mr-2 text-[#00FFCC] group-hover:translate-x-1 transition-transform" />
-                        <span className="group-hover:text-white transition-colors">
+                        <ArrowRight className="w-4 h-4 mr-2 text-primary group-hover:translate-x-1 transition-transform" />
+                        <span className="group-hover:text-primary transition-colors">
                           {benefit}
                         </span>
                       </li>

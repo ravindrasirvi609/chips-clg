@@ -148,32 +148,32 @@ const LeadershipCard = ({
         className={`relative group ${isChief ? "col-span-full" : ""}`}
     >
         <div
-            className={`backdrop-blur-lg bg-gradient-to-br ${isChief
-                    ? "from-amber-500/20 to-orange-600/20 border-amber-400/30"
-                    : "from-white/10 to-white/5 border-white/20"
-                } border rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,200,100,0.2)] hover:scale-[1.02]`}
+            className={`bg-white shadow-md ${isChief
+                ? "border-amber-400/30"
+                : "border-gray-200"
+                } border rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]`}
         >
             <div className="flex items-center gap-4">
                 <div
                     className={`w-16 h-16 rounded-full flex items-center justify-center ${isChief
-                            ? "bg-gradient-to-br from-amber-400 to-orange-500"
-                            : "bg-gradient-to-br from-[#00FFCC] to-[#00CCFF]"
+                        ? "bg-gradient-to-br from-amber-400 to-orange-500"
+                        : "bg-primary/10"
                         }`}
                 >
                     {isChief ? (
                         <Crown className="w-8 h-8 text-white" />
                     ) : (
-                        <Star className="w-8 h-8 text-white" />
+                        <Star className="w-8 h-8 text-primary" />
                     )}
                 </div>
                 <div>
                     <span
-                        className={`text-xs font-semibold uppercase tracking-wider ${isChief ? "text-amber-400" : "text-[#00FFCC]"
+                        className={`text-xs font-semibold uppercase tracking-wider ${isChief ? "text-amber-500" : "text-primary"
                             }`}
                     >
                         {title}
                     </span>
-                    <h3 className="text-xl font-bold text-white mt-1">{name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mt-1">{name}</h3>
                 </div>
             </div>
         </div>
@@ -183,16 +183,16 @@ const LeadershipCard = ({
 // Patron Card Component
 const PatronCard = ({ name }: { name: string }) => (
     <motion.div variants={itemVariants} className="group">
-        <div className="backdrop-blur-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-2xl p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,100,255,0.2)] hover:scale-[1.02]">
+        <div className="bg-white border border-purple-200 rounded-2xl p-5 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
             <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                    <Award className="w-6 h-6 text-purple-600" />
                 </div>
                 <div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-purple-400">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-purple-600">
                         Patron
                     </span>
-                    <h3 className="text-lg font-bold text-white">{name}</h3>
+                    <h3 className="text-lg font-bold text-gray-900">{name}</h3>
                 </div>
             </div>
         </div>
@@ -203,12 +203,12 @@ const PatronCard = ({ name }: { name: string }) => (
 const CommitteeCard = ({ committee }: { committee: Committee }) => (
     <motion.div
         variants={itemVariants}
-        className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,204,255,0.15)]"
+        className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300"
     >
-        <div className="bg-gradient-to-r from-[#00FFCC]/20 to-[#00CCFF]/20 px-6 py-4 border-b border-white/10">
+        <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
             <div className="flex items-center gap-3">
-                <Users className="w-5 h-5 text-[#00FFCC]" />
-                <h3 className="text-lg font-bold text-white">{committee.name}</h3>
+                <Users className="w-5 h-5 text-primary" />
+                <h3 className="text-lg font-bold text-gray-900">{committee.name}</h3>
             </div>
         </div>
         <div className="p-4">
@@ -217,19 +217,19 @@ const CommitteeCard = ({ committee }: { committee: Committee }) => (
                     <div
                         key={index}
                         className={`flex items-center justify-between p-3 rounded-xl transition-all duration-200 ${member.role === "Chairman"
-                                ? "bg-gradient-to-r from-amber-500/10 to-transparent border-l-2 border-amber-400"
-                                : member.role === "Co-Chairman"
-                                    ? "bg-gradient-to-r from-cyan-500/10 to-transparent border-l-2 border-cyan-400"
-                                    : "bg-white/5 border-l-2 border-white/20"
+                            ? "bg-amber-50 border-l-2 border-amber-400"
+                            : member.role === "Co-Chairman"
+                                ? "bg-cyan-50 border-l-2 border-cyan-400"
+                                : "bg-gray-50 border-l-2 border-gray-200"
                             }`}
                     >
-                        <span className="text-gray-200 font-medium">{member.name}</span>
+                        <span className="text-gray-700 font-medium">{member.name}</span>
                         <span
                             className={`text-xs px-3 py-1 rounded-full font-semibold ${member.role === "Chairman"
-                                    ? "bg-amber-500/20 text-amber-300"
-                                    : member.role === "Co-Chairman"
-                                        ? "bg-cyan-500/20 text-cyan-300"
-                                        : "bg-white/10 text-gray-400"
+                                ? "bg-amber-100 text-amber-700"
+                                : member.role === "Co-Chairman"
+                                    ? "bg-cyan-100 text-cyan-700"
+                                    : "bg-gray-100 text-gray-500"
                                 }`}
                         >
                             {member.role}
@@ -243,13 +243,13 @@ const CommitteeCard = ({ committee }: { committee: Committee }) => (
 
 const CommitteePage = () => {
     return (
-        <div className="bg-[#070B39] min-h-screen relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="bg-gray-50 min-h-screen relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             {/* Animated background elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob"></div>
-                <div className="absolute top-1/4 right-10 w-96 h-96 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-                <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
-                <div className="absolute bottom-10 right-1/3 w-72 h-72 bg-gradient-to-r from-[#FF3366] to-[#FF9966] rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob animation-delay-6000"></div>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+                <div className="absolute top-10 left-10 w-96 h-96 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+                <div className="absolute top-1/4 right-10 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+                <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+                <div className="absolute bottom-10 right-1/3 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-6000"></div>
             </div>
 
             <motion.div
@@ -261,12 +261,12 @@ const CommitteePage = () => {
                 {/* Page Title */}
                 <motion.div variants={itemVariants} className="text-center mb-16">
                     <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] via-[#00CCFF] to-[#00FFCC]">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                             Organising Committee
                         </span>
                     </h1>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Meet the dedicated team behind NIPiCON 2026
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        Meet the dedicated team behind INNOVATE PHARMA 2026
                     </p>
                 </motion.div>
 
@@ -274,9 +274,9 @@ const CommitteePage = () => {
                 <motion.section variants={containerVariants} className="mb-16">
                     <motion.h2
                         variants={itemVariants}
-                        className="text-2xl font-bold text-white mb-8 flex items-center gap-3"
+                        className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3"
                     >
-                        <Crown className="w-6 h-6 text-amber-400" />
+                        <Crown className="w-6 h-6 text-amber-500" />
                         <span>Leadership</span>
                     </motion.h2>
 
@@ -314,9 +314,9 @@ const CommitteePage = () => {
                 <motion.section variants={containerVariants}>
                     <motion.h2
                         variants={itemVariants}
-                        className="text-2xl font-bold text-white mb-8 flex items-center gap-3"
+                        className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3"
                     >
-                        <Users className="w-6 h-6 text-[#00FFCC]" />
+                        <Users className="w-6 h-6 text-primary" />
                         <span>Organising Committees</span>
                     </motion.h2>
 

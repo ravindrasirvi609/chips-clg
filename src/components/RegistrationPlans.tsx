@@ -327,8 +327,8 @@ const RegistrationPlans: React.FC = () => {
 
     return (
       <div className="flex justify-between items-center mb-2">
-        <span className="text-white font-medium">{label}:</span>
-        <span className={`text-lg font-bold ${className || "text-white"}`}>
+        <span className="text-gray-700 font-medium">{label}:</span>
+        <span className={`text-lg font-bold ${className || "text-gray-900"}`}>
           {currency}
           {displayPrice}
         </span>
@@ -337,16 +337,16 @@ const RegistrationPlans: React.FC = () => {
   };
 
   const RegistrationCard = ({ plan }: { plan: Plan }) => (
-    <div className="bg-card border border-border/50 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,204,255,0.2)]">
-      <div className="bg-card border-b border-border/10 py-4 px-6">
-        <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+    <div className="bg-white border border-gray-200 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <div className="bg-gray-50 border-b border-gray-100 py-4 px-6">
+        <h3 className="text-2xl font-bold text-primary">
           {plan.name}
         </h3>
       </div>
       <div className="p-6">
-        <p className="text-gray-300 mb-6">{plan.description}</p>
+        <p className="text-gray-600 mb-6">{plan.description}</p>
         {/* Early Bird pricing now active */}
-        <PriceDisplay label="Early Bird" price={plan.earlyBird} planName={plan.name} />
+        <PriceDisplay label="Early Bird" price={plan.earlyBird} planName={plan.name} className="text-gray-900" />
         <PriceDisplay
           label="Late Fee"
           price={plan.regular}
@@ -362,7 +362,7 @@ const RegistrationPlans: React.FC = () => {
         <div className="mt-6">
           <button
             onClick={() => openModal(plan)}
-            className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] font-bold hover:shadow-[0_0_20px_rgba(0,204,255,0.5)] transition-all duration-300"
+            className="w-full py-3 px-4 rounded-full bg-primary text-white font-bold hover:shadow-lg transition-all duration-300"
           >
             Register Now
           </button>
@@ -372,15 +372,15 @@ const RegistrationPlans: React.FC = () => {
   );
 
   return (
-    <div className="relative overflow-hidden bg-[#070B39] py-16 px-4 md:px-8">
+    <div className="relative overflow-hidden bg-gray-50 py-16 px-4 md:px-8">
       {/* Animated Background Elements */}
-      <div className="absolute -top-40 -left-40 w-80 h-80 bg-[#00FFCC]/20 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
-      <div className="absolute top-1/2 -right-40 w-80 h-80 bg-[#00CCFF]/20 rounded-full blur-[100px] animate-blob"></div>
-      <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#9900FF]/10 rounded-full blur-[100px] animate-blob animation-delay-4000"></div>
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/20 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
+      <div className="absolute top-1/2 -right-40 w-80 h-80 bg-blue-400/20 rounded-full blur-[100px] animate-blob"></div>
+      <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-400/20 rounded-full blur-[100px] animate-blob animation-delay-4000"></div>
 
       <div className="container mx-auto relative z-10 max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+          <span className="text-primary">
             Registration Plans
           </span>
         </h2>
@@ -395,12 +395,12 @@ const RegistrationPlans: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 py-8">
           <Link href="/group-registration">
-            <button className="py-4 px-8 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] text-xl font-bold hover:shadow-[0_0_20px_rgba(0,255,204,0.5)] transition-all duration-300">
+            <button className="py-4 px-8 rounded-full bg-primary text-white text-xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               Group Registration Form
             </button>
           </Link>
           <Link href="/contact">
-            <button className="py-4 px-8 rounded-full bg-gradient-to-r from-[#FF3366] to-[#FF9966] text-[#070B39] text-xl font-bold hover:shadow-[0_0_20px_rgba(255,51,102,0.5)] transition-all duration-300">
+            <button className="py-4 px-8 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white text-xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               Contact Us for Help
             </button>
           </Link>
@@ -410,22 +410,22 @@ const RegistrationPlans: React.FC = () => {
       {/* Modal Dialog */}
       {showModal && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-card border border-border/50 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-white">
+          <div className="bg-white border border-gray-200 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-gray-900">
             {isProcessingTransaction ? (
               <div className="flex flex-col items-center justify-center p-8">
-                <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-[#00CCFF] mb-6"></div>
-                <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mb-4">
+                <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-primary mb-6"></div>
+                <p className="text-xl font-bold text-primary mb-4">
                   Processing your transaction...
                 </p>
-                <p className="text-gray-300 text-center">
+                <p className="text-gray-600 text-center">
                   Thank you for your patience! Please wait for{" "}
-                  <span className="font-bold text-[#00CCFF]">{countdown}</span>{" "}
+                  <span className="font-bold text-primary">{countdown}</span>{" "}
                   seconds...
                 </p>
               </div>
             ) : (
               <div className="p-8">
-                <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+                <h2 className="text-2xl font-bold mb-6 text-primary">
                   Register for {selectedPlan?.name}
                 </h2>
                 <RegistrationForm
@@ -448,14 +448,14 @@ const RegistrationPlans: React.FC = () => {
                     onClick={handleSubmit}
                     disabled={isSubmitting}
                     className={`flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 ${isSubmitting
-                      ? "bg-gray-600 cursor-not-allowed"
-                      : "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] hover:shadow-[0_0_20px_rgba(0,204,255,0.5)]"
+                      ? "bg-gray-400 cursor-not-allowed text-gray-700"
+                      : "bg-primary text-white hover:bg-primary/90 hover:shadow-lg"
                       }`}
                   >
                     {isSubmitting ? (
                       <div className="flex items-center justify-center">
                         <svg
-                          className="animate-spin h-5 w-5 mr-3 text-[#070B39]"
+                          className="animate-spin h-5 w-5 mr-3 text-white"
                           viewBox="0 0 24 24"
                         >
                           <circle
@@ -491,7 +491,7 @@ const RegistrationPlans: React.FC = () => {
                   </button>
                   <button
                     onClick={closeModal}
-                    className="flex-1 py-3 px-6 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-all duration-300"
+                    className="flex-1 py-3 px-6 rounded-full border border-gray-300 text-gray-700 font-bold hover:bg-gray-100 transition-all duration-300"
                   >
                     Close
                   </button>

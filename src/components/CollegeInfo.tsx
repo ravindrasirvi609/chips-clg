@@ -119,7 +119,7 @@ const CollegeInfo = () => {
           <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
             About the Institution
           </h3>
-          <div className="text-gray-300 space-y-4">
+          <div className="text-gray-600 space-y-4">
             <p>
               Chebrolu Hanumaiah Institute of Pharmaceutical Sciences (CHIPS)
               was established in the year 2005 as the 7th institute under the
@@ -139,17 +139,17 @@ const CollegeInfo = () => {
             </p>
           </div>
 
-          <h4 className="text-xl font-bold mt-8 mb-4 text-white">
+          <h4 className="text-xl font-bold mt-8 mb-4 text-gray-800">
             Courses Offered
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-card border border-border/50 p-6 rounded-xl">
+            <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
               <div className="flex items-center mb-3">
-                <GraduationCap className="w-6 h-6 text-[#00FFCC] mr-3" />
-                <h5 className="font-bold text-white">B. Pharmacy</h5>
+                <GraduationCap className="w-6 h-6 text-primary mr-3" />
+                <h5 className="font-bold text-gray-800">B. Pharmacy</h5>
               </div>
-              <p className="text-gray-300">100 seats (04 Years)</p>
+              <p className="text-gray-600">100 seats (04 Years)</p>
             </div>
 
             {/* <div className="bg-card border border-border/50 p-6 rounded-xl">
@@ -160,20 +160,20 @@ const CollegeInfo = () => {
               <p className="text-gray-300">60 Seats (02 Years)</p>
             </div> */}
 
-            <div className="bg-card border border-border/50 p-6 rounded-xl">
+            <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
               <div className="flex items-center mb-3">
-                <Building className="w-6 h-6 text-[#00FFCC] mr-3" />
-                <h5 className="font-bold text-white">Pharm.D</h5>
+                <Building className="w-6 h-6 text-primary mr-3" />
+                <h5 className="font-bold text-gray-800">Pharm.D</h5>
               </div>
-              <p className="text-gray-300">30 Seats (06 Years)</p>
+              <p className="text-gray-600">30 Seats (06 Years)</p>
             </div>
 
-            <div className="bg-card border border-border/50 p-6 rounded-xl">
+            <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
               <div className="flex items-center mb-3">
-                <BookOpen className="w-6 h-6 text-[#00FFCC] mr-3" />
-                <h5 className="font-bold text-white">M.Pharmacy</h5>
+                <BookOpen className="w-6 h-6 text-primary mr-3" />
+                <h5 className="font-bold text-gray-800">M.Pharmacy</h5>
               </div>
-              <div className="text-gray-300 mt-2 pl-9">
+              <div className="text-gray-600 mt-2 pl-9">
                 <p>- Pharmaceutical Analysis (02 Years)</p>
                 <p>- Pharmaceutics (02 Years)</p>
               </div>

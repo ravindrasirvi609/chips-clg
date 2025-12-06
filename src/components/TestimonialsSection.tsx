@@ -100,9 +100,9 @@ const TestimonialsSection = () => {
     <div className="w-full bg-background py-20 relative">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-[#00FFCC] opacity-5 blur-[100px] animate-pulse"></div>
+        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/20 blur-[100px] animate-pulse"></div>
         <div
-          className="absolute bottom-[20%] left-[10%] w-[25vw] h-[25vw] rounded-full bg-[#CC00FF] opacity-5 blur-[100px] animate-pulse"
+          className="absolute bottom-[20%] left-[10%] w-[25vw] h-[25vw] rounded-full bg-blue-500/20 blur-[100px] animate-pulse"
           style={{ animationDelay: "-3s" }}
         ></div>
       </div>
@@ -114,30 +114,30 @@ const TestimonialsSection = () => {
             Voices of Innovation
           </h2>
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Insights from leading researchers and professionals who have
             experienced the transformative impact of PharmaNEST.
           </p>
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="relative card rounded-2xl p-8 mb-12">
+        <div className="relative bg-white border border-gray-200 shadow-xl rounded-2xl p-8 mb-12">
           <div className="absolute top-0 left-0 transform -translate-x-4 -translate-y-4">
-            <Quote className="w-12 h-12 text-[#00FFCC] opacity-20" />
+            <Quote className="w-12 h-12 text-primary opacity-20" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Testimonial Content */}
             <div className="space-y-6">
               <div className="relative">
-                <p className="text-xl leading-relaxed text-white italic">
+                <p className="text-xl leading-relaxed text-gray-800 italic">
                   &quot;{testimonials[activeIndex].quote}&quot;
                 </p>
               </div>
 
               <div className="flex items-center space-x-4">
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
+                  <div className="w-16 h-16 rounded-full overflow-hidden bg-primary/10 p-0.5 border border-primary/30">
                     {testimonials[activeIndex].image && (
                       <Image
                         src={testimonials[activeIndex].image}
@@ -154,13 +154,13 @@ const TestimonialsSection = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-lg text-white">
+                  <h4 className="font-bold text-lg text-gray-900">
                     {testimonials[activeIndex].name}
                   </h4>
-                  <p className="text-gray-300">
+                  <p className="text-gray-600">
                     {testimonials[activeIndex].role}
                   </p>
-                  <p className="text-sm text-[#00FFCC]">
+                  <p className="text-sm text-primary">
                     {testimonials[activeIndex].company}
                   </p>
                 </div>
@@ -168,7 +168,7 @@ const TestimonialsSection = () => {
 
               <div className="flex items-center justify-between">
                 <RatingStars rating={testimonials[activeIndex].rating} />
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-gray-500">
                   International Conference {testimonials[activeIndex].year}
                 </span>
               </div>
@@ -183,13 +183,13 @@ const TestimonialsSection = () => {
                   return (
                     <div
                       key={testimonial.id}
-                      className={`absolute w-full p-6 bg-[#0a182f] border border-[#1e2a45] rounded-xl transition-all duration-500 ${isActive
-                          ? "opacity-100 z-20 transform scale-100"
-                          : offset === 1
-                            ? "opacity-60 z-10 transform translate-y-4 scale-95"
-                            : offset === 2
-                              ? "opacity-30 z-0 transform translate-y-8 scale-90"
-                              : "opacity-0 z-0 transform translate-y-12 scale-85"
+                      className={`absolute w-full p-6 bg-white border border-gray-200 shadow-lg rounded-xl transition-all duration-500 ${isActive
+                        ? "opacity-100 z-20 transform scale-100"
+                        : offset === 1
+                          ? "opacity-60 z-10 transform translate-y-4 scale-95"
+                          : offset === 2
+                            ? "opacity-30 z-0 transform translate-y-8 scale-90"
+                            : "opacity-0 z-0 transform translate-y-12 scale-85"
                         }`}
                     >
                       <div className="flex items-center space-x-4 mb-4">
@@ -205,15 +205,15 @@ const TestimonialsSection = () => {
                           )}
                         </div>
                         <div>
-                          <h4 className="font-bold text-white">
+                          <h4 className="font-bold text-gray-900">
                             {testimonial.name}
                           </h4>
-                          <p className="text-sm text-gray-300">
+                          <p className="text-sm text-gray-500">
                             {testimonial.company}
                           </p>
                         </div>
                       </div>
-                      <p className="text-gray-300 text-sm line-clamp-3">
+                      <p className="text-gray-600 text-sm line-clamp-3">
                         &quot;{testimonial.quote}&quot;
                       </p>
                     </div>
@@ -228,10 +228,10 @@ const TestimonialsSection = () => {
         <div className="flex justify-center items-center space-x-4">
           <button
             onClick={handlePrevious}
-            className="p-3 bg-card border border-border/50 rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
+            className="p-3 bg-white border border-gray-200 rounded-full hover:bg-primary/10 transition-colors duration-300 group shadow-sm"
             aria-label="Previous testimonial"
           >
-            <ArrowLeft className="w-6 h-6 text-[#00FFCC] group-hover:translate-x-[-2px] transition-transform" />
+            <ArrowLeft className="w-6 h-6 text-primary group-hover:translate-x-[-2px] transition-transform" />
           </button>
 
           <div className="flex space-x-2">
@@ -243,8 +243,8 @@ const TestimonialsSection = () => {
                   setActiveIndex(index);
                 }}
                 className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
-                    ? "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] w-8"
-                    : "bg-gray-700 hover:bg-gray-600 w-2"
+                  ? "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] w-8"
+                  : "bg-gray-700 hover:bg-gray-600 w-2"
                   }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -253,10 +253,10 @@ const TestimonialsSection = () => {
 
           <button
             onClick={handleNext}
-            className="p-3 bg-card border border-border/50 rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
+            className="p-3 bg-white border border-gray-200 rounded-full hover:bg-primary/10 transition-colors duration-300 group shadow-sm"
             aria-label="Next testimonial"
           >
-            <ArrowRight className="w-6 h-6 text-[#00FFCC] group-hover:translate-x-[2px] transition-transform" />
+            <ArrowRight className="w-6 h-6 text-primary group-hover:translate-x-[2px] transition-transform" />
           </button>
         </div>
       </div>

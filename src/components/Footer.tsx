@@ -33,7 +33,7 @@ const Footer = () => {
         >
           <path
             d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            className="fill-current text-background opacity-20"
+            className="fill-current text-gray-100 opacity-100"
           ></path>
         </svg>
       </div>
@@ -52,23 +52,26 @@ const Footer = () => {
                   <div className="p-2 rounded-full bg-[#00FFCC]/10 group-hover:bg-[#00FFCC]/20 transition-colors">
                     <Phone size={18} className="text-[#00FFCC]" />
                   </div>
-                  <span className="text-gray-300 group-hover:text-white transition-colors">
-                    +91 738 200 8494
-                  </span>
+                  <p className="text-gray-400 hover:text-white transition-colors">
+                    +91 9866204171
+                  </p>
                 </div>
                 <div className="flex items-center gap-3 group">
                   <div className="p-2 rounded-full bg-[#00FFCC]/10 group-hover:bg-[#00FFCC]/20 transition-colors">
                     <Mail size={18} className="text-[#00FFCC]" />
                   </div>
-                  <span className="text-gray-300 group-hover:text-white transition-colors">
-                    chipsguntur@gmail.com
-                  </span>
+                  <a
+                    href="mailto:innovatepharma2026@gmail.com"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    innovatepharma2026@gmail.com
+                  </a>
                 </div>
                 <div className="flex items-center gap-3 group">
                   <div className="p-2 rounded-full bg-[#00FFCC]/10 group-hover:bg-[#00FFCC]/20 transition-colors">
                     <MapPin size={18} className="text-[#00FFCC]" />
                   </div>
-                  <span className="text-gray-300 group-hover:text-white transition-colors">
+                  <span className="text-gray-600 group-hover:text-primary transition-colors">
                     Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
                   </span>
                 </div>
@@ -84,36 +87,36 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/about"
-                    className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00FFCC]/50 group-hover:bg-[#00FFCC] transition-colors"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
                     About the International Conference
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/registration"
-                    className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00FFCC]/50 group-hover:bg-[#00FFCC] transition-colors"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
                     Registration
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/speakers"
-                    className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00FFCC]/50 group-hover:bg-[#00FFCC] transition-colors"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
                     Speakers
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/abstractForm"
-                    className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00FFCC]/50 group-hover:bg-[#00FFCC] transition-colors"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
                     Submit Abstract
                   </Link>
                 </li>
@@ -125,7 +128,7 @@ const Footer = () => {
               <div className="flex justify-center mb-4">
                 {/* Remove the image */}
               </div>
-              <p className="text-gray-300 mb-4 text-center">
+              <p className="text-gray-600 mb-4 text-center">
                 Empowering pharmaceutical innovation through cutting-edge
                 technology and collaborative research.
               </p>
@@ -150,11 +153,11 @@ const Footer = () => {
       <div className="bg-background border-t border-[#00FFCC]/10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               © 2026 International Conference. Chebrolu Hanumaiah Institute of
               Pharmaceutical Sciences. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               Designed & Developed by{" "}
               <span className="text-gradient font-semibold">
                 Ravindra Choudhary

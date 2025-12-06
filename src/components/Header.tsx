@@ -56,16 +56,18 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
-        ? "bg-[#1a1a2e]/95 backdrop-blur-sm py-2 shadow-lg border-b border-white/10"
-        : "bg-[#1a1a2e]/80 py-4"
+        ? "bg-white/95 backdrop-blur-sm py-2 shadow-lg border-b border-gray-100"
+        : "bg-white/90 py-4 shadow-sm"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex items-center justify-center text-white font-bold text-xl">
-              INNOVATE PHARMA 2026
+          <div className="flex items-center space-x-3">
+            <img src="/assets/logo-new.jpg" alt="Innovate Pharma 2026" className="h-12 w-auto object-contain" />
+            <div className="flex flex-col">
+              <span className="font-bold text-lg leading-tight text-primary">INNOVATE PHARMA</span>
+              <span className="text-xs font-medium text-gray-500">2026</span>
             </div>
           </div>
 
@@ -77,8 +79,8 @@ const Header = () => {
                 key={item.name}
                 onClick={() => handleNavClick(item.name)}
                 className={`relative px-3 py-2 text-sm font-bold transition-all duration-300 ${activeItem === item.name
-                  ? "text-white"
-                  : "text-gray-300 hover:text-white"
+                  ? "text-primary"
+                  : "text-gray-600 hover:text-primary"
                   }`}
               >
                 {item.name}
@@ -102,9 +104,9 @@ const Header = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-white" />
+              <X className="h-6 w-6 text-gray-800" />
             ) : (
-              <Menu className="h-6 w-6 text-white" />
+              <Menu className="h-6 w-6 text-gray-800" />
             )}
           </button>
         </div>
@@ -117,12 +119,12 @@ const Header = () => {
         onClick={() => setIsOpen(false)}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-64 bg-[#16213e] border-l border-white/10 transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
+          className={`absolute right-0 top-0 h-full w-64 bg-white border-l border-gray-100 transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
             } overflow-y-auto shadow-2xl`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6">
-            <div className="flex justify-center mb-8 text-white font-bold text-xl">
+            <div className="flex justify-center mb-8 text-primary font-bold text-xl">
               International Conference
             </div>
             <nav className="flex flex-col space-y-4">
@@ -132,8 +134,8 @@ const Header = () => {
                   key={item.name}
                   onClick={() => handleNavClick(item.name)}
                   className={`flex items-center justify-between p-3 rounded-lg transition-colors font-bold text-base ${activeItem === item.name
-                    ? "bg-[#00FFCC]/20 text-white border border-[#00FFCC]/30"
-                    : "text-gray-300 hover:bg-white/10 hover:text-white"
+                    ? "bg-primary/10 text-primary border border-primary/20"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-primary"
                     }`}
                 >
                   <span>{item.name}</span>

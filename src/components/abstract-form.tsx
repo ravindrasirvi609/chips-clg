@@ -197,10 +197,10 @@ export function AbstractForm() {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg">
-      <h1 className="text-4xl font-bold text-center text-[#021373] mb-2">
+      <h1 className="text-4xl font-bold text-center text-primary mb-2">
         Conference Abstract Submission
       </h1>
-      <p className="text-center text-[#CACACA] mb-8">
+      <p className="text-center text-gray-500 mb-8">
         Please fill out the form below to submit your abstract.
       </p>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -208,14 +208,14 @@ export function AbstractForm() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-[#022873] mb-1"
+              className="block text-sm font-medium text-primary mb-1"
             >
               Email
             </label>
             <input
               id="email"
               type="email"
-              className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+              className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Enter your email"
               value={email}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -234,13 +234,13 @@ export function AbstractForm() {
               WhatsApp Number
             </label>
             <div className="flex">
-              <span className="inline-flex items-center px-3 text-sm text-[#CACACA] bg-[#F2F2F2] border border-r-0 border-[#CACACA] rounded-l-md">
+              <span className="inline-flex items-center px-3 text-sm text-gray-500 bg-gray-100 border border-r-0 border-gray-300 rounded-l-md">
                 +91
               </span>
               <input
                 id="whatsappNumber"
                 type="tel"
-                className="flex-1 px-3 py-2 border text-black border-[#CACACA] rounded-r-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+                className="flex-1 px-3 py-2 border text-gray-900 border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Enter your WhatsApp number"
                 value={whatsappNumber}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -260,14 +260,14 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Author Full Name
           </label>
           <input
             id="name"
             type="text"
-            className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Enter your name"
             value={name}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -282,13 +282,13 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="Designation"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Designation
           </label>
           <select
             id="Designation"
-            className="w-full px-3 py-2 border border-[#CACACA] text-black rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             value={Designation}
             onChange={(e) => setDesignation(e.target.value)}
           >
@@ -307,14 +307,14 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="affiliation"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Affiliation of Author
           </label>
           <input
             id="affiliation"
             type="text"
-            className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Enter your affiliation"
             value={affiliation}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -329,14 +329,14 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="coAuthor"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Co-Author (if any)
           </label>
           <input
             id="coAuthor"
             type="text"
-            className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Enter co-author's name"
             value={coAuthor}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -348,13 +348,13 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="subject"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Select Presentation Subject
           </label>
           <select
             id="subject"
-            className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
           >
@@ -373,13 +373,13 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="articleType"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Article Type
           </label>
           <select
             id="articleType"
-            className="w-full px-3 py-2 border border-[#CACACA] text-black rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             value={articleType}
             onChange={(e) => setArticleType(e.target.value)}
           >
@@ -395,14 +395,14 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="title"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Title of Abstract
           </label>
           <input
             id="title"
             type="text"
-            className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Enter the title of your abstract"
             value={title}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -417,32 +417,31 @@ export function AbstractForm() {
         <div className="space-y-4">
           <label
             htmlFor="abstractFile"
-            className="block text-sm font-medium text-[#022873]"
+            className="block text-sm font-medium text-primary"
           >
             Upload Abstract File
           </label>
           <div
             {...getRootProps()}
-            className={`w-full p-6 border-2 border-dashed rounded-lg text-center cursor-pointer transition-colors duration-200 ease-in-out ${
-              isDragActive
-                ? "border-[#034C8C] bg-[#F0F7FF]"
-                : "border-[#CACACA] hover:border-[#034C8C] hover:bg-[#F7FAFC]"
-            }`}
+            className={`w-full p-6 border-2 border-dashed rounded-lg text-center cursor-pointer transition-colors duration-200 ease-in-out ${isDragActive
+                ? "border-primary bg-primary/5"
+                : "border-gray-300 hover:border-primary hover:bg-gray-50"
+              }`}
           >
             <input {...getInputProps()} id="abstractFile" />
-            <p className="text-[#022873]">
+            <p className="text-primary">
               {isDragActive
                 ? "Drop the file here..."
                 : "Drag & drop your abstract file here, or click to select"}
             </p>
-            <p className="text-sm text-[#6B7280] mt-2">
+            <p className="text-sm text-gray-500 mt-2">
               Supported formats: .doc, .docx (Max size: 5MB)
             </p>
           </div>
           {abstractFile && (
-            <div className="flex items-center space-x-2 text-sm text-[#022873]">
+            <div className="flex items-center space-x-2 text-sm text-primary">
               <svg
-                className="w-5 h-5 text-[#034C8C]"
+                className="w-5 h-5 text-primary"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -464,16 +463,16 @@ export function AbstractForm() {
           {isUploading && (
             <div className="mt-4">
               <div className="flex justify-between mb-1">
-                <span className="text-sm font-medium text-[#022873]">
+                <span className="text-sm font-medium text-primary">
                   Uploading
                 </span>
-                <span className="text-sm font-medium text-[#022873]">
+                <span className="text-sm font-medium text-primary">
                   {uploadProgress}%
                 </span>
               </div>
-              <div className="w-full bg-[#F2F2F2] rounded-full h-2.5">
+              <div className="w-full bg-gray-200 rounded-full h-2.5">
                 <div
-                  className="bg-[#034C8C] h-2.5 rounded-full transition-all duration-300 ease-in-out"
+                  className="bg-primary h-2.5 rounded-full transition-all duration-300 ease-in-out"
                   style={{ width: `${uploadProgress}%` }}
                 ></div>
               </div>
@@ -502,13 +501,13 @@ export function AbstractForm() {
         <div>
           <label
             htmlFor="address"
-            className="block text-sm font-medium text-[#022873] mb-1"
+            className="block text-sm font-medium text-primary mb-1"
           >
             Address for Communication
           </label>
           <textarea
             id="address"
-            className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+            className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             rows={3}
             placeholder="Enter your address"
             value={address}
@@ -525,14 +524,14 @@ export function AbstractForm() {
           <div>
             <label
               htmlFor="city"
-              className="block text-sm font-medium text-[#022873] mb-1"
+              className="block text-sm font-medium text-primary mb-1"
             >
               City
             </label>
             <input
               id="city"
               type="text"
-              className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+              className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Enter your city"
               value={city}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -546,7 +545,7 @@ export function AbstractForm() {
           <div>
             <label
               htmlFor="state"
-              className="block text-sm font-medium text-[#022873] mb-1"
+              className="block text-sm font-medium text-primary mb-1"
             >
               State
             </label>
@@ -555,7 +554,7 @@ export function AbstractForm() {
               value={state}
               onChange={(e) => setState(e.target.value)}
               required
-              className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+              className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <option value="" disabled>
                 Select your state
@@ -574,14 +573,14 @@ export function AbstractForm() {
           <div>
             <label
               htmlFor="pincode"
-              className="block text-sm font-medium text-[#022873] mb-1"
+              className="block text-sm font-medium text-primary mb-1"
             >
               Pincode
             </label>
             <input
               id="pincode"
               type="text"
-              className="w-full px-3 py-2 border text-black border-[#CACACA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#034C8C]"
+              className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Enter your pincode"
               value={pincode}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -603,11 +602,10 @@ export function AbstractForm() {
 
         <button
           type="submit"
-          className={`w-full font-bold py-3 px-4 rounded-md transition duration-300 ${
-            isSubmitting || isLoading
+          className={`w-full font-bold py-3 px-4 rounded-md transition duration-300 ${isSubmitting || isLoading
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-[#021373] text-white hover:bg-[#022873]"
-          }`}
+              : "bg-primary text-white hover:bg-primary/90"
+            }`}
           disabled={isSubmitting || isLoading}
         >
           {isSubmitting || isLoading ? (

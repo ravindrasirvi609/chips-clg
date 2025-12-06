@@ -5,8 +5,9 @@
 /* Optimized body styles for better performance */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: #e6e6e6;
+  /* Light theme background */
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   background-attachment: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -20,45 +21,48 @@ html {
 
 @layer base {
   :root {
-    /* Base colors */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Base colors - Light Theme */
+    --background: 0 0% 100%;
+    /* White */
+    --foreground: 222 47% 11%;
+    /* Dark Blue */
 
     /* Card and UI elements */
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
-    /* --card-glass-bg: removed */
-    /* --card-glass-border: removed */
-    /* --card-glass-shadow: removed */
+    --card: 0 0% 100%;
+    /* White */
+    --card-foreground: 222 47% 11%;
 
     /* Popover and overlay elements */
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary brand colors */
-    --primary: 170 80% 50%;
-    --primary-foreground: 222 47% 11%;
+    /* Primary brand colors - Keeping vibrant but suitable for light theme */
+    --primary: 170 80% 40%;
+    /* Slightly darker teal for contrast on white */
+    --primary-foreground: 0 0% 100%;
 
     /* Secondary colors */
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    /* Very light gray */
+    --secondary-foreground: 222 47% 11%;
 
     /* Muted UI elements */
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
     /* Accent colors */
-    --accent: 170 80% 30%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 170 80% 90%;
+    /* Light teal background */
+    --accent-foreground: 170 80% 30%;
 
     /* Destructive actions */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
     /* UI borders and inputs */
-    --border: 217 33% 20%;
-    --input: 217 33% 20%;
-    --ring: 170 80% 50%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 170 80% 40%;
 
     /* Chart colors */
     --chart-1: 170 80% 50%;
@@ -72,6 +76,7 @@ html {
   }
 
   .dark {
+    /* Keeping dark theme variables just in case, but default is now light */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
     --card: 222 47% 11%;
@@ -103,6 +108,7 @@ html {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -124,9 +130,10 @@ html {
   overflow-x: hidden;
 }
 
-/* Subtle background elements */
+/* Subtle background elements - Updated for light theme */
 .bg-accent-light {
   background: rgba(0, 255, 204, 0.05);
+  /* Keep distinct or make subtler? */
 }
 
 .bg-accent-dark {
@@ -135,18 +142,17 @@ html {
 
 /* Simplified text gradients with better performance */
 .text-gradient {
-  background: linear-gradient(90deg, rgb(0, 255, 204), rgb(0, 204, 255));
+  background: linear-gradient(90deg, #00b894, #0984e3);
+  /* Darker teal/blue for light bg */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-gradient-alt {
-  background: linear-gradient(
-    90deg,
-    rgba(204, 0, 255, 1),
-    rgba(0, 204, 255, 1)
-  );
+  background: linear-gradient(90deg,
+      #6c5ce7,
+      #0984e3);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

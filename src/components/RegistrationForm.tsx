@@ -46,7 +46,7 @@ const FormField = ({
   children?: React.ReactNode;
 }) => (
   <div className="mb-5">
-    <label className="block text-white font-medium mb-2">{label}</label>
+    <label className="block text-gray-700 font-medium mb-2">{label}</label>
     {children || (
       <input
         type={type}
@@ -55,11 +55,10 @@ const FormField = ({
         onChange={onChange}
         required={required}
         maxLength={maxLength}
-        className={`w-full px-4 py-3 rounded-xl ${
-          error
-            ? "bg-red-900/20 border border-red-500/50"
-            : "bg-white/5 border border-white/10"
-        } text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm`}
+        className={`w-full px-4 py-3 rounded-xl ${error
+            ? "bg-red-50 border border-red-300"
+            : "bg-white border border-gray-300"
+          } text-gray-900 placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none shadow-sm`}
       />
     )}
     {error && (
@@ -67,7 +66,7 @@ const FormField = ({
         <span className="mr-1">⚠</span> {error}
       </p>
     )}
-    {note && <p className="text-gray-400 text-sm mt-1">{note}</p>}
+    {note && <p className="text-gray-500 text-sm mt-1">{note}</p>}
   </div>
 );
 
@@ -169,21 +168,20 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
       <div className="space-y-6">
         {/* Image Uploader */}
         <div className="mb-6">
-          <label className="block text-white font-medium mb-2">
+          <label className="block text-gray-700 font-medium mb-2">
             Profile Picture
           </label>
           <div
             {...getRootProps()}
-            className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
-              isDragActive
-                ? "border-[#00CCFF] bg-[#00CCFF]/10"
-                : "border-white/20 hover:border-[#00CCFF]/50"
-            }`}
+            className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${isDragActive
+                ? "border-primary bg-primary/10"
+                : "border-gray-300 hover:border-primary/50"
+              }`}
           >
             <input {...getInputProps()} />
             {imageFile ? (
               <div className="flex flex-col items-center">
-                <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-[#00CCFF] mb-4">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-primary mb-4">
                   <Image
                     src={URL.createObjectURL(imageFile)}
                     alt="Profile preview"
@@ -192,14 +190,14 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
                     height={128}
                   />
                 </div>
-                <p className="text-sm text-gray-300">{imageFile.name}</p>
+                <p className="text-sm text-gray-600">{imageFile.name}</p>
               </div>
             ) : (
               <div>
-                <p className="text-gray-300">
+                <p className="text-gray-600">
                   Drag & drop an image here, or click to select one
                 </p>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-gray-500 mt-2">
                   (JPEG, JPG, or PNG, max 5MB)
                 </p>
               </div>
@@ -217,13 +215,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
           )}
           {isUploading && (
             <div className="mt-2">
-              <div className="bg-white/10 rounded-full h-2.5">
+              <div className="bg-gray-200 rounded-full h-2.5">
                 <div
-                  className="bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] h-2.5 rounded-full"
+                  className="bg-primary h-2.5 rounded-full"
                   style={{ width: `${uploadProgress}%` }}
                 ></div>
               </div>
-              <p className="text-sm text-gray-300 mt-1">
+              <p className="text-sm text-gray-600 mt-1">
                 Uploading: {uploadProgress}%
               </p>
             </div>
@@ -232,12 +230,12 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
 
         {/* Abstract Submission */}
         <div className="mb-6">
-          <label className="flex items-center mb-2 text-white">
+          <label className="flex items-center mb-2 text-gray-700">
             <input
               type="checkbox"
               checked={abstractSubmitted}
               onChange={(e) => setAbstractSubmitted(e.target.checked)}
-              className="mr-2 rounded border-white/20 text-[#00CCFF] focus:ring-[#00CCFF]"
+              className="mr-2 rounded border-gray-300 text-primary focus:ring-primary"
             />
             I have submitted an abstract
           </label>
@@ -248,18 +246,17 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
                 value={abstractCode}
                 onChange={(e) => setAbstractCode(e.target.value)}
                 placeholder="Enter your abstract code"
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none shadow-sm"
               />
 
               <button
                 type="button"
                 onClick={handleAbstractSubmission}
                 disabled={isAbstractFetching}
-                className={`px-5 py-2.5 rounded-full ${
-                  isAbstractFetching
-                    ? "bg-gray-600 cursor-not-allowed"
-                    : "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] font-semibold hover:shadow-[0_0_20px_rgba(0,204,255,0.5)]"
-                } transition-all duration-300`}
+                className={`px-5 py-2.5 rounded-full ${isAbstractFetching
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-primary text-white font-semibold hover:shadow-lg"
+                  } transition-all duration-300`}
               >
                 {isAbstractFetching ? "Fetching..." : "Fetch Abstract Details"}
               </button>
@@ -274,7 +271,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
 
         {/* Personal Information */}
         <div className="mb-5">
-          <label className="block text-white font-medium mb-2">
+          <label className="block text-gray-700 font-medium mb-2">
             Salutation
           </label>
           <select
@@ -282,21 +279,21 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
             value={formData.Salutations}
             onChange={onInputChange}
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none shadow-sm"
           >
-            <option value="Mr." className="bg-[#070B39]">
+            <option value="Mr.">
               Mr.
             </option>
-            <option value="Ms." className="bg-[#070B39]">
+            <option value="Ms.">
               Ms.
             </option>
-            <option value="Mrs." className="bg-[#070B39]">
+            <option value="Mrs.">
               Mrs.
             </option>
-            <option value="Dr." className="bg-[#070B39]">
+            <option value="Dr.">
               Dr.
             </option>
-            <option value="Prof." className="bg-[#070B39]">
+            <option value="Prof.">
               Prof.
             </option>
           </select>
@@ -334,21 +331,21 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
         />
 
         <div className="mb-5">
-          <label className="block text-white font-medium mb-2">Gender</label>
+          <label className="block text-gray-700 font-medium mb-2">Gender</label>
           <select
             name="gender"
             value={formData.gender}
             onChange={onInputChange}
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none shadow-sm"
           >
-            <option value="Male" className="bg-[#070B39]">
+            <option value="Male">
               Male
             </option>
-            <option value="Female" className="bg-[#070B39]">
+            <option value="Female">
               Female
             </option>
-            <option value="Other" className="bg-[#070B39]">
+            <option value="Other">
               Other
             </option>
           </select>
@@ -432,19 +429,19 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
         />
 
         <div className="mb-5">
-          <label className="block text-white font-medium mb-2">State</label>
+          <label className="block text-gray-700 font-medium mb-2">State</label>
           <select
             name="state"
             value={formData.state}
             onChange={onInputChange}
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none shadow-sm"
           >
-            <option value="" disabled className="bg-[#070B39]">
+            <option value="" disabled>
               Select your state
             </option>
             {indianStates.map((state) => (
-              <option key={state} value={state} className="bg-[#070B39]">
+              <option key={state} value={state}>
                 {state}
               </option>
             ))}
@@ -476,13 +473,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
         />
 
         <div className="mb-5">
-          <label className="flex items-center text-white">
+          <label className="flex items-center text-gray-700">
             <input
               type="checkbox"
               name="needAccommodation"
               checked={formData.needAccommodation}
               onChange={onInputChange}
-              className="mr-2 rounded border-white/20 text-[#00CCFF] focus:ring-[#00CCFF]"
+              className="mr-2 rounded border-gray-300 text-primary focus:ring-primary"
             />
             Need Accommodation
           </label>
