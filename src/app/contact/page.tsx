@@ -167,7 +167,7 @@ const ContactPage = () => {
               </h3>
               <div className="rounded-xl overflow-hidden border border-gray-200">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.8396851947967!2d80.4374!3d16.3067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a74c5f2e5e4d1%3A0x1234567890abcdef!2sChebrolu%20Hanumaiah%20Institute%20of%20Pharmaceutical%20Sciences!5e0!3m2!1sen!2sin!4v1703432423912!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4349823.3978435155!2d78.20565083117262!3d14.775039944979435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a76e3229a1b83%3A0xb859ed4d0357991e!2sChebrolu%20Hanumaiah%20Institute%20Of%20Pharmaceutical%20Sciences%20(Autonomous)!5e1!3m2!1sen!2sin!4v1764999698040!5m2!1sen!2sin"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
@@ -176,6 +176,7 @@ const ContactPage = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                   className="grayscale hover:grayscale-0 transition-all duration-300"
                 ></iframe>
+
               </div>
             </div>
 
