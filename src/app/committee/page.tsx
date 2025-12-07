@@ -101,7 +101,7 @@ const committees: Committee[] = [
     {
         name: "Hospitality Committee",
         members: [
-            { name: "Dr. J. Subba Rao", role: "Chairman", image: "/Committee/Subba Rao.webp" },
+            { name: "Dr. J. Ramesh Babu", role: "Chairman", image: "/Committee/Ramesh Babu.jpg" },
             { name: "Dr. P. Saidulu", role: "Co-Chairman", image: "/Committee/Saidhulu.webp" },
             { name: "Dr. S. Meraj Sultana", role: "Member", image: "/Committee/Meraj Sulthana.webp" },
             { name: "Mr. Y. Ashok Kumar", role: "Member", image: "/Committee/Ashok.webp" },
@@ -111,7 +111,7 @@ const committees: Committee[] = [
     {
         name: "Protocol & Entertainment Committee",
         members: [
-            { name: "Dr. J. Ramesh Babu", role: "Chairman", image: "/Committee/Ramesh Babu.jpg" },
+            { name: "Dr. J. Subba Rao", role: "Chairman", image: "/Committee/Subba Rao.webp" },
             { name: "Dr. V. Ravi", role: "Co-Chairman", image: "/Committee/V Ravi.webp" },
             { name: "Dr. M. Raghava Kalyan", role: "Member", image: "/Committee/Raghava Kalyan.webp" },
             { name: "Dr. V. Sindhu Vaishnavi", role: "Member", image: "/Committee/Sindhu vaishnavi.webp" },
