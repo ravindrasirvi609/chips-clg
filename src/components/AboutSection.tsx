@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Brain, Users, Building2, Globe, Zap } from "lucide-react";
 
@@ -75,8 +76,28 @@ const AboutSection = () => {
                     Jointly Organized By
                   </h4>
                   <p className="text-gray-600">
-                    Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
+                    Indian Pharmaceutical Association, AP state branch and IIC
                   </p>
+                  <div className="flex items-center gap-4 mt-3">
+                    <div className="w-16 h-16 relative bg-white rounded-lg shadow-sm border border-gray-100 p-1 flex items-center justify-center overflow-hidden">
+                      <Image
+                        src="/IPA Logo.JPG"
+                        alt="IPA Logo"
+                        width={80}
+                        height={80}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
+                    <div className="w-16 h-16 relative bg-white rounded-lg shadow-sm border border-gray-100 p-1 flex items-center justify-center overflow-hidden">
+                      <Image
+                        src="/iiclogo.png"
+                        alt="IIC Logo"
+                        width={80}
+                        height={80}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>

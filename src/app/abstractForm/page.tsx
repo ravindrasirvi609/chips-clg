@@ -103,7 +103,7 @@ const AbstractFormPage: React.FC = () => {
                     into the designated space on the submission portal.
                   </li>
                   <li>Abstracts must be submitted online only.</li>
-                  <li>The deadline for submission is 31 December, 2025.</li>
+                  <li>The deadline for submission is 17 January, 2026.</li>
                   <li>
                     A model abstract is available for reference on the website.
                   </li>
@@ -113,7 +113,7 @@ const AbstractFormPage: React.FC = () => {
                     href="https://docs.google.com/document/d/1XNRgI2o0S6oaC0quxcxj0Aw0CVV93Ft3/edit?usp=sharing&ouid=108384988200604232400&rtpof=true&sd=true"
                     className="text-[#034C8C] hover:text-[#000000] font-bold underline transition duration-300"
                   >
-                    NATIONAL CONFERENCE MODEL ABSTRACT
+                    MODEL ABSTRACT
                   </a>
                   <div className="flex flex-wrap gap-3 mt-4">
                     {/* <a

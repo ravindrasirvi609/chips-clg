@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-
 import React from "react";
 import { motion } from "framer-motion";
-import { Crown, Users, Star, Award } from "lucide-react";
+import { Crown, Users, Star, Award, Sparkles } from "lucide-react";
 
 interface CommitteeMember {
     name: string;
@@ -154,61 +153,67 @@ const LeadershipCard = ({
 }) => (
     <motion.div
         variants={itemVariants}
-        className={`relative group ${isChief ? "col-span-full md:col-span-1 lg:col-span-full" : ""}`}
+        className={`relative group ${isChief ? "col-span-full md:col-span-1 lg:col-span-full max-w-2xl mx-auto w-full" : ""}`}
     >
         <div
-            className={`h-full bg-white shadow-lg ${isChief
-                ? "border-amber-400/30 shadow-amber-100"
-                : "border-gray-100 shadow-gray-100"
-                } border rounded-3xl p-6 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] relative overflow-hidden`}
+            className={`h-full bg-white transition-all duration-300 relative overflow-hidden rounded-3xl group-hover:-translate-y-1
+                ${isChief
+                    ? "border-2 border-amber-100 shadow-xl shadow-amber-900/5 hover:shadow-2xl hover:shadow-amber-900/10"
+                    : "border border-gray-100 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-indigo-500/10"
+                }`}
         >
-            {/* Background Gradient for specific cards */}
-            {isChief && (
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400/10 to-orange-500/10 rounded-bl-full -mr-8 -mt-8 transition-transform duration-500 group-hover:scale-150"></div>
-            )}
+            {/* Decorative Background Blob */}
+            <div className={`absolute -top-16 -right-16 w-32 h-32 rounded-full blur-2xl opacity-50 z-0 transition-colors duration-500
+                ${isChief ? "bg-amber-200" : "bg-indigo-100"}`}
+            />
+            {isChief && <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-orange-100 rounded-full blur-3xl opacity-50 z-0" />}
 
-            <div className="flex flex-col sm:flex-row items-center gap-6 relative z-10">
-                <div className="relative">
-                    <div
-                        className={`w-24 h-24 rounded-full flex items-center justify-center overflow-hidden border-4 shadow-md transition-colors duration-300 ${isChief
-                            ? "bg-gradient-to-br from-amber-400 to-orange-500 border-amber-50 group-hover:border-amber-200"
-                            : "bg-primary/5 border-white group-hover:border-primary/20"
-                            }`}
-                    >
+            <div className={`relative z-10 flex ${isChief ? 'flex-col sm:flex-row p-8' : 'flex-col p-6'} items-center gap-6 text-center sm:text-left`}>
+
+                {/* Image Container */}
+                <div className="relative flex-shrink-0">
+                    <div className={`relative rounded-full overflow-hidden shadow-inner
+                        ${isChief
+                            ? "w-32 h-32 ring-4 ring-amber-50 group-hover:ring-amber-100"
+                            : "w-28 h-28 ring-4 ring-gray-50 group-hover:ring-indigo-50"
+                        } transition-all duration-300`}>
                         {image ? (
                             <Image
                                 src={image}
                                 alt={name}
-                                width={96}
-                                height={96}
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                             />
-                        ) : isChief ? (
-                            <Crown className="w-10 h-10 text-white" />
                         ) : (
-                            <Star className="w-10 h-10 text-primary" />
+                            <div className={`w-full h-full flex items-center justify-center ${isChief ? "bg-amber-50" : "bg-indigo-50"}`}>
+                                {isChief ? <Crown className="w-10 h-10 text-amber-500" /> : <Star className="w-8 h-8 text-indigo-500" />}
+                            </div>
                         )}
                     </div>
+
+                    {/* Badge */}
                     {isChief && (
-                        <div className="absolute -bottom-2 -right-2 bg-amber-500 text-white p-1.5 rounded-full shadow-sm">
+                        <div className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white p-2 rounded-full shadow-lg border-2 border-white">
                             <Crown className="w-4 h-4" />
                         </div>
                     )}
                 </div>
 
-                <div className="text-center sm:text-left">
+                {/* Content */}
+                <div className={`${isChief ? "" : "flex flex-col items-center"}`}>
                     <span
-                        className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 inline-block ${isChief
-                            ? "text-amber-700 bg-amber-100"
-                            : "text-primary bg-primary/10"
+                        className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2 inline-flex items-center gap-1.5
+                        ${isChief
+                                ? "text-amber-700 bg-amber-50 border border-amber-100"
+                                : "text-indigo-600 bg-indigo-50 border border-indigo-100"
                             }`}
                     >
+                        {isChief && <Crown className="w-3 h-3" />}
                         {title}
                     </span>
-                    <h3 className={`text-xl md:text-2xl font-bold mt-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-300 ${isChief
-                        ? "text-gray-900 from-amber-600 to-orange-600"
-                        : "text-gray-900 from-primary to-blue-600"
-                        }`}>
+                    <h3 className={`font-bold transition-colors duration-300 
+                        ${isChief ? "text-2xl md:text-3xl text-gray-900" : "text-xl text-gray-900 group-hover:text-indigo-700"}
+                    `}>
                         {name}
                     </h3>
                 </div>
@@ -220,22 +225,25 @@ const LeadershipCard = ({
 // Patron Card Component
 const PatronCard = ({ name, image }: { name: string; image?: string }) => (
     <motion.div variants={itemVariants} className="group h-full">
-        <div className="h-full bg-white border border-purple-100 rounded-3xl p-6 transition-all duration-500 hover:shadow-xl hover:shadow-purple-100/50 hover:-translate-y-1 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-purple-50 rounded-bl-full -mr-6 -mt-6 transition-transform duration-500 group-hover:scale-150"></div>
+        <div className="h-full bg-white border border-gray-100 rounded-3xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1 relative overflow-hidden">
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            <div className="flex items-center gap-4 relative z-10">
-                <div className="w-16 h-16 rounded-full bg-purple-50 flex-shrink-0 flex items-center justify-center overflow-hidden border-2 border-white shadow-sm group-hover:border-purple-200 transition-colors duration-300">
-                    {image ? (
-                        <Image
-                            src={image}
-                            alt={name}
-                            width={64}
-                            height={64}
-                            className="w-full h-full object-cover"
-                        />
-                    ) : (
-                        <Award className="w-8 h-8 text-purple-600" />
-                    )}
+            <div className="flex flex-col items-center text-center gap-4 relative z-10">
+                <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-br from-purple-100 to-white shadow-sm group-hover:shadow-md transition-all duration-300">
+                    <div className="w-full h-full rounded-full overflow-hidden relative bg-white">
+                        {image ? (
+                            <Image
+                                src={image}
+                                alt={name}
+                                fill
+                                className="object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                            />
+                        ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-purple-50">
+                                <Award className="w-8 h-8 text-purple-400" />
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div>
                     <span className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-1 block">
@@ -252,60 +260,68 @@ const PatronCard = ({ name, image }: { name: string; image?: string }) => (
 const CommitteeCard = ({ committee }: { committee: Committee }) => (
     <motion.div
         variants={itemVariants}
-        className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-lg shadow-gray-100/50 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+        className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-lg shadow-gray-200/40 hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300 flex flex-col h-full"
     >
-        <div className="bg-gradient-to-r from-gray-50 to-white px-8 py-6 border-b border-gray-100 flex items-center gap-4 group">
-            <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-gray-100">
-                <Users className="w-5 h-5 text-primary" />
+        {/* Header */}
+        <div className="bg-gradient-to-br from-gray-50 to-white px-8 py-6 border-b border-gray-100 flex items-center gap-4 group">
+            <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center border border-gray-100 group-hover:scale-105 transition-transform duration-300 group-hover:shadow-md group-hover:border-primary/20">
+                <Users className="w-6 h-6 text-primary group-hover:text-blue-600 transition-colors" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900">{committee.name}</h3>
+            <h3 className="text-xl font-bold text-gray-900 leading-tight">{committee.name}</h3>
         </div>
 
-        <div className="p-6 md:p-8 bg-white flex-grow">
+        {/* Members */}
+        <div className="p-6 bg-white flex-grow">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {committee.members.map((member, index) => (
-                    <div
-                        key={index}
-                        className={`flex items-center gap-3 p-3 rounded-2xl transition-all duration-300 hover:shadow-md border ${member.role === "Chairman"
-                            ? "bg-amber-50/50 border-amber-100 hover:border-amber-300"
-                            : member.role === "Co-Chairman"
-                                ? "bg-cyan-50/50 border-cyan-100 hover:border-cyan-300"
-                                : "bg-white border-gray-50 hover:border-primary/30"
-                            }`}
-                    >
-                        <div className={`w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 shadow-sm ${member.role === "Chairman" ? "border-amber-200" :
-                            member.role === "Co-Chairman" ? "border-cyan-200" : "border-gray-100"
-                            }`}>
-                            {member.image ? (
-                                <Image
-                                    src={member.image}
-                                    alt={member.name}
-                                    width={48}
-                                    height={48}
-                                    className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-                                />
-                            ) : (
-                                <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                                    <Users className="w-5 h-5 text-gray-400" />
-                                </div>
-                            )}
-                        </div>
+                {committee.members.map((member, index) => {
+                    const isChair = member.role === "Chairman";
+                    const isCoChair = member.role === "Co-Chairman";
 
-                        <div className="flex flex-col min-w-0">
-                            <span className="text-sm font-bold text-gray-800 truncate block w-full">{member.name}</span>
-                            <span
-                                className={`text-[10px] uppercase tracking-wider font-bold mt-0.5 ${member.role === "Chairman"
-                                    ? "text-amber-600"
-                                    : member.role === "Co-Chairman"
-                                        ? "text-cyan-600"
-                                        : "text-gray-400"
-                                    }`}
-                            >
-                                {member.role}
-                            </span>
+                    let bgClass = "bg-white border-gray-100 hover:border-gray-200 hover:shadow-sm";
+                    let ringClass = "border-gray-100";
+                    let roleClass = "text-gray-500 bg-gray-50 border-gray-100";
+
+                    if (isChair) {
+                        bgClass = "bg-amber-50/30 border-amber-100 hover:border-amber-200 hover:bg-amber-50/50";
+                        ringClass = "border-amber-200";
+                        roleClass = "text-amber-700 bg-amber-50 border-amber-100";
+                    } else if (isCoChair) {
+                        bgClass = "bg-cyan-50/30 border-cyan-100 hover:border-cyan-200 hover:bg-cyan-50/50";
+                        ringClass = "border-cyan-200";
+                        roleClass = "text-cyan-700 bg-cyan-50 border-cyan-100";
+                    }
+
+                    return (
+                        <div
+                            key={index}
+                            className={`flex items-center gap-3 p-3 rounded-2xl border transition-all duration-300 ${bgClass}`}
+                        >
+                            <div className={`w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 shadow-sm relative ${ringClass}`}>
+                                {member.image ? (
+                                    <Image
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        className="object-cover object-top"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                                        <Users className="w-5 h-5 text-gray-400" />
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="flex flex-col min-w-0">
+                                <span className="text-sm font-bold text-gray-800 truncate block w-full leading-tight">
+                                    {member.name}
+                                </span>
+                                <span className={`text-[10px] uppercase tracking-wider font-bold mt-1 px-2 py-0.5 rounded-full w-fit border ${roleClass}`}>
+                                    {member.role}
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     </motion.div>
@@ -313,13 +329,12 @@ const CommitteeCard = ({ committee }: { committee: Committee }) => (
 
 const CommitteePage = () => {
     return (
-        <div className="bg-gray-50 min-h-screen relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            {/* Animated background elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-                <div className="absolute top-10 left-10 w-96 h-96 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-                <div className="absolute top-1/4 right-10 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-                <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-                <div className="absolute bottom-10 right-1/3 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-6000"></div>
+        <div className="bg-gray-50/50 min-h-screen relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            {/* Elegant Background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-gradient-to-br from-blue-100/40 to-purple-100/40 rounded-full blur-3xl" />
+                <div className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] bg-gradient-to-bl from-teal-100/40 to-emerald-100/40 rounded-full blur-3xl" />
+                <div className="absolute -bottom-[20%] left-[20%] w-[40%] h-[40%] bg-gradient-to-t from-orange-100/30 to-rose-100/30 rounded-full blur-3xl" />
             </div>
 
             <motion.div
@@ -329,71 +344,92 @@ const CommitteePage = () => {
                 className="max-w-7xl mx-auto relative z-10"
             >
                 {/* Page Title */}
-                <motion.div variants={itemVariants} className="text-center mb-16">
-                    <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
-                            Organising Committee
+                <motion.div variants={itemVariants} className="text-center mb-20">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm mb-6">
+                        <Sparkles className="w-4 h-4 text-amber-500" />
+                        <span className="text-xs font-semibold text-gray-600 tracking-wide uppercase">The Team Behind The Vision</span>
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-gray-900">
+                        Organising{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                            Committee
                         </span>
                     </h1>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Meet the dedicated team behind INNOVATE PHARMA 2026
+                    <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                        Dedicated professionals working together to make INNOVATE PHARMA 2026 a grand success.
                     </p>
                 </motion.div>
 
                 {/* Leadership Section */}
-                <motion.section variants={containerVariants} className="mb-16">
-                    <motion.h2
-                        variants={itemVariants}
-                        className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3"
-                    >
-                        <Crown className="w-6 h-6 text-amber-500" />
-                        <span>Leadership</span>
-                    </motion.h2>
+                <motion.section variants={containerVariants} className="mb-24">
+                    <div className="flex items-center justify-center mb-12">
+                        <div className="h-px w-12 bg-gray-200" />
+                        <h2 className="mx-4 text-2xl font-bold text-gray-800 uppercase tracking-widest flex items-center gap-2">
+                            Leadership
+                        </h2>
+                        <div className="h-px w-12 bg-gray-200" />
+                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {/* Chief Patron - Full Width */}
-                        <LeadershipCard
-                            name={chiefPatron.name}
-                            title={chiefPatron.title}
-                            image={chiefPatron.image}
-                            isChief={true}
-                        />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                        {/* Chief Patron - Centered in grid logic */}
+                        <div className="lg:col-start-2 lg:row-start-1">
+                            <LeadershipCard
+                                name={chiefPatron.name}
+                                title={chiefPatron.title}
+                                image={chiefPatron.image}
+                            />
+                        </div>
 
                         {/* Patrons */}
-                        {patrons.map((patron, index) => (
-                            <PatronCard key={index} name={patron.name} image={patron.image} />
-                        ))}
+                        <div className="lg:col-start-1 lg:row-start-2">
+                            <PatronCard name={patrons[0].name} image={patrons[0].image} />
+                        </div>
+                        <div className="lg:col-start-3 lg:row-start-2">
+                            <PatronCard name={patrons[1].name} image={patrons[1].image} />
+                        </div>
 
-                        {/* Convener */}
-                        <LeadershipCard name={convener.name} title={convener.title} image={convener.image} />
+                        {/* Convener & Org Secretary - Row 2 center */}
+                        <div className="lg:col-start-1 lg:row-start-3">
+                            <LeadershipCard name={convener.name} title={convener.title} image={convener.image} />
+                        </div>
 
-                        {/* Organising Secretary */}
+                        {/* Center spacer or additional layout logic could go here, but fitting into grid 
+                             We have 5 items excluding Chief. 
+                             Layout: 
+                             [ ] [Chief] [ ]
+                             [P1] [ ] [P2]
+                             [Conv] [Org] [Media]
+                         */}
+                    </div>
+
+                    {/* Alternative Grid handling to match the specific layout requested usually */}
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                         <LeadershipCard
                             name={organisingSecretary.name}
                             title={organisingSecretary.title}
                             image={organisingSecretary.image}
                         />
-
-                        {/* Media Partner */}
                         <LeadershipCard
                             name={mediaPartner.name}
                             title={mediaPartner.title}
                             image={mediaPartner.image}
                         />
+                        {/* To balance the grid visually if needed, but 3 cols is good for standard view */}
                     </div>
                 </motion.section>
 
                 {/* Committees Section */}
                 <motion.section variants={containerVariants}>
-                    <motion.h2
-                        variants={itemVariants}
-                        className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3"
-                    >
-                        <Users className="w-6 h-6 text-primary" />
-                        <span>Organising Committees</span>
-                    </motion.h2>
+                    <div className="flex items-center justify-center mb-12">
+                        <div className="h-px w-12 bg-gray-200" />
+                        <h2 className="mx-4 text-2xl font-bold text-gray-800 uppercase tracking-widest flex items-center gap-2">
+                            <Users className="w-6 h-6 text-blue-500" />
+                            Committees
+                        </h2>
+                        <div className="h-px w-12 bg-gray-200" />
+                    </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {committees.map((committee, index) => (
                             <CommitteeCard key={index} committee={committee} />
                         ))}
