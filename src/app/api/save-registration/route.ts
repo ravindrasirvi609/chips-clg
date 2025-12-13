@@ -104,9 +104,10 @@ export async function POST(req: NextRequest) {
       },
       { status: 201 }
     );
-  } catch {
+  } catch (error) {
+    console.error("Error saving registration:", error);
     return NextResponse.json(
-      { message: "Error saving registration" },
+      { message: "Error saving registration", error: String(error) },
       { status: 500 }
     );
   }
