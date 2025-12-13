@@ -48,20 +48,47 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }
     }
 
-    // If we found a registration but not an abstract, try to find the corresponding abstract
-    if (registration && registration.registrationCode && !abstract) {
-      abstract = (await AbstractModel.findOne({
-        registrationCode: registration.registrationCode,
-      }).lean()) as IAbstract | null;
-      console.log("abstract----3", abstract);
+    // If we found a registration but not an abstract
+    if (registration && !abstract) {
+      // 1. Try by abstractId in registration
+      if (registration.abstractId) {
+        abstract = (await AbstractModel.findById(
+          registration.abstractId
+        ).lean()) as IAbstract | null;
+      }
+
+      // 2. Try by email if still not found
+      if (!abstract && registration.email) {
+        abstract = (await AbstractModel.findOne({
+          email: registration.email,
+        }).lean()) as IAbstract | null;
+      }
+
+      // 3. Try by registrationCode (existing legacy link)
+      if (!abstract && registration.registrationCode) {
+        abstract = (await AbstractModel.findOne({
+          registrationCode: registration.registrationCode,
+        }).lean()) as IAbstract | null;
+      }
+      console.log("abstract found via linking:", abstract);
     }
 
-    // If we found an abstract but not a registration, try to find the corresponding registration
-    if (abstract && !registration && abstract.registrationCode) {
-      registration = (await RegistrationModel.findOne({
-        registrationCode: abstract.registrationCode,
-      }).lean()) as IRegistration | null;
-      console.log("registration----3", registration);
+    // If we found an abstract but not a registration
+    if (abstract && !registration) {
+      // 1. Try by email
+      if (abstract.email) {
+        registration = (await RegistrationModel.findOne({
+          email: abstract.email,
+        }).lean()) as IRegistration | null;
+      }
+
+      // 2. Try by registrationCode if still not found
+      if (!registration && abstract.registrationCode) {
+        registration = (await RegistrationModel.findOne({
+          registrationCode: abstract.registrationCode,
+        }).lean()) as IRegistration | null;
+      }
+      console.log("registration found via linking:", registration);
     }
 
     if (!abstract && !registration) {
