@@ -11,7 +11,8 @@ export async function GET(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   { params }: any
 ) {
-  const { code } = params;
+  // In Next.js 15, params is a Promise and must be awaited
+  const { code } = await params;
 
   try {
     const abstract = await AbstractModel.findOne({
