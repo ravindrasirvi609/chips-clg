@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { connect } from "@/dbConfig/dbConfig";
 import AbstractModel from "@/Model/AbstractModel";
 
+// Disable Next.js caching to always fetch fresh data
+export const dynamic = 'force-dynamic';
+
 connect();
 export async function GET(
   request: NextRequest,
