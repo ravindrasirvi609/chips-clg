@@ -9,6 +9,7 @@ import {
   ArrowRight,
   FileText,
   Sparkles,
+  Download,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -151,6 +152,24 @@ const CallForAbstracts = () => {
                 <Link href="/abstractForm">
                   <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm">
                     View Guidelines
+                  </button>
+                </Link>
+                <Link
+                  href="https://docs.google.com/presentation/d/1W5-aeODAvLvh-43WHf_XESsrmLmWKWwX/edit?rtpof=true&sd=true&pli=1"
+                  target="_blank"
+                >
+                  <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm flex items-center gap-2">
+                    <Download className="w-5 h-5" />
+                    e-Poster Template
+                  </button>
+                </Link>
+                <Link
+                  href="https://docs.google.com/presentation/d/16F9_RbW6C8q7CebiaMS3OCmhGoSF43mD/edit?slide=id.p1#slide=id.p1"
+                  target="_blank"
+                >
+                  <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm flex items-center gap-2">
+                    <Download className="w-5 h-5" />
+                    Oral Template
                   </button>
                 </Link>
               </div>
