@@ -137,6 +137,26 @@ const HeroSection = () => {
                     Submit Abstract
                   </button>
                 </Link>
+
+                <Link
+                  href="https://docs.google.com/presentation/d/1W5-aeODAvLvh-43WHf_XESsrmLmWKWwX/edit?rtpof=true&sd=true&pli=1"
+                  target="_blank"
+                >
+                  <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-primary hover:text-primary transition-colors flex items-center group shadow-sm hover:shadow-md">
+                    <Download className="w-5 h-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
+                    e-Poster Template
+                  </button>
+                </Link>
+
+                <Link
+                  href="https://docs.google.com/presentation/d/16F9_RbW6C8q7CebiaMS3OCmhGoSF43mD/edit?slide=id.p1#slide=id.p1"
+                  target="_blank"
+                >
+                  <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-primary hover:text-primary transition-colors flex items-center group shadow-sm hover:shadow-md">
+                    <Download className="w-5 h-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
+                    Oral Template
+                  </button>
+                </Link>
                 {/* Resource buttons moved from CallForAbstracts */}
                 {/* <a
                   href="https://docs.google.com/presentation/d/1L_e3SSNTSXFWkthYOO5wOk3xhSzYhPBc/edit?usp=sharing"
