@@ -144,9 +144,11 @@ const CallForAbstracts = () => {
                 future of healthcare.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <button className="px-8 py-3 rounded-lg font-semibold text-white bg-gray-400 cursor-not-allowed">
-                  Submission Closed
-                </button>
+                <Link href="/abstractForm">
+                  <button className="px-8 py-3 rounded-lg font-semibold text-white bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:scale-105">
+                    Submit Abstract
+                  </button>
+                </Link>
                 <Link href="/abstractForm">
                   <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm">
                     View Guidelines
