@@ -195,10 +195,10 @@ const AbstractFormPage: React.FC = () => {
           <section className="mt-8 bg-blue-600 p-6 rounded-lg shadow-md text-white">
             <h3 className="text-xl font-semibold mb-4">Submit Abstract</h3>
             <button
-              onClick={handleSubmitClick}
-              className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300"
+              disabled
+              className="bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded cursor-not-allowed"
             >
-              Submit Abstract
+              Submission Closed
             </button>
           </section>
 

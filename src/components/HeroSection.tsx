@@ -131,12 +131,10 @@ const HeroSection = () => {
                   </button>
                 </Link>
 
-                <Link href="/abstractForm">
-                  <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-primary hover:text-primary transition-colors flex items-center group shadow-sm hover:shadow-md">
-                    <Download className="w-5 h-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
-                    Submit Abstract
-                  </button>
-                </Link>
+                <button className="px-6 py-3 bg-gray-100 text-gray-400 font-semibold rounded-lg border border-gray-200 cursor-not-allowed flex items-center shadow-sm">
+                  <Download className="w-5 h-5 mr-2 text-gray-400" />
+                  Submission Closed
+                </button>
 
                 <Link
                   href="https://docs.google.com/presentation/d/1W5-aeODAvLvh-43WHf_XESsrmLmWKWwX/edit?rtpof=true&sd=true&pli=1"
