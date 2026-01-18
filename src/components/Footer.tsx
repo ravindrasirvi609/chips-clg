@@ -117,7 +117,7 @@ const Footer = () => {
                     className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
-                    Submit Abstract
+                    Abstract Guidelines
                   </Link>
                 </li>
               </ul>

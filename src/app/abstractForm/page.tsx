@@ -1,20 +1,6 @@
-"use client";
-import AbstractForm from "@/components/abstract-form";
-import React, { useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+import React from "react";
 
 const AbstractFormPage: React.FC = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [showDialog, setShowDialog] = useState(false);
-
-  const handleSubmitClick = () => {
-    setShowDialog(true);
-  };
-
-  const handleDialogClose = () => {
-    setShowDialog(false);
-    setShowForm(true);
-  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -24,12 +10,11 @@ const AbstractFormPage: React.FC = () => {
             International Conference
           </h1>
 
-          <section className="mt-8 bg-blue-600 p-6 my-2 rounded-lg shadow-md text-white">
+          <section className="mt-8 bg-gray-100 p-6 my-2 rounded-lg shadow-md text-gray-700 border-l-4 border-blue-600">
             <p className="mb-4">
-              The International Conference Scientific Committee (NSC) invites
-              delegates to submit their original scientific work as abstracts
-              for presentation during the Congress as Poster and/or Oral
-              presentations.
+              The call for abstracts for the International Conference is now closed.
+              The International Conference Scientific Committee (NSC) thanks all participants
+              who submitted their research for presentation during the Congress.
             </p>
           </section>
 
@@ -192,74 +177,15 @@ const AbstractFormPage: React.FC = () => {
             </div>
           </div>
 
-          <section className="mt-8 bg-blue-600 p-6 rounded-lg shadow-md text-white">
-            <h3 className="text-xl font-semibold mb-4">Submit Abstract</h3>
-            <button
-              onClick={handleSubmitClick}
-              className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300"
-            >
-              Submit Abstract
-            </button>
+          <section className="mt-8 bg-red-50 p-6 rounded-lg shadow-md border border-red-200 text-center">
+            <h3 className="text-xl font-semibold mb-2 text-red-700">Submissions Closed</h3>
+            <p className="text-red-600 font-medium">
+              The abstract submission deadline has passed (17 January, 2026).
+              New submissions are no longer being accepted.
+            </p>
           </section>
 
-          {showDialog && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-              <div className="bg-white rounded-lg p-6 max-w-md w-full text-black">
-                <h2 className="text-xl font-semibold mb-4">
-                  Important Instructions
-                </h2>
-                <div className="mb-4">
-                  <p className="mb-2">
-                    Please read the following instructions carefully before
-                    submitting your abstract:
-                  </p>
-                  <ul className="list-disc pl-5 mb-4">
-                    <li>
-                      Ensure your abstract is original and not previously
-                      published.
-                    </li>
-                    <li>
-                      Follow the guidelines provided on the website for abstract
-                      preparation.
-                    </li>
-                    <li>Submit only one abstract per presenting author.</li>
-                    <li>Double-check all information before submission.</li>
-                    <li className="font-bold">
-                      Please note that if you have submitted multiple abstracts,
-                      you will not be eligible for conference registration.{" "}
-                    </li>
-                  </ul>
-                  <p className="mb-2">
-                    If you encounter any technical issues, please contact our
-                    support team:
-                  </p>
-                  <div className="flex items-center">
-                    <FaWhatsapp className="mr-2" size={24} />
-                    <a
-                      href="https://wa.me/919866204171"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      +91 9866204171
-                    </a>
-                  </div>
-                </div>
-                <button
-                  onClick={handleDialogClose}
-                  className="bg-blue-600 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded transition duration-300"
-                >
-                  Proceed to Submit
-                </button>
-              </div>
-            </div>
-          )}
-
-          {showForm && (
-            <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
-              <AbstractForm />
-            </div>
-          )}
+          {/* Form and Dialog removed as submissions are closed */}
         </div>
       </div>
     </div>

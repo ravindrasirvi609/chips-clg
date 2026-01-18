@@ -58,9 +58,8 @@ const CallForAbstracts = () => {
           </h2>
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We invite researchers and innovators to share cutting-edge work at
-            the International Conference. Submit your abstract to contribute to
-            the advancement of pharmaceutical sciences and healthcare.
+            The abstract submission period for the International Conference has now concluded.
+            We thank all researchers and innovators who contributed their work.
           </p>
         </div>
 
@@ -136,19 +135,17 @@ const CallForAbstracts = () => {
                 <Sparkles className="w-8 h-8 text-[#00FFCC]" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gradient">
-                Ready to Submit Your Research?
+                Abstract Submissions are Closed
               </h3>
               <p className="text-gray-600 mb-6">
-                Join the International Conference scientific community. Share
-                your research, network with experts, and contribute to the
-                future of healthcare.
+                Thank you for your interest! The abstract submission period for
+                the International Conference has now ended. We look forward to
+                seeing you at the conference.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/abstractForm">
-                  <button className="px-8 py-3 rounded-lg font-semibold text-white bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:scale-105">
-                    Submit Abstract
-                  </button>
-                </Link>
+                <button className="px-8 py-3 rounded-lg font-semibold text-gray-500 bg-gray-200 border border-gray-300 cursor-not-allowed">
+                  Submissions Closed
+                </button>
                 <Link href="/abstractForm">
                   <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm">
                     View Guidelines
