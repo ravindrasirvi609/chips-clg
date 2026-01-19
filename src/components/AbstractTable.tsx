@@ -223,6 +223,7 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
             <th className="py-3 px-6 text-left">Article Type</th>
             <th className="py-3 px-6 text-left">Registration Status</th>
             <th className="py-3 px-6 text-left">Registration Code</th>
+            <th className="py-3 px-6 text-left">Registration Type</th>
             <th className="py-3 px-6 text-left">Status</th>
             <th className="py-3 px-6 text-center">Actions</th>
           </tr>
@@ -273,11 +274,10 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
               <td className="py-3 px-6 text-left">{abstract.articleType}</td>
               <td className="py-3 px-6 text-left">
                 <span
-                  className={`py-1 px-3 rounded-full text-xs ${
-                    abstract.registrationCompleted
-                      ? "bg-green-500 text-black"
-                      : "bg-red-500 text-white"
-                  }`}
+                  className={`py-1 px-3 rounded-full text-xs ${abstract.registrationCompleted
+                    ? "bg-green-500 text-black"
+                    : "bg-red-500 text-white"
+                    }`}
                 >
                   {abstract.registrationCompleted ? "Complete" : "Incomplete"}
                 </span>
@@ -287,15 +287,26 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
               </td>
               <td className="py-3 px-6 text-left">
                 <span
-                  className={`py-1 px-3 rounded-full text-xs ${
-                    abstract.Status === "Accepted"
-                      ? "bg-green-500 text-white"
-                      : abstract.Status === "Revision"
+                  className={`py-1 px-3 rounded-full text-xs ${abstract.registrationType === "Online"
+                      ? "bg-blue-100 text-blue-800"
+                      : abstract.registrationType === "Offline"
+                        ? "bg-purple-100 text-purple-800"
+                        : "bg-gray-100 text-gray-600"
+                    }`}
+                >
+                  {abstract.registrationType || "N/A"}
+                </span>
+              </td>
+              <td className="py-3 px-6 text-left">
+                <span
+                  className={`py-1 px-3 rounded-full text-xs ${abstract.Status === "Accepted"
+                    ? "bg-green-500 text-white"
+                    : abstract.Status === "Revision"
                       ? "bg-red-500 text-white"
                       : abstract.Status === "InReview"
-                      ? "bg-blue-500 text-white"
-                      : "bg-yellow-200 text-yellow-800"
-                  }`}
+                        ? "bg-blue-500 text-white"
+                        : "bg-yellow-200 text-yellow-800"
+                    }`}
                 >
                   {abstract.Status}
                 </span>

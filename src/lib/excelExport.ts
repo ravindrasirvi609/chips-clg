@@ -105,6 +105,7 @@ export interface Abstract {
   AbstractCode: string;
   registrationCompleted: boolean;
   registrationCode: string;
+  registrationType: string;
   Status: string;
   abstractFileUrl: string;
   presentationType: string;
@@ -140,6 +141,7 @@ export const exportAbstractsToExcel = (
     "Co-Author": item.coAuthor,
     "Registration Completed": item.registrationCompleted ? "Yes" : "No",
     "Registration Code": item.registrationCode,
+    "Registration Type": item.registrationType || "N/A",
     Status: item.Status,
     "Abstract File URL": item.abstractFileUrl,
     "Presentation Type": item.presentationType,

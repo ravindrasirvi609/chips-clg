@@ -1,4 +1,5 @@
 import AbstractModel from "@/Model/AbstractModel";
+import RegistrationModel from "@/Model/RegistrationModel";
 import { connect } from "@/dbConfig/dbConfig";
 import { NextResponse } from "next/server";
 
@@ -14,8 +15,32 @@ export async function GET() {
       createdAt: { $gt: new Date("2025-06-01T00:00:00Z") },
     }).lean();
 
+    // Fetch registration types for abstracts that have registrationCode
+    const registrationCodes = abstracts
+      .filter((a) => a.registrationCode)
+      .map((a) => a.registrationCode);
+
+    const registrations = await RegistrationModel.find({
+      registrationCode: { $in: registrationCodes },
+    })
+      .select("registrationCode registrationType")
+      .lean();
+
+    // Create a map of registrationCode to registrationType
+    const registrationTypeMap = new Map(
+      registrations.map((r) => [r.registrationCode, r.registrationType || "N/A"])
+    );
+
+    // Add registrationType to each abstract
+    const abstractsWithRegistrationType = abstracts.map((abstract) => ({
+      ...abstract,
+      registrationType: abstract.registrationCode
+        ? registrationTypeMap.get(abstract.registrationCode) || "N/A"
+        : "N/A",
+    }));
+
     // Check if abstracts exist
-    if (!abstracts || abstracts.length === 0) {
+    if (!abstractsWithRegistrationType || abstractsWithRegistrationType.length === 0) {
       return NextResponse.json(
         { message: "No abstracts found" },
         { status: 404 }
@@ -25,7 +50,7 @@ export async function GET() {
     // Return the list of abstracts with cache control headers
     const response = NextResponse.json({
       message: "Abstracts fetched successfully",
-      abstracts,
+      abstracts: abstractsWithRegistrationType,
     });
 
     // Set cache control headers
