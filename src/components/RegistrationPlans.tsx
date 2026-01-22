@@ -361,10 +361,10 @@ const RegistrationPlans: React.FC = () => {
         />
         <div className="mt-6">
           <button
-            onClick={() => openModal(plan)}
-            className="w-full py-3 px-4 rounded-full bg-primary text-white font-bold hover:shadow-lg transition-all duration-300"
+            disabled
+            className="w-full py-3 px-4 rounded-full bg-gray-200 text-gray-400 font-bold cursor-not-allowed"
           >
-            Register Now
+            Closed
           </button>
         </div>
       </div>
@@ -394,11 +394,12 @@ const RegistrationPlans: React.FC = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 py-8">
-          <Link href="/group-registration">
-            <button className="py-4 px-8 rounded-full bg-primary text-white text-xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-              Group Registration Form
-            </button>
-          </Link>
+          <button
+            disabled
+            className="py-4 px-8 rounded-full bg-gray-200 text-gray-400 text-xl font-bold cursor-not-allowed"
+          >
+            Group Registration Closed
+          </button>
           <Link href="/contact">
             <button className="py-4 px-8 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white text-xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               Contact Us for Help

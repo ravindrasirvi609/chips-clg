@@ -114,22 +114,15 @@ const HeroSection = () => {
 
               {/* CTA buttons with enhanced hover effects */}
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/registration"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  disabled
+                  className="px-6 py-3 bg-gray-200 text-gray-400 font-semibold rounded-lg border border-gray-300 cursor-not-allowed flex items-center group shadow-sm"
                 >
-                  <button
-                    onClick={handleRegisterClick}
-                    className="group relative px-6 py-3 bg-primary text-white font-semibold rounded-lg overflow-hidden transition-all hover:shadow-lg hover:shadow-primary/30"
-                  >
-                    <span className="relative z-10 flex items-center">
-                      Registration Now
-                      <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-                  </button>
-                </Link>
+                  <span className="relative z-10 flex items-center">
+                    Registrations Closed
+                    <ChevronRight className="w-5 h-5 ml-2" />
+                  </span>
+                </button>
 
                 <button className="px-6 py-3 bg-gray-200 text-gray-500 font-semibold rounded-lg border border-gray-300 cursor-not-allowed flex items-center group shadow-sm">
                   <Download className="w-5 h-5 mr-2 text-gray-400" />

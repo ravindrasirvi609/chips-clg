@@ -113,8 +113,13 @@ const Registration = () => {
           </p>
         </div>
 
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-6 text-center mb-12">
+          <h2 className="text-2xl font-bold text-red-600 mb-2">Registrations are Closed</h2>
+          <p className="text-red-500">The registration period for the International Conference 2026 has ended. Thank you for your interest.</p>
+        </div>
+
         {/* Registration Plans */}
-        <RegistrationPlans />
+        {/* <RegistrationPlans /> */}
       </div>
     </div>
   );

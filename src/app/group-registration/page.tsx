@@ -60,8 +60,13 @@ const GroupRegistration = () => {
             </ul>
           </div>
 
+          {/* Registrations Closed Message */}
+          <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-8 text-center">
+            <h3 className="text-2xl font-bold text-red-400 mb-2">Registrations are Closed</h3>
+            <p className="text-gray-300">The group registration period for the International Conference 2026 has now concluded.</p>
+          </div>
           {/* Registration Form */}
-          <GroupRegistrationForm />
+          {/* <GroupRegistrationForm /> */}
         </div>
       </div>
     </div>

@@ -91,11 +91,12 @@ const Header = () => {
                 />
               </Link>
             ))}
-            <Link href="/registration">
-              <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black font-semibold text-sm hover:opacity-90 hover:scale-105 transition-all duration-300">
-                Register
-              </button>
-            </Link>
+            <button
+              disabled
+              className="px-4 py-2 rounded-lg bg-gray-200 text-gray-400 font-semibold text-sm cursor-not-allowed opacity-70"
+            >
+              Registrations Closed
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -148,11 +149,12 @@ const Header = () => {
                   />
                 </Link>
               ))}
-              <Link href="/registration" onClick={() => setIsOpen(false)}>
-                <button className="w-full mt-4 px-4 py-3 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black font-semibold text-sm hover:opacity-90 transition-all duration-300">
-                  Register Now
-                </button>
-              </Link>
+              <button
+                disabled
+                className="w-full mt-4 px-4 py-3 rounded-lg bg-gray-200 text-gray-400 font-semibold text-sm cursor-not-allowed opacity-70"
+              >
+                Registrations Closed
+              </button>
             </nav>
           </div>
         </div>
