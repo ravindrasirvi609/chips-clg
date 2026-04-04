@@ -1,7 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Calendar, MapPin, ChevronRight, Download, Clock } from "lucide-react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  CalendarDays,
+  Clock3,
+  FileText,
+  MapPin,
+  Sparkles,
+  Trophy,
+} from "lucide-react";
 import Link from "next/link";
 
 const HeroSection = () => {
@@ -11,10 +17,9 @@ const HeroSection = () => {
     minutes: 0,
     seconds: 0,
   });
-  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    const countdownDate = new Date("2026-01-22T00:00:00").getTime();
+    const countdownDate = new Date("2026-12-21T09:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -40,209 +45,127 @@ const HeroSection = () => {
     };
   }, []);
 
-  const handleRegisterClick = () => {
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 3000);
-  };
-
   return (
-    <div className="relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[url('/assets/brochure.jpg')] bg-cover bg-center opacity-10"></div>
-
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-[10%] w-[40vw] h-[40vw] rounded-full bg-primary/5 blur-[100px] animate-pulse"></div>
+    <section className="relative overflow-hidden pb-14 pt-10 sm:pb-20 sm:pt-14">
+      <div className="mesh-overlay" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute right-[10%] top-0 h-[36vw] w-[36vw] rounded-full bg-primary/10 blur-[120px]" />
         <div
-          className="absolute bottom-0 left-[10%] w-[40vw] h-[40vw] rounded-full bg-blue-500/5 blur-[100px] animate-pulse"
-          style={{ animationDelay: "-5s" }}
-        ></div>
+          className="absolute bottom-0 left-[8%] h-[34vw] w-[34vw] rounded-full bg-accent/15 blur-[120px]"
+          style={{ animationDelay: "-4s" }}
+        />
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
-          {/* Alert for registration */}
-          {showAlert && (
-            <div className="fixed top-4 right-4 z-50">
-              <Alert className="bg-card border-border animate-slideIn">
-                <AlertDescription className="text-white">
-                  Registration process initiated! Check your email.
-                </AlertDescription>
-              </Alert>
-            </div>
-          )}
+      <div className="page-shell pb-2 pt-4 sm:pt-8">
+        <div className="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="modern-card space-y-6 p-7 sm:p-10">
+            <p className="eyebrow">International Conference and 20th ABAP Convention</p>
+            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Global Perspectives of <span className="text-gradient">Artificial Intelligence</span>
+              <br />
+              and Quantum Technologies
+            </h1>
+            <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+              Advancing Healthcare, Pharmaceutical, Biotechnological and
+              Agricultural Innovations through interdisciplinary research,
+              invited talks, oral and poster sessions.
+            </p>
 
-          {/* Conference badge */}
-          <div className="flex items-center space-x-4 mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 font-semibold transform hover:scale-105 transition-transform cursor-pointer shadow-sm">
-              <Clock className="w-4 h-4 mr-2 text-primary" />
-              <span>Conference 2026</span>
+            <div className="grid gap-3 text-sm sm:grid-cols-2">
+              <div className="flex items-start gap-2 rounded-xl bg-secondary/60 p-3">
+                <CalendarDays className="mt-0.5 h-4 w-4 text-primary" />
+                <span>21-23 December 2026</span>
+              </div>
+              <div className="flex items-start gap-2 rounded-xl bg-secondary/60 p-3">
+                <MapPin className="mt-0.5 h-4 w-4 text-primary" />
+                <span>CHIPS, Guntur, Andhra Pradesh</span>
+              </div>
+              <div className="flex items-start gap-2 rounded-xl bg-secondary/60 p-3">
+                <Sparkles className="mt-0.5 h-4 w-4 text-primary" />
+                <span>10 Scientific Tracks</span>
+              </div>
+              <div className="flex items-start gap-2 rounded-xl bg-secondary/60 p-3">
+                <Trophy className="mt-0.5 h-4 w-4 text-primary" />
+                <span>Best Oral and Poster Awards</span>
+              </div>
             </div>
-            <div className="h-px flex-1 bg-gradient-to-r from-primary to-transparent"></div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link href="/registration" className="btn-primary">
+                Register Now
+              </Link>
+              <Link href="/abstractForm" className="btn-outline">
+                <FileText className="mr-2 h-4 w-4" />
+                Submit Abstract
+              </Link>
+              <Link href="/schedule" className="btn-outline">
+                View Schedule
+              </Link>
+            </div>
           </div>
 
-          {/* Main content grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              {/* Title with gradient text */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-gradient">International Conference</span>
-                <br />
-                <span className="text-gray-900 mt-2 block">
-                  Emerging Innovations in
-                </span>
-                <span className="text-primary block mt-2">
-                  Pharmaceutical Sciences and Drug Discovery
-                </span>
-              </h1>
-
-              {/* Event details with hover effects */}
-              <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center space-x-3 bg-white border border-gray-200 p-3 rounded-lg hover:border-primary/50 transition-all group shadow-sm">
-                    <Calendar className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="text-gray-700">22nd & 23rd January 2026</span>
-                  </div>
-                  <div className="flex items-center space-x-3 bg-white border border-gray-200 p-3 rounded-lg hover:border-primary/50 transition-all group shadow-sm">
-                    <MapPin className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="text-gray-700">
-                      Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA buttons with enhanced hover effects */}
-              <div className="flex flex-wrap gap-4">
-                <button
-                  disabled
-                  className="px-6 py-3 bg-gray-200 text-gray-400 font-semibold rounded-lg border border-gray-300 cursor-not-allowed flex items-center group shadow-sm"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Registrations Closed
-                    <ChevronRight className="w-5 h-5 ml-2" />
-                  </span>
-                </button>
-
-                <button className="px-6 py-3 bg-gray-200 text-gray-500 font-semibold rounded-lg border border-gray-300 cursor-not-allowed flex items-center group shadow-sm">
-                  <Download className="w-5 h-5 mr-2 text-gray-400" />
-                  Submissions Closed
-                </button>
-
-                <Link
-                  href="https://docs.google.com/presentation/d/1W5-aeODAvLvh-43WHf_XESsrmLmWKWwX/edit?rtpof=true&sd=true&pli=1"
-                  target="_blank"
-                >
-                  <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-primary hover:text-primary transition-colors flex items-center group shadow-sm hover:shadow-md">
-                    <Download className="w-5 h-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
-                    e-Poster Template
-                  </button>
-                </Link>
-
-                <Link
-                  href="https://docs.google.com/presentation/d/16F9_RbW6C8q7CebiaMS3OCmhGoSF43mD/edit?slide=id.p1#slide=id.p1"
-                  target="_blank"
-                >
-                  <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-primary hover:text-primary transition-colors flex items-center group shadow-sm hover:shadow-md">
-                    <Download className="w-5 h-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
-                    Oral Template
-                  </button>
-                </Link>
-                {/* Resource buttons moved from CallForAbstracts */}
-                {/* <a
-                  href="https://docs.google.com/presentation/d/1L_e3SSNTSXFWkthYOO5wOk3xhSzYhPBc/edit?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="px-6 py-3 glassmorphism text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors hover:scale-105">
-                    Model E-Poster Template
-                  </button>
-                </a>
-                <a
-                  href="https://docs.google.com/presentation/d/1-lKSpS42WNShrnJqDx915MlF5_A8jlTW/edit?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="px-6 py-3 glassmorphism text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors hover:scale-105">
-                    Model Oral Presentation Template
-                  </button>
-                </a>
-                <a
-                  href="https://drive.google.com/file/d/1_wM_k-nGHpIFdUOZr8AeZY_uiJsFFrAx/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="px-6 py-3 glassmorphism text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors hover:scale-105">
-                    E-Poster Presentation Guidelines
-                  </button>
-                </a>
-                <a
-                  href="https://drive.google.com/file/d/1dSn5qBTwk1pbmXqgPydmDZ5d3ghcTios/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="px-6 py-3 glassmorphism text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors hover:scale-105">
-                    Oral Presentation Guidelines
-                  </button>
-                </a> */}
-              </div>
-            </div>
-
-            {/* Countdown section with solid card effect */}
-            <div className="card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">
-                Conference Begins In
+          <aside className="space-y-6">
+            <div className="modern-card p-6 sm:p-8">
+              <h2 className="mb-5 flex items-center gap-2 text-xl font-bold text-foreground sm:text-2xl">
+                <Clock3 className="h-5 w-5 text-primary" />
+                Countdown to Conference
               </h2>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
                   { label: "Days", value: timeLeft.days },
                   { label: "Hours", value: timeLeft.hours },
                   { label: "Minutes", value: timeLeft.minutes },
                   { label: "Seconds", value: timeLeft.seconds },
-                ].map((item, index) => (
+                ].map((item) => (
                   <div
                     key={item.label}
-                    className="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-primary/40 transition-all hover:transform hover:scale-105 duration-300 shadow-sm"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="rounded-xl border border-border/80 bg-white p-4 text-center"
                   >
-                    <span className="text-4xl font-bold text-primary mb-2">
+                    <p className="text-2xl font-extrabold text-primary">
                       {String(item.value).padStart(2, "0")}
-                    </span>
-                    <span className="text-sm text-gray-500">{item.label}</span>
+                    </p>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-muted-foreground">
+                      {item.label}
+                    </p>
                   </div>
                 ))}
               </div>
-
-              <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  What&apos;s New in the International Conference
-                </h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span className="text-gray-600 text-sm">
-                      Advanced Applications of AI in Pharmaceutical Research
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span className="text-gray-600 text-sm">
-                      Personalized Medicine Breakthroughs
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span className="text-gray-600 text-sm">
-                      International Healthcare Innovation Showcase
-                    </span>
-                  </li>
-                </ul>
-              </div>
             </div>
-          </div>
+
+            <div className="modern-card p-6 sm:p-8">
+              <h3 className="mb-4 text-lg font-bold text-foreground">
+                Conference Snapshot
+              </h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li>Theme-driven sessions on AI, ML and quantum applications.</li>
+                <li>Oral and E-poster presentations with scientific review.</li>
+                <li>Top abstracts published in Abstract Book (ISBN).</li>
+                <li>
+                  Top selected papers get full article opportunity in Current
+                  Trends in Biotechnology and Pharmacy (Scopus indexed).
+                </li>
+              </ul>
+              <Link href="/abstractForm" className="btn-outline mt-5 w-full text-center">
+                View Submission Guidelines
+              </Link>
+            </div>
+
+            <div className="modern-card p-6">
+              <h3 className="text-base font-bold text-foreground">
+                Best Scientist Awards
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Young Scientist Awards and Junior Scientist Awards will be
+                presented for selected oral and poster sessions.
+              </p>
+              <Link href="/registration" className="btn-primary mt-4 w-full text-center">
+                View Award Eligibility
+              </Link>
+            </div>
+          </aside>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

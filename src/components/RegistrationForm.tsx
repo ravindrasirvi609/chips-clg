@@ -13,9 +13,6 @@ interface RegistrationFormProps {
   ) => void;
   onImageUpload: (file: File) => Promise<void>;
   errors: { [key: string]: string };
-  includeGalaDinner: boolean;
-  handleGalaDinnerChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  selectedPlanName?: string;
   onBatchUpdate?: (updates: Partial<RegistrationFormData>) => void;
 }
 
@@ -76,7 +73,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
     onInputChange,
     onImageUpload,
     errors,
-    selectedPlanName,
     onBatchUpdate,
   }) => {
     const {
@@ -366,20 +362,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
           error={errors.dob}
           note="Kindly enter correct Date of Birth to receive E-Certificate of conference on your Digilocker account linked with your Aadhar."
         />
-
-        {/* <div className="mb-6">
-        <label className="flex items-center mb-2 text-white">
-          <input
-            type="checkbox"
-            name="includeGalaDinner"
-            checked={includeGalaDinner}
-            onChange={handleGalaDinnerChange}
-            value={includeGalaDinner ? "true" : "false"}
-            className="mr-2 rounded border-white/20 text-[#00CCFF] focus:ring-[#00CCFF]"
-          />
-          Include Networking Cum Gala Dinner (Additional ₹1000)
-        </label>
-      </div> */}
 
         <FormField
           label="Aadhar Number"

@@ -1,169 +1,108 @@
 "use client";
 import React from "react";
 import {
+  CalendarDays,
   Mail,
   Phone,
   MapPin,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  ArrowUp,
+  FileText,
+  UserRound,
 } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const keyDates = [
+    "Early bird registration closes: 02 Nov 2026",
+    "Abstract submission deadline: 02 Nov 2026",
+    "Acceptance intimation: 14 Nov 2026",
+    "Late fee registration closes: 12 Dec 2026",
+    "PPT/Oral submission closes: 12 Dec 2026",
+  ];
 
   return (
-    <footer className="">
-      {/* Top curved separator */}
-      <div className=" top-0 left-0 w-full overflow-hidden leading-none transform">
-        <svg
-          className="relative block w-full h-12 sm:h-16"
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            className="fill-current text-gray-100 opacity-100"
-          ></path>
-        </svg>
-      </div>
-
-      {/* Main footer content */}
-      <div className="bg-background pt-20 pb-8">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Contact Information */}
-            <div className="card p-6 rounded-xl">
-              <h4 className="text-xl font-bold mb-4 text-gradient">
-                Contact Information
-              </h4>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 group">
-                  <div className="p-2 rounded-full bg-[#00FFCC]/10 group-hover:bg-[#00FFCC]/20 transition-colors">
-                    <Phone size={18} className="text-[#00FFCC]" />
-                  </div>
-                  <p className="text-gray-400 hover:text-white transition-colors">
-                    +91 9866204171
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 group">
-                  <div className="p-2 rounded-full bg-[#00FFCC]/10 group-hover:bg-[#00FFCC]/20 transition-colors">
-                    <Mail size={18} className="text-[#00FFCC]" />
-                  </div>
-                  <a
-                    href="mailto:innovatepharma2026@gmail.com"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    innovatepharma2026@gmail.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 group">
-                  <div className="p-2 rounded-full bg-[#00FFCC]/10 group-hover:bg-[#00FFCC]/20 transition-colors">
-                    <MapPin size={18} className="text-[#00FFCC]" />
-                  </div>
-                  <span className="text-gray-600 group-hover:text-primary transition-colors">
-                    Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="card p-6 rounded-xl">
-              <h4 className="text-xl font-bold mb-4 text-gradient">
-                Quick Links
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/about"
-                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
-                    About the International Conference
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/registration"
-                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
-                    Registration
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/speakers"
-                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
-                    Speakers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/abstractForm"
-                    className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors"></span>
-                    Abstract Guidelines
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* About Company */}
-            <div className="card p-6 rounded-xl">
-              <div className="flex justify-center mb-4">
-                {/* Remove the image */}
-              </div>
-              <p className="text-gray-600 mb-4 text-center">
-                Empowering pharmaceutical innovation through cutting-edge
-                technology and collaborative research.
-              </p>
-              <div className="flex justify-center">
-                <button
-                  onClick={scrollToTop}
-                  className="p-3 bg-card border border-border/50 rounded-full hover:bg-[#00FFCC]/10 transition-colors group"
-                  aria-label="Scroll to top"
-                >
-                  <ArrowUp
-                    size={20}
-                    className="text-[#00FFCC] group-hover:translate-y-[-2px] transition-transform"
-                  />
-                </button>
-              </div>
-            </div>
+    <footer className="mt-16 border-t border-border/70 bg-white/90">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <div className="lg:col-span-2">
+          <p className="eyebrow">ABAP 2026</p>
+          <h3 className="mt-4 text-2xl font-extrabold leading-tight text-foreground">
+            Global Perspectives of Artificial Intelligence and Quantum
+            Technologies in Healthcare, Pharmaceutical, Biotechnological and
+            Agricultural Innovations
+          </h3>
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
+            Organized at Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
+            (CHIPS), Guntur, Andhra Pradesh under the 20th Annual Convention of
+            the Association of Biotechnology and Pharmacy.
+          </p>
+          <div className="mt-5 space-y-2 text-sm text-muted-foreground">
+            <p className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-primary" />
+              CHIPS, Chowdavaram, Guntur, Andhra Pradesh 522019
+            </p>
+            <p className="flex items-center gap-2">
+              <CalendarDays className="h-4 w-4 text-primary" />
+              Conference dates: 21-23 December 2026
+            </p>
           </div>
+        </div>
+
+        <div className="modern-card">
+          <h4 className="mb-4 text-base font-bold text-foreground">Quick Links</h4>
+          <div className="space-y-2 text-sm">
+            <Link href="/about" className="block text-muted-foreground transition hover:text-primary">
+              About CHIPS and ABAP
+            </Link>
+            <Link href="/registration" className="block text-muted-foreground transition hover:text-primary">
+              Registration
+            </Link>
+            <Link href="/abstractForm" className="block text-muted-foreground transition hover:text-primary">
+              Abstract Submission
+            </Link>
+            <Link href="/schedule" className="block text-muted-foreground transition hover:text-primary">
+              Program Schedule
+            </Link>
+            <Link href="/committee" className="block text-muted-foreground transition hover:text-primary">
+              Organizing Committee
+            </Link>
+          </div>
+        </div>
+
+        <div className="modern-card">
+          <h4 className="mb-4 text-base font-bold text-foreground">Key Contacts</h4>
+          <div className="space-y-2 text-sm text-muted-foreground">
+            <p className="flex items-start gap-2">
+              <Mail className="mt-0.5 h-4 w-4 text-primary" />
+              chipsabap2026@gmail.com
+            </p>
+            <p className="flex items-start gap-2">
+              <Phone className="mt-0.5 h-4 w-4 text-primary" />
+              Co-Convener: +91 9866204171
+            </p>
+            <p className="flex items-start gap-2">
+              <UserRound className="mt-0.5 h-4 w-4 text-primary" />
+              Registrations: +91 9848553804
+            </p>
+            <p className="flex items-start gap-2">
+              <FileText className="mt-0.5 h-4 w-4 text-primary" />
+              Technical: +91 9885452068
+            </p>
+          </div>
+
+          <h5 className="mb-2 mt-5 text-sm font-bold text-foreground">Important Dates</h5>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            {keyDates.map((date) => (
+              <li key={date}>{date}</li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-background border-t border-[#00FFCC]/10">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
-              © 2026 International Conference. Chebrolu Hanumaiah Institute of
-              Pharmaceutical Sciences. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-sm">
-              Designed & Developed by{" "}
-              <span className="text-gradient font-semibold">
-                Ravindra Choudhary
-              </span>
-            </p>
-          </div>
+      <div className="border-t border-border/70 bg-secondary/30">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>
+            Copyright 2026 ABAP Conference at CHIPS. All rights reserved.
+          </p>
+          <p>Built for conference management, registration and abstract workflows.</p>
         </div>
       </div>
     </footer>

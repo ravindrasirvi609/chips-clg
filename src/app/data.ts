@@ -2,25 +2,28 @@ import { Plan } from "@/lib/interface";
 
 export const plans: Plan[] = [
   {
-    name: "Offline Mode",
-    description: "Students (UG & PG), Research Scholars, Faculty Members, Industry Professionals – Offline Mode. Includes entry to all sessions and conference kit.",
-    earlyBird: 800,
-    regular: 900,
-    spot: 1000,
+    name: "Faculty / Scientist (Offline)",
+    description:
+      "Faculty members, scientists and industry professionals attending in offline mode. Includes sessions, conference kit and lunch.",
+    earlyBird: 1200,
+    regular: 1300,
+    spot: 1500,
+  },
+  {
+    name: "Research Scholar / Student (Offline)",
+    description:
+      "Research scholars, UG and PG students attending in offline mode. Includes sessions, conference kit and lunch.",
+    earlyBird: 900,
+    regular: 1000,
+    spot: 1200,
   },
   {
     name: "Online Mode",
-    description: "Students (UG & PG), Research Scholars, Faculty Members, Industry Professionals – Online Mode. Includes access to all virtual sessions.",
-    earlyBird: 500,
+    description:
+      "Online participation mode for delegates across categories with virtual access to conference sessions.",
+    earlyBird: 600,
     regular: 600,
-    spot: 700,
-  },
-  {
-    name: "International Delegates",
-    description: "Includes entry to all sessions, conference kit, and lunch.",
-    earlyBird: 60 * 83, // $60 USD converted to INR (assuming 1 USD = 83 INR)
-    regular: 75 * 83, // $75 USD converted to INR
-    spot: 100 * 83, // $100 USD converted to INR
+    spot: 600,
   },
 ];
 
@@ -56,58 +59,59 @@ export const indianStates = [
 ];
 
 export const subjectOptions = [
-  { value: "pharmaceuticalTechnology", label: "Pharmaceutical Technology" },
-  { value: "medChem", label: "Pharmaceutical / Medicinal Chemistry" },
+  {
+    value: "pharmaceutics",
+    label: "Pharmaceutical Technology and Pharmaceutics",
+  },
 
   {
-    value: "pharmacognosy",
-    label:
-      "Pharmacognosy, Indigenous Drugs, Herbal Formulations, and Phytochemistry",
+    value: "pharmchem_analysis",
+    label: "Pharmaceutical Chemistry and Pharmaceutical Analysis",
   },
   {
-    value: "pharmacologyToxicology",
-    label: "Pharmacology and Toxicology, Clinical Research & Pharmacovigilance",
+    value: "pharmacognosy_biotech",
+    label: "Pharmacognosy, Phytochemistry and Biotechnology",
   },
   {
-    value: "pharmaceuticalAnalysis",
-    label: "Pharmaceutical Analysis and Quality Assurance",
+    value: "pharmacology_toxicology",
+    label: "Pharmacology and Toxicology",
   },
   {
-    value: "biopharmaceutics",
-    label: "Biopharmaceutics, Pharmacokinetics & Drug Metabolism",
-  },
-  { value: "biotechnology", label: "Biotechnology and Biotherapeutics" },
-  {
-    value: "clinicalPharmacy",
-    label: "Hospital, Community, and Clinical Pharmacy",
+    value: "pharmacy_practice_education",
+    label: "Pharmacy Practice and Pharmacy Education",
   },
   {
-    value: "pharmaceuticalEducation",
-    label: "Pharmaceutical Education and Professional Pharmacy",
+    value: "regulatory_affairs",
+    label: "Pharmaceutical Regulatory Affairs",
   },
   {
-    value: "drugRegulatoryAffairs",
-    label: "Drug Regulatory Affairs & Pharmaceutical Management",
+    value: "pharmacovigilance",
+    label: "Pharmacovigilance and Pharmacoepidemiology",
   },
   {
-    value: "pharmacoeconomics",
-    label: "Pharmacoeconomics and Pharmacoepidemiology",
+    value: "agri_biotechnology",
+    label: "Agriculture Biotechnology and Sustainable Development",
   },
   {
-    value: "aiBioinformatics",
-    label: "Artificial Intelligence / Bioinformatics / Data Analytics",
+    value: "ai_ml_health",
+    label: "Artificial Intelligence and Machine Learning in Health Sector",
+  },
+  {
+    value: "other",
+    label: "Other Relevant Fields",
   },
 ];
 
 export const designationOptions = [
-  { value: "UG", label: "Undergraduate Student(UG)" },
-  { value: "PG", label: "Postgraduate Student(PG)" },
+  { value: "Scientist", label: "Scientist" },
+  { value: "Faculty", label: "Faculty" },
   {
-    value: "RC",
-    label: "Research Scholer/PhD Scholar",
+    value: "ResearchScholar",
+    label: "Research Scholar / PhD Scholar",
   },
+  { value: "Student", label: "Student (UG/PG)" },
   {
-    value: "FD",
-    label: "Faculty",
+    value: "IndustryPerson",
+    label: "Industry Person",
   },
 ];

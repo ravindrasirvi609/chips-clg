@@ -444,10 +444,10 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
           <p>
             For any queries, please contact our support team at{" "}
             <a
-              href="mailto:innovatepharma2026@gmail.com"
+              href="mailto:chipsabap2026@gmail.com"
               className="text-[#FF6B6B] hover:underline font-semibold"
             >
-              innovatepharma2026@gmail.com
+              chipsabap2026@gmail.com
             </a>
           </p>
         </div>

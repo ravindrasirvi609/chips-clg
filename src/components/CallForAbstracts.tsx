@@ -2,177 +2,130 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  BookCopy,
+  CheckCircle2,
   Calendar,
-  FileCheck,
-  Award,
-  ArrowRight,
   FileText,
-  Sparkles,
-  Download,
+  ListChecks,
+  Medal,
+  Send,
 } from "lucide-react";
 import Link from "next/link";
 
 const CallForAbstracts = () => {
-  const topics = [
-    "AI-Driven Drug Discovery & Development",
-    "Machine Learning Applications in Clinical Research",
-    "Deep Learning for Precision Medicine",
-    "Natural Language Processing in Medical Literature",
-    "Quantum Computing in Drug Design",
-    "Digital Biomarkers & Predictive Analytics",
+  const abstractChecklist = [
+    "Title, author details and affiliation",
+    "Introduction, aim/objectives, methods and results",
+    "Summary and conclusion",
+    "Maximum 250 words",
+    "Times New Roman, font size 12",
+    "Online submission only through conference portal",
   ];
 
-  const guidelines = [
-    {
-      icon: <FileText className="w-6 h-6 text-[#00FFCC]" />,
-      title: "Abstract Format",
-      description:
-        "Submit a concise abstract of up to 300 words with clear structure: Objectives, Methods, Results, and Conclusions.",
-    },
-    {
-      icon: <Calendar className="w-6 h-6 text-[#00FFCC]" />,
-      title: "Submission Deadline",
-      description:
-        "All abstracts must be submitted by December 31, 2025, for review and consideration.",
-    },
-    {
-      icon: <Award className="w-6 h-6 text-[#00FFCC]" />,
-      title: "Recognition Opportunities",
-      description:
-        "Outstanding submissions will receive awards and be featured in leading scientific journals and publications.",
-    },
+  const milestones = [
+    "02 Nov 2026 - Last date for abstract submission",
+    "14 Nov 2026 - Intimation of acceptance",
+    "12 Dec 2026 - Last date for oral/PPT submission",
+    "Accepted abstracts will be published in the Abstract Book (ISBN)",
+    "Top selected papers may be considered for full article publication",
   ];
 
   return (
-    <section className="py-16 bg-background relative">
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-[#00FFCC] opacity-5 rounded-full filter blur-[100px] animate-pulse"></div>
-      <div className="absolute bottom-20 left-10 w-72 h-72 bg-[#CC00FF] opacity-5 rounded-full filter blur-[100px] animate-pulse"></div>
-
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-gradient">
-            Call for Abstracts
-          </h2>
-          <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            The abstract submission period for the International Conference has now concluded.
-            We thank all researchers and innovators who contributed their work.
+    <section className="relative py-16">
+      <div className="page-shell py-0">
+        <div className="mb-10 text-center">
+          <p className="eyebrow">Call For Scientific Presentation</p>
+          <h2 className="section-heading mt-4">Submit Your Abstract</h2>
+          <p className="section-subheading mx-auto">
+            Authors are invited to submit original work for oral or poster
+            presentation across conference tracks. The presenting author must
+            be a registered delegate.
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Left Side - Research Topics */}
-          <Card>
-            <CardContent className="p-8">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-primary to-blue-500 mr-4">
-                  <BookCopy className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Research Topics
-                </h3>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Card className="modern-card p-0">
+            <CardContent className="p-6 sm:p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <ListChecks className="h-6 w-6 text-primary" />
+                <h3 className="text-xl font-bold text-foreground">Abstract Checklist</h3>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {topics.map((topic, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center p-4 rounded-lg bg-white border border-gray-200 hover:border-primary/50 transition-all duration-300 group shadow-sm"
+              <ul className="space-y-3">
+                {abstractChecklist.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 rounded-xl border border-border/70 bg-white p-3 text-sm text-muted-foreground"
                   >
-                    <ArrowRight className="w-5 h-5 mr-3 flex-shrink-0 text-primary group-hover:translate-x-1 transition-transform" />
-                    <span className="text-gray-700 group-hover:text-primary transition-colors">
-                      {topic}
-                    </span>
-                  </div>
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                    <span>{item}</span>
+                  </li>
                 ))}
+              </ul>
+
+              <div className="mt-5 rounded-xl bg-secondary/50 p-4 text-sm text-muted-foreground">
+                Model abstract is available on the website. Abstract and paper
+                title should be submitted before 02 Nov 2026.
               </div>
             </CardContent>
           </Card>
 
-          {/* Right Side - Submission Guidelines */}
-          <Card>
-            <CardContent className="p-8">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-primary to-blue-500 mr-4">
-                  <FileCheck className="w-6 h-6 text-white" />
+          <Card className="modern-card p-0">
+            <CardContent className="space-y-4 p-6 sm:p-8">
+              <div className="mb-1 flex items-center gap-3">
+                <Calendar className="h-6 w-6 text-primary" />
+                <h3 className="text-xl font-bold text-foreground">Important Dates and Outcomes</h3>
+              </div>
+              {milestones.map((milestone) => (
+                <div
+                  key={milestone}
+                  className="rounded-xl border border-border/70 bg-white p-4 text-sm text-muted-foreground"
+                >
+                  <p>{milestone}</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Submission Guidelines
-                </h3>
+              ))}
+
+              <div className="rounded-xl bg-primary/5 p-4 text-sm text-muted-foreground">
+                All queries related to abstract submission can be emailed to
+                <span className="ml-1 font-semibold text-foreground">chipsabap2026@gmail.com</span>
+                .
               </div>
 
-              <div className="space-y-6">
-                {guidelines.map((guideline, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start p-4 rounded-lg bg-white border border-gray-200 hover:border-primary/50 transition-all duration-300 shadow-sm"
-                  >
-                    <div className="p-2 bg-primary/10 rounded-full mr-4">
-                      {guideline.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1 text-gray-800">
-                        {guideline.title}
-                      </h4>
-                      <p className="text-gray-600">{guideline.description}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="rounded-xl bg-secondary/50 p-4">
+                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <Medal className="h-4 w-4 text-primary" />
+                  Best Presentation Recognition
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Papers adjudged as best in oral and poster sessions by an
+                  independent jury will receive awards during valedictory.
+                </p>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <Card className="inline-block bg-card border border-border/50">
-            <CardContent className="p-8">
-              <div className="flex justify-center mb-4">
-                <Sparkles className="w-8 h-8 text-[#00FFCC]" />
+        <Card className="modern-card mt-6 p-0">
+          <CardContent className="p-6 sm:p-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Ready to Submit?</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Complete your delegate registration and submit your abstract
+                  through the online portal before deadlines.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gradient">
-                Abstract Submissions are Closed
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Thank you for your interest! The abstract submission period for
-                the International Conference has now ended. We look forward to
-                seeing you at the conference.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <button className="px-8 py-3 rounded-lg font-semibold text-gray-500 bg-gray-200 border border-gray-300 cursor-not-allowed">
-                  Submissions Closed
-                </button>
-                <Link href="/abstractForm">
-                  <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm">
-                    View Guidelines
-                  </button>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/abstractForm" className="btn-primary">
+                  <Send className="mr-2 h-4 w-4" />
+                  Abstract Portal
                 </Link>
-                <Link
-                  href="https://docs.google.com/presentation/d/1W5-aeODAvLvh-43WHf_XESsrmLmWKWwX/edit?rtpof=true&sd=true&pli=1"
-                  target="_blank"
-                >
-                  <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm flex items-center gap-2">
-                    <Download className="w-5 h-5" />
-                    e-Poster Template
-                  </button>
-                </Link>
-                <Link
-                  href="https://docs.google.com/presentation/d/16F9_RbW6C8q7CebiaMS3OCmhGoSF43mD/edit?slide=id.p1#slide=id.p1"
-                  target="_blank"
-                >
-                  <button className="px-8 py-3 rounded-lg font-semibold text-gray-800 bg-white border border-gray-200 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 shadow-sm flex items-center gap-2">
-                    <Download className="w-5 h-5" />
-                    Oral Template
-                  </button>
+                <Link href="/registration" className="btn-outline">
+                  <FileText className="mr-2 h-4 w-4" />
+                  Register Delegate
                 </Link>
               </div>
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

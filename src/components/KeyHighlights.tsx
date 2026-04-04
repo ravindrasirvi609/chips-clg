@@ -2,245 +2,170 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Network,
-  BrainCircuit,
-  Users,
-  ArrowRight,
-  Calendar,
-  Bot,
-  Dna,
-  Lightbulb,
-  Database,
+  CalendarDays,
+  CircuitBoard,
+  FlaskConical,
+  Leaf,
+  Phone,
+  Presentation,
+  Shield,
+  Trophy,
 } from "lucide-react";
 
 const KeyHighlights = () => {
-  // const speakers = [
-  //   {
-  //     name: "Dr. Sarah Chen",
-  //     role: "Director of AI Research",
-  //     specialty: "Revolutionizing Drug Discovery",
-  //     institution: "PharmaTech Institute",
-  //   },
-  //   {
-  //     name: "Prof. James Wilson",
-  //     role: "Innovation Leader",
-  //     specialty: "Machine Learning Applications in Pharma",
-  //     institution: "Global Pharma Labs",
-  //   },
-  //   {
-  //     name: "Dr. Maria Rodriguez",
-  //     role: "Chief Data Scientist",
-  //     specialty: "AI Integration in Medical Research",
-  //     institution: "BioTech Solutions",
-  //   },
-  // ];
-
-  const topics = [
-    {
-      icon: <Bot className="w-6 h-6 text-[#00FFCC]" />,
-      title: "AI-Driven Drug Discovery",
-      description:
-        "Cutting-edge AI models accelerating identification of novel therapeutic targets and compounds.",
-    },
-    {
-      icon: <Dna className="w-6 h-6 text-[#00FFCC]" />,
-      title: "Personalized Medicine",
-      description:
-        "Machine learning approaches for tailoring treatments to individual genetic profiles.",
-    },
-    {
-      icon: <Lightbulb className="w-6 h-6 text-[#00FFCC]" />,
-      title: "Quantum Computing in Pharma",
-      description:
-        "Revolutionary quantum algorithms for simulating molecular interactions at unprecedented scale.",
-    },
-    {
-      icon: <Database className="w-6 h-6 text-[#00FFCC]" />,
-      title: "Healthcare Data Science",
-      description:
-        "Advanced analytics transforming clinical trials, patient outcomes, and drug optimization.",
-    },
+  const tracks = [
+    "Pharmaceutical Technology and Pharmaceutics",
+    "Pharmaceutical Chemistry and Pharmaceutical Analysis",
+    "Pharmacognosy, Phytochemistry and Biotechnology",
+    "Pharmacology and Toxicology",
+    "Pharmacy Practice and Pharmacy Education",
+    "Pharmaceutical Regulatory Affairs",
+    "Pharmacovigilance and Pharmacoepidemiology",
+    "Agriculture Biotechnology and Sustainable Development",
+    "Artificial Intelligence and Machine Learning in Health Sector",
+    "Other Relevant Interdisciplinary Fields",
   ];
 
-  const networkingBenefits = [
-    "Connect with leading AI and pharmaceutical researchers",
-    "Participate in specialized innovation workshops",
-    "Join collaborative cross-disciplinary sessions",
-    "Explore partnership and funding opportunities",
+  const contacts = [
+    { label: "Co-Convener", phone: "+91 9866204171" },
+    { label: "Registrations", phone: "+91 9848553804" },
+    { label: "Scientific Details", phone: "+91 7204767329" },
+    { label: "Technical Details", phone: "+91 9885452068" },
+    { label: "Hospitality & Accommodation", phone: "+91 9866701789" },
   ];
 
   return (
-    <section className="py-20 bg-background relative">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-[20%] w-[30vw] h-[30vw] rounded-full bg-primary/20 blur-[100px] animate-pulse"></div>
-        <div
-          className="absolute bottom-20 right-[20%] w-[25vw] h-[25vw] rounded-full bg-blue-500/20 blur-[100px] animate-pulse"
-          style={{ animationDelay: "-5s" }}
-        ></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-gradient">
-            Key Highlights
-          </h2>
-          <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore the groundbreaking features of the International Conference
-            that make it the premier conference for AI and pharmaceutical
-            innovation in India.
+    <section className="relative py-16">
+      <div className="page-shell py-0">
+        <div className="mb-10 text-center">
+          <p className="eyebrow">Program Highlights</p>
+          <h2 className="section-heading mt-4">Why Attend ABAP 2026</h2>
+          <p className="section-subheading mx-auto">
+            Focused scientific tracks, publication opportunities and a strong
+            platform for collaboration across academia, research and industry.
           </p>
         </div>
 
-        {/* Grid Container */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Keynote Speakers */}
-          {/* <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-6">
-              <div className="flex items-center mb-6">
-                <UserSquare2
-                  className="w-8 h-8 mr-3"
-                  style={{ color: "#1e8f26" }}
-                />
-                <h3 className="text-2xl font-semibold">
-                  Meet Our Keynote Speakers
-                </h3>
+        <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+          <Card className="modern-card p-0">
+            <CardContent className="p-6 sm:p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <CircuitBoard className="h-6 w-6 text-primary" />
+                <h3 className="text-xl font-bold text-foreground">Scientific Tracks</h3>
               </div>
-              <div className="space-y-6">
-                {speakers.map((speaker, index) => (
+              <div className="grid gap-3 md:grid-cols-2">
+                {tracks.map((track, index) => (
                   <div
-                    key={index}
-                    className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300"
+                    key={track}
+                    className="rounded-xl border border-border/80 bg-white p-4 text-sm text-muted-foreground"
                   >
-                    <Image
-                      src="/PharmaNEST.png"
-                      alt={speaker.name}
-                      className="w-16 h-16 rounded-full object-cover"
-                      width={100}
-                      height={100}
-                    />
-                    <div>
-                      <h4
-                        className="font-semibold"
-                        style={{ color: "#1e8f26" }}
-                      >
-                        {speaker.name}
-                      </h4>
-                      <p className="text-sm text-gray-600">{speaker.role}</p>
-                      <p className="text-sm text-gray-500">
-                        {speaker.institution}
-                      </p>
-                      <p
-                        className="text-sm mt-1 italic"
-                        style={{ color: "#c12b23" }}
-                      >
-                        {speaker.specialty}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card> */}
-
-          {/* Critical Topics */}
-          <Card className="col-span-3 lg:col-span-2">
-            <CardContent className="p-8">
-              <div className="flex items-center mb-8">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-primary to-blue-500 mr-4">
-                  <BrainCircuit className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Pioneering Topics
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {topics.map((topic, index) => (
-                  <div
-                    key={index}
-                    className="bg-white border border-gray-200 rounded-xl p-5 transition-all duration-300 hover:border-primary/50 group shadow-sm hover:shadow-md"
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="p-2 bg-primary/10 rounded-lg mr-3 group-hover:bg-primary/20 transition-colors">
-                        {topic.icon}
-                      </div>
-                      <h4 className="font-bold text-gray-800 group-hover:text-primary transition-colors duration-500">
-                        {topic.title}
-                      </h4>
-                    </div>
-                    <p className="text-gray-600 text-sm pl-2 border-l border-primary/30">
-                      {topic.description}
+                    <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-primary">
+                      Track {index + 1}
                     </p>
+                    <p>{track}</p>
                   </div>
                 ))}
               </div>
             </CardContent>
           </Card>
 
-          {/* Networking Opportunities */}
-          <Card className="col-span-3 lg:col-span-1">
-            <CardContent className="p-8">
-              <div className="flex items-center mb-8">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-primary to-blue-500 mr-4">
-                  <Network className="w-6 h-6 text-white" />
+          <div className="space-y-6">
+            <Card className="modern-card p-0">
+              <CardContent className="space-y-4 p-6 sm:p-7">
+                <div className="flex items-center gap-3">
+                  <Trophy className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-bold text-foreground">Awards</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Connect & Collaborate
-                </h3>
+                <ul className="space-y-2 text-sm leading-6 text-muted-foreground">
+                  <li>Young Scientist Awards for oral presentations.</li>
+                  <li>Junior Scientist Awards for UG/PG and scholars (poster).</li>
+                  <li>ABAP Gold Medal and senior recognition awards.</li>
+                  <li>Best Oral and Poster presentations in valedictory session.</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="modern-card p-0">
+              <CardContent className="space-y-4 p-6 sm:p-7">
+                <div className="flex items-center gap-3">
+                  <CalendarDays className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-bold text-foreground">Important Milestones</h3>
+                </div>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="rounded-xl bg-secondary/50 p-3">02 Nov 2026: Early Bird and Abstract Deadline</p>
+                  <p className="rounded-xl bg-secondary/50 p-3">14 Nov 2026: Abstract Acceptance Intimation</p>
+                  <p className="rounded-xl bg-secondary/50 p-3">12 Dec 2026: Late Registration and PPT Deadline</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+          <Card className="modern-card p-0">
+            <CardContent className="p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <FlaskConical className="h-5 w-5 text-primary" />
+                <h3 className="font-bold text-foreground">Research Output</h3>
               </div>
+              <p className="text-sm text-muted-foreground">
+                Accepted abstracts of registered delegates will be published in
+                the Abstract Book with ISBN.
+              </p>
+            </CardContent>
+          </Card>
 
-              <div className="space-y-6">
-                <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                  <div className="flex items-center mb-3">
-                    <Users className="w-5 h-5 text-primary mr-3" />
-                    <h4 className="font-bold text-gray-800">
-                      Global Innovation Network
-                    </h4>
-                  </div>
-                  <p className="text-gray-600 text-sm">
-                    Join an exclusive community of innovators, researchers, and
-                    industry leaders from around the world.
-                  </p>
-                </div>
-
-                <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                  <div className="flex items-center mb-3">
-                    <Calendar className="w-5 h-5 text-primary mr-3" />
-                    <h4 className="font-bold text-gray-800">
-                      Strategic Networking Events
-                    </h4>
-                  </div>
-                  <p className="text-gray-600 text-sm">
-                    Curated opportunities for meaningful connections through
-                    targeted sessions and digital matchmaking.
-                  </p>
-                </div>
-
-                <div className="mt-6 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                  <h4 className="font-bold text-gray-800 mb-4">
-                    International Conference Advantages:
-                  </h4>
-                  <ul className="space-y-3">
-                    {networkingBenefits.map((benefit, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center text-gray-600 group"
-                      >
-                        <ArrowRight className="w-4 h-4 mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                        <span className="group-hover:text-primary transition-colors">
-                          {benefit}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <Card className="modern-card p-0">
+            <CardContent className="p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Presentation className="h-5 w-5 text-primary" />
+                <h3 className="font-bold text-foreground">Publication Opportunity</h3>
               </div>
+              <p className="text-sm text-muted-foreground">
+                Top selected papers may be invited for full-length publication
+                in Current Trends in Biotechnology and Pharmacy.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="modern-card p-0">
+            <CardContent className="p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Shield className="h-5 w-5 text-primary" />
+                <h3 className="font-bold text-foreground">Travel and Stay</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Delegates should plan travel independently. Accommodation is
+                available on request in hostels/hotels at additional charges.
+              </p>
             </CardContent>
           </Card>
         </div>
+
+        <Card className="modern-card mt-6 p-0">
+          <CardContent className="p-6 sm:p-7">
+            <h3 className="text-lg font-bold text-foreground">Key Contacts</h3>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {contacts.map((contact) => (
+                <div
+                  key={contact.label}
+                  className="flex items-center gap-3 rounded-xl border border-border/70 bg-white p-3"
+                >
+                  <Phone className="h-4 w-4 text-primary" />
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                      {contact.label}
+                    </p>
+                    <p className="text-sm font-semibold text-foreground">{contact.phone}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Email for all conference communication: <span className="font-semibold text-foreground">chipsabap2026@gmail.com</span>
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

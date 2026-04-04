@@ -1,136 +1,154 @@
 import React from "react";
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Brain, Users, Building2, Globe, Zap } from "lucide-react";
+import {
+  BookOpenCheck,
+  Building2,
+  GraduationCap,
+  Microscope,
+  Network,
+  ShieldCheck,
+} from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section className="py-16 bg-background relative">
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-gradient">
-            About the International Conference
+    <section className="relative py-14 sm:py-16">
+      <div className="page-shell py-0">
+        <div className="mb-10 text-center">
+          <p className="eyebrow">About The Conference</p>
+          <h2 className="section-heading mt-4">
+            A Global Platform for AI and Quantum Innovation
           </h2>
-          <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full"></div>
+          <p className="section-subheading mx-auto">
+            The conference brings together researchers, academicians, industry
+            experts and policy leaders to discuss transformative technologies
+            for healthcare, pharmaceuticals, biotechnology and agriculture.
+          </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Main text */}
-          <div className="space-y-6 card rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4 text-primary">
-              Emerging Innovations in Pharmaceutical Sciences and Drug Discovery
+        <div className="grid gap-6 lg:grid-cols-2">
+          <article className="modern-card p-7 sm:p-8">
+            <h3 className="text-2xl font-bold text-foreground">
+              Conference Theme
             </h3>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              The International Conference is a premier international platform
-              dedicated to exploring the revolutionary impact of AI and ML
-              technologies across the healthcare and pharmaceutical spectrum. We
-              bring together thought leaders, researchers, industry
-              professionals, academicians, clinicians, data scientists, and
-              regulatory experts from across India to discuss the latest trends,
-              innovations, challenges, and future prospects.
+            <p className="mt-4 rounded-xl border border-primary/15 bg-primary/5 p-4 text-sm font-semibold leading-6 text-primary">
+              Global Perspectives of Artificial Intelligence and Quantum
+              Technologies in Healthcare, Pharmaceutical, Biotechnological and
+              Agricultural Innovations
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              With advancements in computational power and data analytics,
-              Artificial Intelligence and Machine Learning have become vital
-              tools in improving patient outcomes, drug discovery, diagnostics,
-              clinical decision-making, personalized medicine, and operational
-              efficiency in healthcare.
+
+            <p className="mt-5 text-sm leading-7 text-muted-foreground sm:text-base">
+              Through keynote talks, technical sessions and panel discussions,
+              the event promotes interdisciplinary collaboration, knowledge
+              exchange and practical solutions for current and future
+              scientific challenges.
             </p>
-            <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-xl">
-              <h4 className="text-xl font-semibold mb-2 text-gray-800">Theme</h4>
-              <p className="text-primary italic font-medium">
-                &quot;Emerging Innovations in Pharmaceutical Sciences and Drug
-                Discovery&quot;
+
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-border/80 bg-white p-4">
+                <p className="text-2xl font-extrabold text-primary">20th</p>
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  ABAP Annual Convention
+                </p>
+              </div>
+              <div className="rounded-xl border border-border/80 bg-white p-4">
+                <p className="text-2xl font-extrabold text-primary">10</p>
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Scientific Tracks
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
+              <p className="rounded-xl bg-secondary/50 p-3">
+                Early Bird Deadline: 02 Nov 2026
+              </p>
+              <p className="rounded-xl bg-secondary/50 p-3">
+                Abstract Submission: 02 Nov 2026
+              </p>
+              <p className="rounded-xl bg-secondary/50 p-3">
+                Acceptance Intimation: 14 Nov 2026
+              </p>
+              <p className="rounded-xl bg-secondary/50 p-3">
+                Conference Dates: 21-23 Dec 2026
               </p>
             </div>
+          </article>
 
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <div className="flex flex-col items-center bg-white border border-gray-200 p-4 rounded-lg text-center shadow-sm">
-                <div className="bg-primary/10 p-3 rounded-full mb-3">
-                  <Globe className="w-6 h-6 text-primary" />
-                </div>
-                <span className="text-gray-800 font-medium">
-                  International Platform
-                </span>
-              </div>
-              <div className="flex flex-col items-center bg-white border border-gray-200 p-4 rounded-lg text-center shadow-sm">
-                <div className="bg-primary/10 p-3 rounded-full mb-3">
-                  <Zap className="w-6 h-6 text-primary" />
-                </div>
-                <span className="text-gray-800 font-medium">Future-Ready</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right side - Feature cards */}
           <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6 flex items-start space-x-4">
-                <div className="bg-gradient-to-r from-primary to-blue-500 p-3 rounded-lg">
-                  <Building2 className="w-6 h-6 text-white" />
+            <Card className="modern-card p-0">
+              <CardContent className="p-6 sm:p-7">
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-bold text-foreground">
+                    About CHIPS
+                  </h3>
                 </div>
-                <div>
-                  <h4 className="font-bold mb-2 text-gray-800">
-                    Jointly Organized By
-                  </h4>
-                  <p className="text-gray-600">
-                    Indian Pharmaceutical Association, AP state branch and IIC
-                  </p>
-                  <div className="flex items-center gap-4 mt-3">
-                    <div className="w-16 h-16 relative bg-white rounded-lg shadow-sm border border-gray-100 p-1 flex items-center justify-center overflow-hidden">
-                      <Image
-                        src="/IPA Logo.JPG"
-                        alt="IPA Logo"
-                        width={80}
-                        height={80}
-                        className="object-contain w-full h-full"
-                      />
-                    </div>
-                    <div className="w-16 h-16 relative bg-white rounded-lg shadow-sm border border-gray-100 p-1 flex items-center justify-center overflow-hidden">
-                      <Image
-                        src="/iiclogo.png"
-                        alt="IIC Logo"
-                        width={80}
-                        height={80}
-                        className="object-contain w-full h-full"
-                      />
-                    </div>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">
+                  Chebrolu Hanumaiah Institute of Pharmaceutical Sciences was
+                  established in 2005 by the philanthropic Nagarjuna Education
+                  Society. The institute offers B.Pharmacy, Pharm.D,
+                  M.Pharmacy, Ph.D programs and maintains strong academic,
+                  research and industry engagement.
+                </p>
+                <div className="mt-4 grid grid-cols-2 gap-3 text-sm text-muted-foreground">
+                  <div className="rounded-xl bg-secondary/50 p-3">
+                    NAAC Accredited and Autonomous
+                  </div>
+                  <div className="rounded-xl bg-secondary/50 p-3">
+                    300+ Research Publications
                   </div>
                 </div>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent className="p-6 flex items-start space-x-4">
-                <div className="bg-gradient-to-r from-primary to-blue-500 p-3 rounded-lg">
-                  <Brain className="w-6 h-6 text-white" />
+
+            <Card className="modern-card p-0">
+              <CardContent className="space-y-4 p-6 sm:p-7">
+                <div className="flex items-center gap-3">
+                  <Network className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-bold text-foreground">
+                    About ABAP
+                  </h3>
                 </div>
-                <div>
-                  <h4 className="font-bold mb-2 text-gray-800">
-                    Conference Highlights
-                  </h4>
-                  <p className="text-gray-600">
-                    Keynote sessions by industry pioneers, Real Time
-                    Applications of AI Tools, poster presentations, networking
-                    sessions, and in-depth discussions on AI-driven healthcare
-                    innovations.
-                  </p>
+                <p className="text-sm leading-7 text-muted-foreground sm:text-base">
+                  The Association of Biotechnology and Pharmacy, established in
+                  2007, promotes scientific exchange through conventions,
+                  workshops, and its journal Current Trends in Biotechnology
+                  and Pharmacy.
+                </p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-border/80 bg-white p-4 text-sm">
+                    <BookOpenCheck className="mb-2 h-5 w-5 text-primary" />
+                    Annual scientific interactions and publication support.
+                  </div>
+                  <div className="rounded-xl border border-border/80 bg-white p-4 text-sm">
+                    <ShieldCheck className="mb-2 h-5 w-5 text-primary" />
+                    Recognizes excellence with national awards and medals.
+                  </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-6 flex items-start space-x-4">
-                <div className="bg-gradient-to-r from-primary to-blue-500 p-3 rounded-lg">
-                  <Users className="w-6 h-6 text-white" />
+            <Card className="modern-card p-0">
+              <CardContent className="p-6 sm:p-7">
+                <div className="flex items-center gap-3">
+                  <Microscope className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-bold text-foreground">
+                    Research Culture at CHIPS
+                  </h3>
                 </div>
-                <div>
-                  <h4 className="font-bold mb-2 text-gray-800">Key Focus Areas</h4>
-                  <p className="text-gray-600">
-                    AI-driven diagnostics, predictive analytics, machine
-                    learning in genomics, early disease detection, ML in drug
-                    development, and ethical considerations in AI healthcare.
+                <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">
+                  CHIPS has supported numerous Ph.D graduates and hosts active
+                  research scholars. Selected conference papers will receive an
+                  opportunity for full-length publication after review.
+                </p>
+                <div className="mt-4 rounded-xl bg-secondary/50 p-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 font-semibold text-foreground">
+                    <GraduationCap className="h-4 w-4 text-primary" />
+                    Academic and Industry Connect
+                  </div>
+                  <p className="mt-2">
+                    MoUs with pharmaceutical industries support training,
+                    collaborative research and placement opportunities.
                   </p>
                 </div>
               </CardContent>

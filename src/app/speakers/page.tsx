@@ -1,114 +1,99 @@
 import React from "react";
-import Image from "next/image";
 
-interface Speaker {
-  id: number;
+type Advisor = {
   name: string;
-  designation: string;
-  image: string;
-  role?: string;
-}
+  title: string;
+};
 
-const speakers: Speaker[] = [
+const internationalAdvisors: Advisor[] = [
   {
-    id: 1,
-    name: "Prof. Dr. Mohd Zulkefeli",
-    designation: "Director, Quality, IMU University, Malaysia",
-    image: "/speakers/Prof Dr Mohd Zulkefeli Bin Mat Jusoh.jpg",
-  },
-  {
-    id: 2,
-    name: "Assoc. Prof. Dr. Wong Pei Se",
-    designation: "Associate Dean, Teaching & Learning, IMU University, Malaysia",
-    image: "/speakers/Assoc Prof Dr Wong Pei Se.jpg",
-  },
-  {
-    id: 3,
-    name: "Assoc. Prof. Dr. Ooi Ing Hong",
-    designation: "Head of Department, Pharmaceutical Chemistry, School of Pharmacy, IMU University, Malaysia",
-    image: "/speakers/Assoc Prof Dr Ooi Ing Hong.jpg",
-  },
-  {
-    id: 4,
     name: "Assoc. Prof. Dr. Lee Choy Sin",
-    designation: "Associate Dean, Research & Consultancy, School of Pharmacy, IMU University, Malaysia",
-    image: "/speakers/Assoc Prof Dr Lee Choy Sin.jpg",
+    title: "School of Pharmacy, IMU University, Malaysia",
   },
   {
-    id: 5,
-    name: "Assoc. Prof. Dr. Shazia Jamshed",
-    designation: "Associate Professor, Department of Pharmacy Practice, School of Pharmacy, IMU University, Malaysia",
-    image: "/speakers/Assoc Prof Dr Shazia Jamshed.jpg",
+    name: "Prof. Wong Pei Se",
+    title: "School of Pharmacy, IMU University, Malaysia",
   },
   {
-    id: 6,
-    name: "Dr. Chin Swee Yee",
-    designation: "Programme Director of MSc in Analytical and Pharmaceutical Chemistry (MAPC), School of Pharmacy, IMU University, Malaysia",
-    image: "/speakers/Dr Chin Swee Yee.jpg",
+    name: "Prof. Dr. Mohd. Zulkefeli",
+    title: "IMU University, Malaysia",
   },
-  {
-    id: 7,
-    name: "Dr. Vasudeva Rao Avupati",
-    designation: "E-Learning Lead and AI Coordinator, School of Pharmacy, IMU University, Malaysia",
-    image: "/speakers/Dr Vasudeva Rao Avupati.jpg",
-  },
+];
+
+const nationalAdvisors: Advisor[] = [
+  { name: "Prof. G. Gangadhara Rao", title: "National Advisory Board" },
+  { name: "Prof. R. Siva Rama Prasad", title: "National Advisory Board" },
+  { name: "Prof. G. Simhachalam", title: "National Advisory Board" },
+  { name: "Prof. Y. Rajendra Prasad", title: "National Advisory Board" },
+  { name: "Prof. K. Sobha", title: "National Advisory Board" },
+  { name: "Dr. M. V. Ramana", title: "National Advisory Board" },
+  { name: "Dr. M. Niranjan Babu", title: "National Advisory Board" },
+  { name: "Dr. P. Srinivasa Rao", title: "National Advisory Board" },
+  { name: "Dr. Hafeez Basha", title: "National Advisory Board" },
+  { name: "Dr. K. Venkata Ramana", title: "National Advisory Board" },
+  { name: "Dr. Y. Ankamma Chowdary", title: "National Advisory Board" },
+  { name: "Dr. A. Vasudeva Rao", title: "National Advisory Board" },
+  { name: "Dr. M. Prasada Rao", title: "National Advisory Board" },
+  { name: "Dr. G. Sumalatha", title: "National Advisory Board" },
+  { name: "Dr. K. Suresh", title: "National Advisory Board" },
+  { name: "Dr. T. E. G. K. Murthy", title: "National Advisory Board" },
+  { name: "Dr. Y. Srinivasa Rao", title: "National Advisory Board" },
 ];
 
 const SpeakersPage = () => {
   return (
-    <div className="bg-gray-50 min-h-screen relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointing-events-none">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-1/3 right-10 w-72 h-72 bg-blue-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-10 left-1/3 w-72 h-72 bg-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <h1 className="text-5xl font-extrabold text-center mb-16">
-          <span className="text-primary">
-            Our Distinguished Speakers
-          </span>
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
-          {speakers.map((speaker) => (
-            <div
-              key={speaker.id}
-              className="group bg-white border border-gray-200 rounded-3xl hover:bg-gray-50 transition-all duration-300 ease-out hover:shadow-xl"
-            >
-              <div className="relative aspect-square overflow-hidden rounded-t-3xl">
-                <Image
-                  src={speaker.image}
-                  alt={speaker.name}
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                  width={400}
-                  height={400}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
-              </div>
-
-              <div className="p-8 space-y-4">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-all duration-300">
-                    {speaker.name}
-                  </h3>
-                  {speaker.role && (
-                    <span className="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium border border-primary/20">
-                      {speaker.role}
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-gray-600 text-base leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">
-                  {speaker.designation}
-                </p>
-              </div>
-            </div>
-          ))}
+    <main className="relative min-h-screen py-14 sm:py-16">
+      <div className="mesh-overlay" />
+      <div className="page-shell py-0">
+        <div className="mb-10 text-center">
+          <p className="eyebrow">Advisory and Invited Experts</p>
+          <h1 className="section-heading mt-4">Distinguished Academic Voices</h1>
+          <p className="section-subheading mx-auto">
+            ABAP 2026 features advisory experts and invited academicians from
+            international and national institutions in pharmacy and
+            biotechnology.
+          </p>
         </div>
+
+        <section className="modern-card mb-6 p-7 sm:p-8">
+          <h2 className="text-2xl font-bold text-foreground">International Advisory Members</h2>
+          <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {internationalAdvisors.map((advisor) => (
+              <div
+                key={advisor.name}
+                className="rounded-xl border border-border/80 bg-white p-4"
+              >
+                <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+                  International
+                </p>
+                <h3 className="mt-1 text-base font-bold text-foreground">{advisor.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{advisor.title}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="modern-card p-7 sm:p-8">
+          <h2 className="text-2xl font-bold text-foreground">National Advisory Board</h2>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {nationalAdvisors.map((advisor) => (
+              <div
+                key={advisor.name}
+                className="rounded-xl border border-border/80 bg-white p-4"
+              >
+                <h3 className="text-base font-bold text-foreground">{advisor.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{advisor.title}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 text-sm text-muted-foreground">
+            Additional invited sessions, plenary topics and final speaking order
+            will be released in the detailed conference schedule.
+          </p>
+        </section>
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -18,9 +18,9 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title:
-    "International Conference | Chebrolu Hanumaiah Institute of Pharmaceutical Sciences",
+    "ABAP 2026 International Conference | CHIPS, Guntur",
   description:
-    "Emerging Innovations in Pharmaceutical Sciences and Drug Discovery - International Conference at Chebrolu Hanumaiah Institute of Pharmaceutical Sciences",
+    "20th Annual Convention of ABAP and International Conference on Global Perspectives of Artificial Intelligence and Quantum Technologies in Healthcare, Pharmaceutical, Biotechnological and Agricultural Innovations (21-23 December 2026).",
 };
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
+        className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
       >
         <div className="main-container min-h-screen flex flex-col relative">
           <Header />

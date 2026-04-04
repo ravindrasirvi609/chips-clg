@@ -15,7 +15,6 @@ const RegistrationPlans: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
-  const [includeGalaDinner, setIncludeGalaDinner] = useState(false);
   const [isProcessingTransaction, setIsProcessingTransaction] = useState(false);
   const [formData, setFormData] = useState<RegistrationFormData>({
     email: "",
@@ -71,17 +70,6 @@ const RegistrationPlans: React.FC = () => {
       setFormData((prevState) => ({
         ...prevState,
         ...updates,
-      }));
-    },
-    []
-  );
-
-  const handleGalaDinnerChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setIncludeGalaDinner(e.target.checked);
-      setFormData((prevState) => ({
-        ...prevState,
-        includeGalaDinner: e.target.checked,
       }));
     },
     []
@@ -156,12 +144,6 @@ const RegistrationPlans: React.FC = () => {
       errors.pincode = "Pincode must be 6 digits";
     }
 
-    if (selectedPlan?.name === "OPF Members" && !formData.memberId) {
-      errors.memberId = "Member ID is required for OPF Members";
-    }
-
-    // Add more validations as needed
-
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -218,7 +200,6 @@ const RegistrationPlans: React.FC = () => {
     }
   };
 
-  let totalAmount = 0;
   const makePayment = async (
     plan: Plan,
     registration: RegistrationFormData
@@ -231,9 +212,8 @@ const RegistrationPlans: React.FC = () => {
     }
 
     try {
-      totalAmount = includeGalaDinner ? plan.earlyBird + 1000 : plan.earlyBird;
+      const totalAmount = plan.earlyBird;
 
-      // Create Razorpay order
       const orderResponse = await fetch("/api/razorpay-order", {
         method: "POST",
         headers: {
@@ -249,7 +229,8 @@ const RegistrationPlans: React.FC = () => {
       const orderData = await orderResponse.json();
 
       const options = {
-        name: "Operant Pharmacy Federation",
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
+        name: "ABAP 2026 - CHIPS",
         currency: orderData.currency,
         amount: orderData.amount,
         order_id: orderData.id,
@@ -260,6 +241,7 @@ const RegistrationPlans: React.FC = () => {
           razorpay_signature: string;
         }) {
           try {
+            setCountdown(7);
             setIsProcessingTransaction(true);
 
             const transactionResponse = await axios.post(
@@ -290,9 +272,11 @@ const RegistrationPlans: React.FC = () => {
           email: registration.email,
           contact: registration.whatsappNumber,
         },
+        theme: {
+          color: "#0f5b8d",
+        },
       };
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const paymentObject = new (window as any).Razorpay(options);
       paymentObject.open();
     } catch (error) {
@@ -310,61 +294,35 @@ const RegistrationPlans: React.FC = () => {
     setShowModal(false);
   };
 
-  const PriceDisplay = ({
-    label,
-    price,
-    className,
-    planName,
-  }: {
-    label: string;
-    price: number;
-    className?: string;
-    planName?: string;
-  }) => {
-    const isInternational = planName === "International Delegates";
-    const currency = isInternational ? "$" : "₹";
-    const displayPrice = isInternational ? price / 83 : price; // Convert back to USD for display
-
-    return (
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-gray-700 font-medium">{label}:</span>
-        <span className={`text-lg font-bold ${className || "text-gray-900"}`}>
-          {currency}
-          {displayPrice}
-        </span>
-      </div>
-    );
-  };
-
   const RegistrationCard = ({ plan }: { plan: Plan }) => (
-    <div className="bg-white border border-gray-200 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <div className="bg-gray-50 border-b border-gray-100 py-4 px-6">
-        <h3 className="text-2xl font-bold text-primary">
-          {plan.name}
-        </h3>
+    <div className="modern-card overflow-hidden p-0">
+      <div className="border-b border-border/70 bg-secondary/40 px-6 py-4">
+        <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
       </div>
       <div className="p-6">
-        <p className="text-gray-600 mb-6">{plan.description}</p>
-        {/* Early Bird pricing now active */}
-        <PriceDisplay label="Early Bird" price={plan.earlyBird} planName={plan.name} className="text-gray-900" />
-        <PriceDisplay
-          label="Late Fee"
-          price={plan.regular}
-          className="text-gray-400 line-through"
-          planName={plan.name}
-        />
-        <PriceDisplay
-          label="Spot"
-          price={plan.spot}
-          className="text-gray-400 line-through"
-          planName={plan.name}
-        />
+        <p className="mb-5 text-sm text-muted-foreground">{plan.description}</p>
+
+        <div className="space-y-2 text-sm">
+          <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3">
+            <span className="text-muted-foreground">Early Bird</span>
+            <span className="font-bold text-foreground">INR {plan.earlyBird}</span>
+          </div>
+          <div className="flex items-center justify-between rounded-lg bg-white p-3 border border-border/70">
+            <span className="text-muted-foreground">Regular</span>
+            <span className="font-semibold text-foreground">INR {plan.regular}</span>
+          </div>
+          <div className="flex items-center justify-between rounded-lg bg-white p-3 border border-border/70">
+            <span className="text-muted-foreground">Spot</span>
+            <span className="font-semibold text-foreground">INR {plan.spot}</span>
+          </div>
+        </div>
+
         <div className="mt-6">
           <button
-            disabled
-            className="w-full py-3 px-4 rounded-full bg-gray-200 text-gray-400 font-bold cursor-not-allowed"
+            onClick={() => openModal(plan)}
+            className="btn-primary w-full"
           >
-            Closed
+            Choose Plan
           </button>
         </div>
       </div>
@@ -372,61 +330,46 @@ const RegistrationPlans: React.FC = () => {
   );
 
   return (
-    <div className="relative overflow-hidden bg-gray-50 py-16 px-4 md:px-8">
-      {/* Animated Background Elements */}
-      <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/20 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
-      <div className="absolute top-1/2 -right-40 w-80 h-80 bg-blue-400/20 rounded-full blur-[100px] animate-blob"></div>
-      <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-400/20 rounded-full blur-[100px] animate-blob animation-delay-4000"></div>
-
-      <div className="container mx-auto relative z-10 max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12">
-          <span className="text-primary">
-            Registration Plans
-          </span>
+    <section className="relative py-10">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="mb-8 text-center text-3xl font-extrabold text-foreground sm:text-4xl">
+          Registration Plans
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <RegistrationCard key={index} plan={plan} />
           ))}
-
-
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 py-8">
-          <button
-            disabled
-            className="py-4 px-8 rounded-full bg-gray-200 text-gray-400 text-xl font-bold cursor-not-allowed"
-          >
-            Group Registration Closed
-          </button>
-          <Link href="/contact">
-            <button className="py-4 px-8 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white text-xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-              Contact Us for Help
-            </button>
+        <div className="modern-card p-5 text-sm text-muted-foreground">
+          <p>
+            Registration fee includes access to scientific sessions and
+            conference kit. For accommodation or bulk registrations, please
+            coordinate via the contact desk.
+          </p>
+          <Link href="/contact" className="mt-3 inline-block font-semibold text-primary">
+            Contact support team
           </Link>
         </div>
       </div>
 
-      {/* Modal Dialog */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-white border border-gray-200 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-gray-900">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-white text-foreground">
             {isProcessingTransaction ? (
-              <div className="flex flex-col items-center justify-center p-8">
-                <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-primary mb-6"></div>
-                <p className="text-xl font-bold text-primary mb-4">
+              <div className="flex flex-col items-center justify-center p-10">
+                <div className="mb-6 h-20 w-20 animate-spin rounded-full border-b-4 border-t-4 border-primary" />
+                <p className="mb-2 text-lg font-bold text-primary">
                   Processing your transaction...
                 </p>
-                <p className="text-gray-600 text-center">
-                  Thank you for your patience! Please wait for{" "}
-                  <span className="font-bold text-primary">{countdown}</span>{" "}
-                  seconds...
+                <p className="text-center text-sm text-muted-foreground">
+                  Please wait for <span className="font-semibold text-primary">{countdown}</span> seconds.
                 </p>
               </div>
             ) : (
               <div className="p-8">
-                <h2 className="text-2xl font-bold mb-6 text-primary">
+                <h2 className="mb-6 text-2xl font-bold text-primary">
                   Register for {selectedPlan?.name}
                 </h2>
                 <RegistrationForm
@@ -434,24 +377,22 @@ const RegistrationPlans: React.FC = () => {
                   onInputChange={handleInputChange}
                   onImageUpload={handleImageUpload}
                   errors={formErrors}
-                  includeGalaDinner={includeGalaDinner}
-                  handleGalaDinnerChange={handleGalaDinnerChange}
-                  selectedPlanName={selectedPlan?.name}
                   onBatchUpdate={handleBatchUpdate}
                 />
                 {submitError && (
-                  <div className="mb-4 p-3 bg-red-900/50 border border-red-500 text-red-200 rounded-xl">
+                  <div className="mb-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
                     {submitError}
                   </div>
                 )}
-                <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <div className="mt-6 flex flex-col gap-4 sm:flex-row">
                   <button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className={`flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 ${isSubmitting
-                      ? "bg-gray-400 cursor-not-allowed text-gray-700"
-                      : "bg-primary text-white hover:bg-primary/90 hover:shadow-lg"
-                      }`}
+                    className={`flex-1 rounded-xl px-6 py-3 font-semibold transition ${
+                      isSubmitting
+                        ? "cursor-not-allowed bg-gray-300 text-gray-600"
+                        : "bg-primary text-primary-foreground hover:bg-primary/90"
+                    }`}
                   >
                     {isSubmitting ? (
                       <div className="flex items-center justify-center">
@@ -477,22 +418,12 @@ const RegistrationPlans: React.FC = () => {
                         Submitting...
                       </div>
                     ) : (
-                      `Register and Pay (${selectedPlan?.name === "International Delegates"
-                        ? "$"
-                        : "₹"
-                      }${includeGalaDinner
-                        ? selectedPlan?.name === "International Delegates"
-                          ? (selectedPlan?.earlyBird || 0) / 83 + 12
-                          : (selectedPlan?.earlyBird || 0) + 1000
-                        : selectedPlan?.name === "International Delegates"
-                          ? (selectedPlan?.earlyBird || 0) / 83
-                          : selectedPlan?.earlyBird
-                      })`
+                      `Register and Pay (INR ${selectedPlan?.earlyBird})`
                     )}
                   </button>
                   <button
                     onClick={closeModal}
-                    className="flex-1 py-3 px-6 rounded-full border border-gray-300 text-gray-700 font-bold hover:bg-gray-100 transition-all duration-300"
+                    className="flex-1 rounded-xl border border-border px-6 py-3 font-semibold text-foreground hover:bg-secondary/40"
                   >
                     Close
                   </button>
@@ -502,7 +433,7 @@ const RegistrationPlans: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

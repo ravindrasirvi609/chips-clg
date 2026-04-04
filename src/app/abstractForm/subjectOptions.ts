@@ -1,42 +1,42 @@
 export const subjectOptions = [
-  { value: "pharmaceuticalTechnology", label: "Pharmaceutical Technology" },
-  { value: "medChem", label: "Pharmaceutical / Medicinal Chemistry" },
   {
-    value: "pharmacognosy",
-    label:
-      "Pharmacognosy, Indigenous Drugs, Herbal Formulations, and Phytochemistry",
+    value: "pharmaceutics",
+    label: "Pharmaceutical Technology and Pharmaceutics",
   },
   {
-    value: "pharmacologyToxicology",
-    label: "Pharmacology and Toxicology, Clinical Research & Pharmacovigilance",
+    value: "pharmchem_analysis",
+    label: "Pharmaceutical Chemistry and Pharmaceutical Analysis",
   },
   {
-    value: "pharmaceuticalAnalysis",
-    label: "Pharmaceutical Analysis and Quality Assurance",
+    value: "pharmacognosy_biotech",
+    label: "Pharmacognosy, Phytochemistry and Biotechnology",
   },
   {
-    value: "biopharmaceutics",
-    label: "Biopharmaceutics, Pharmacokinetics & Drug Metabolism",
-  },
-  { value: "biotechnology", label: "Biotechnology and Biotherapeutics" },
-  {
-    value: "clinicalPharmacy",
-    label: "Hospital, Community, and Clinical Pharmacy",
+    value: "pharmacology_toxicology",
+    label: "Pharmacology and Toxicology",
   },
   {
-    value: "pharmaceuticalEducation",
-    label: "Pharmaceutical Education and Professional Pharmacy",
+    value: "pharmacy_practice_education",
+    label: "Pharmacy Practice and Pharmacy Education",
   },
   {
-    value: "drugRegulatoryAffairs",
-    label: "Drug Regulatory Affairs & Pharmaceutical Management",
+    value: "regulatory_affairs",
+    label: "Pharmaceutical Regulatory Affairs",
   },
   {
-    value: "pharmacoeconomics",
-    label: "Pharmacoeconomics and Pharmacoepidemiology",
+    value: "pharmacovigilance",
+    label: "Pharmacovigilance and Pharmacoepidemiology",
   },
   {
-    value: "aiBioinformatics",
-    label: "Artificial Intelligence / Bioinformatics / Data Analytics",
+    value: "agri_biotechnology",
+    label: "Agriculture Biotechnology and Sustainable Development",
+  },
+  {
+    value: "ai_ml_health",
+    label: "Artificial Intelligence and Machine Learning in Health Sector",
+  },
+  {
+    value: "other",
+    label: "Other Relevant Fields",
   },
 ];
