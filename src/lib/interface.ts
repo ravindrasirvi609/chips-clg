@@ -36,6 +36,8 @@ export interface RegistrationInfo {
     name?: string;
     email?: string;
     affiliation?: string;
+    presentationMode?: string;
+    registrationMode?: string;
     coAuthor?: string;
     presentationType?: string;
     address?: string;
@@ -103,6 +105,8 @@ export interface IAbstract {
   whatsappNumber?: string;
   name?: string;
   affiliation?: string;
+  presentationMode?: "Online" | "Offline";
+  registrationMode?: "Online" | "Offline";
   coAuthor?: string;
   designation?: string;
   title?: string;

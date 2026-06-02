@@ -111,6 +111,8 @@ export interface Abstract {
   presentationType: string;
   whatsappNumber: string;
   affiliation: string;
+  presentationMode: string;
+  registrationMode: string;
   coAuthor: string;
   address: string;
   city: string;
@@ -133,11 +135,13 @@ export const exportAbstractsToExcel = (
     "Temporary Abstract Code": item.temporyAbstractCode,
     Title: item.title,
     Subject: item.subject,
-    Name: item.name,
+    "Presenting Author Full Name": item.name,
     Email: item.email,
     "WhatsApp Number": item.whatsappNumber,
     Designation: item.designation,
-    Affiliation: item.affiliation,
+    "College Name": item.affiliation,
+    "Mode of Presentation": item.presentationMode || "N/A",
+    "Mode of Registration": item.registrationMode || "N/A",
     "Co-Author": item.coAuthor,
     "Registration Completed": item.registrationCompleted ? "Yes" : "No",
     "Registration Code": item.registrationCode,

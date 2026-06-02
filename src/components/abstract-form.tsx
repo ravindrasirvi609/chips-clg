@@ -11,6 +11,8 @@ interface Errors {
   whatsappNumber?: string;
   name?: string;
   affiliation?: string;
+  presentationMode?: string;
+  registrationMode?: string;
   Designation?: string;
   title?: string;
   subject?: string;
@@ -34,6 +36,8 @@ export function AbstractForm() {
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [name, setName] = useState("");
   const [affiliation, setAffiliation] = useState("");
+  const [presentationMode, setPresentationMode] = useState("");
+  const [registrationMode, setRegistrationMode] = useState("");
   const [Designation, setDesignation] = useState("");
   const [coAuthor, setCoAuthor] = useState("");
   const [title, setTitle] = useState("");
@@ -85,7 +89,13 @@ export function AbstractForm() {
       newErrors.name = "Name is required";
     }
     if (!affiliation) {
-      newErrors.affiliation = "Affiliation is required";
+      newErrors.affiliation = "College name is required";
+    }
+    if (!presentationMode) {
+      newErrors.presentationMode = "Mode of presentation is required";
+    }
+    if (!registrationMode) {
+      newErrors.registrationMode = "Mode of registration is required";
     }
     if (!title) {
       newErrors.title = "Title is required";
@@ -136,6 +146,8 @@ export function AbstractForm() {
       formData.append("whatsappNumber", whatsappNumber);
       formData.append("name", name);
       formData.append("affiliation", affiliation);
+      formData.append("presentationMode", presentationMode);
+      formData.append("registrationMode", registrationMode);
       formData.append("designation", Designation);
       formData.append("coAuthor", coAuthor);
       formData.append("title", title);
@@ -261,14 +273,14 @@ export function AbstractForm() {
           <label
             htmlFor="name"
             className="block text-sm font-medium text-primary mb-1"
-          >
-            Author Full Name
+            >
+            Presenting Author Full Name
           </label>
           <input
             id="name"
             type="text"
             className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            placeholder="Enter your name"
+            placeholder="Enter presenting author full name"
             value={name}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setName(e.target.value)
@@ -308,14 +320,14 @@ export function AbstractForm() {
           <label
             htmlFor="affiliation"
             className="block text-sm font-medium text-primary mb-1"
-          >
-            Affiliation of Author
+            >
+            College Name
           </label>
           <input
             id="affiliation"
             type="text"
             className="w-full px-3 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            placeholder="Enter your affiliation"
+            placeholder="Enter your college name"
             value={affiliation}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setAffiliation(e.target.value)
@@ -324,6 +336,56 @@ export function AbstractForm() {
           {errors.affiliation && (
             <p className="text-[#D94814] text-sm mt-1">{errors.affiliation}</p>
           )}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label
+              htmlFor="presentationMode"
+              className="block text-sm font-medium text-primary mb-1"
+            >
+              Mode of Presentation
+            </label>
+            <select
+              id="presentationMode"
+              className="w-full px-3 py-2 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              value={presentationMode}
+              onChange={(e) => setPresentationMode(e.target.value)}
+            >
+              <option value="">Select mode of presentation</option>
+              <option value="Offline">Offline</option>
+              <option value="Online">Online</option>
+            </select>
+            {errors.presentationMode && (
+              <p className="text-[#D94814] text-sm mt-1">
+                {errors.presentationMode}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="registrationMode"
+              className="block text-sm font-medium text-primary mb-1"
+            >
+              Mode of Registration
+            </label>
+            <select
+              id="registrationMode"
+              className="w-full px-3 py-2 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              value={registrationMode}
+              onChange={(e) => setRegistrationMode(e.target.value)}
+            >
+              <option value="">Select mode of registration</option>
+              <option value="Online">Online</option>
+              <option value="Offline">Offline</option>
+            </select>
+            {errors.registrationMode && (
+              <p className="text-[#D94814] text-sm mt-1">
+                {errors.registrationMode}
+              </p>
+            )}
+          </div>
         </div>
 
         <div>

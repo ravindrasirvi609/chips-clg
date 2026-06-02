@@ -5,6 +5,14 @@ const abstractSchema = new Schema({
   whatsappNumber: { type: String },
   name: { type: String },
   affiliation: { type: String },
+  presentationMode: {
+    type: String,
+    enum: ["Online", "Offline"],
+  },
+  registrationMode: {
+    type: String,
+    enum: ["Online", "Offline"],
+  },
   coAuthor: { type: String },
   designation: { type: String },
   title: { type: String },

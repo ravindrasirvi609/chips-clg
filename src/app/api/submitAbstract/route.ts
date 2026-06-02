@@ -25,6 +25,8 @@ export async function POST(req: NextRequest) {
     const name = formData.get("name") as string;
     const designation = formData.get("designation") as string;
     const affiliation = formData.get("affiliation") as string;
+    const presentationMode = formData.get("presentationMode") as string;
+    const registrationMode = formData.get("registrationMode") as string;
     const coAuthor = formData.get("coAuthor") as string;
     const title = formData.get("title") as string;
     const subject = formData.get("subject") as string;
@@ -39,6 +41,8 @@ export async function POST(req: NextRequest) {
       !whatsappNumber ||
       !name ||
       !affiliation ||
+      !presentationMode ||
+      !registrationMode ||
       !title ||
       !subject ||
       !file ||
@@ -76,6 +80,8 @@ export async function POST(req: NextRequest) {
       whatsappNumber,
       name,
       affiliation,
+      presentationMode,
+      registrationMode,
       coAuthor,
       designation,
       title,

@@ -214,9 +214,12 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
         <thead>
           <tr className="bg-blue-900 text-white uppercase text-sm leading-normal">
             <th className="py-3 px-6 text-left">Subject</th>
-            <th className="py-3 px-6 text-left">Author</th>
+            <th className="py-3 px-6 text-left">Presenting Author</th>
             <th className="py-3 px-6 text-left">Email</th>
             <th className="py-3 px-6 text-left">WhatsApp</th>
+            <th className="py-3 px-6 text-left">College Name</th>
+            <th className="py-3 px-6 text-left">Presentation Mode</th>
+            <th className="py-3 px-6 text-left">Registration Mode</th>
             <th className="py-3 px-6 text-left">Temporary Abstract Code</th>
             <th className="py-3 px-6 text-left">Final Abstract Code</th>
             <th className="py-3 px-6 text-left">Designation</th>
@@ -263,6 +266,15 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
                 ) : (
                   <span className="text-gray-400">Not provided</span>
                 )}
+              </td>
+              <td className="py-3 px-6 text-left">
+                {abstract.affiliation || "-"}
+              </td>
+              <td className="py-3 px-6 text-left">
+                {abstract.presentationMode || "-"}
+              </td>
+              <td className="py-3 px-6 text-left">
+                {abstract.registrationMode || "-"}
               </td>
               <td className="py-3 px-6 text-left">
                 {abstract.temporyAbstractCode}

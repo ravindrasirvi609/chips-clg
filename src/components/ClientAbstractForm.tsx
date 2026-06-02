@@ -223,7 +223,15 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                       value={abstract?.presentationType}
                     />
                     <InfoItem
-                      label="Affiliation"
+                      label="Mode of Presentation"
+                      value={abstract.presentationMode}
+                    />
+                    <InfoItem
+                      label="Mode of Registration"
+                      value={abstract.registrationMode}
+                    />
+                    <InfoItem
+                      label="College Name"
                       value={abstract.affiliation}
                     />
                     <InfoItem
