@@ -16,12 +16,34 @@ const About = () => {
       <div className="mesh-overlay" />
       <div className="page-shell py-0">
         <div className="mb-10 text-center">
-          <p className="eyebrow">About CHIPS and ABAP</p>
-          <h1 className="section-heading mt-4">Institutional Excellence and Scientific Collaboration</h1>
+          <p className="eyebrow">About the Conference</p>
+          <h1 className="section-heading mt-4 text-gradient">Global Perspectives & Innovations</h1>
           <p className="section-subheading mx-auto">
-            Learn more about Chebrolu Hanumaiah Institute of Pharmaceutical
-            Sciences and the Association of Biotechnology and Pharmacy, the
-            core organizations behind ABAP 2026.
+            Exploring the transformative potential of Artificial Intelligence and Quantum Technologies
+            in Healthcare, Pharmaceuticals, Biotechnology, and Agriculture.
+          </p>
+        </div>
+
+        <section className="modern-card mb-10 p-7 sm:p-9 border border-primary/10 bg-gradient-to-br from-primary/5 via-white/80 to-secondary/5 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10" />
+          <h2 className="text-2xl font-bold text-foreground mb-4">Conference Overview</h2>
+          <div className="space-y-4 text-sm sm:text-base leading-7 sm:leading-8 text-muted-foreground">
+            <p>
+              The conference on <strong className="text-foreground">“Global Perspectives of Artificial Intelligence and Quantum Technologies in Healthcare, Pharmaceutical, Biotechnological and Agricultural Innovations”</strong> aims to bring together researchers, academicians, industry experts, and policymakers from across the world to explore the transformative potential of emerging technologies.
+            </p>
+            <p>
+              The event will highlight how artificial intelligence and quantum technologies are revolutionizing drug discovery, precision medicine, diagnostics, biotechnology advancements, and smart agricultural practices. Through keynote lectures, technical sessions, and panel discussions, the conference will foster interdisciplinary collaboration, encourage knowledge exchange, and address current challenges and future opportunities.
+            </p>
+            <p>
+              It also seeks to promote innovative research, sustainable solutions, and the integration of cutting-edge technologies to improve global health outcomes, enhance pharmaceutical development, advance biotechnological research, and ensure agricultural sustainability.
+            </p>
+          </div>
+        </section>
+
+        <div className="mb-8 mt-12 text-center">
+          <h2 className="text-2xl font-bold text-foreground">Organizing Institutions</h2>
+          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto text-sm sm:text-base">
+            Learn more about Chebrolu Hanumaiah Institute of Pharmaceutical Sciences and the Association of Biotechnology and Pharmacy, the core organizations behind the event.
           </p>
         </div>
 

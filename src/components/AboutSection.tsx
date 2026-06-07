@@ -37,10 +37,7 @@ const AboutSection = () => {
             </p>
 
             <p className="mt-5 text-sm leading-7 text-muted-foreground sm:text-base">
-              Through keynote talks, technical sessions and panel discussions,
-              the event promotes interdisciplinary collaboration, knowledge
-              exchange and practical solutions for current and future
-              scientific challenges.
+              Through keynote lectures, technical sessions, and panel discussions, the conference will foster interdisciplinary collaboration, encourage knowledge exchange, and address current challenges and future opportunities. It also seeks to promote innovative research, sustainable solutions, and the integration of cutting-edge technologies to improve global health outcomes, enhance pharmaceutical development, advance biotechnological research, and ensure agricultural sustainability.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
