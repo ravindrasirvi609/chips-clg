@@ -257,7 +257,7 @@ const GroupRegistrationForm = () => {
 
             <div>
               <label className="block text-white font-medium mb-2">
-                Affiliation/Institution *
+                Organization/Institution Name *
               </label>
               <input
                 type="text"

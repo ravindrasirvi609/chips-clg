@@ -374,7 +374,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
         />
 
         <FormField
-          label="Affiliation/Organization/Institution"
+          label="Organization/Institution Name"
           name="affiliation"
           value={formData.affiliation}
           onChange={onInputChange}

@@ -119,7 +119,7 @@ const RegistrationPlans: React.FC = () => {
     }
 
     if (!formData.affiliation) {
-      errors.affiliation = "Affiliation is required";
+      errors.affiliation = "Organization/Institution Name is required";
     }
 
     if (!formData.designation) {
