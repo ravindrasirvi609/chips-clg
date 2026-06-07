@@ -9,9 +9,15 @@ import {
   Download,
   FileText,
   Users,
-  Calendar,
+  CheckCircle,
+  Clock,
+  CreditCard,
+  ChevronRight,
   TrendingUp,
 } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function RegistrationList() {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
@@ -64,7 +70,6 @@ export default function RegistrationList() {
       });
 
       if (response.ok) {
-        // Remove the deleted registration from both arrays
         setRegistrations((prev) => prev.filter((reg) => reg._id !== id));
         setFilteredRegistrations((prev) =>
           prev.filter((reg) => reg._id !== id)
@@ -94,7 +99,6 @@ export default function RegistrationList() {
       });
 
       if (response.ok) {
-        // Update the registration status in both arrays
         setRegistrations((prev) =>
           prev.map((reg) =>
             reg._id === id
@@ -149,7 +153,6 @@ export default function RegistrationList() {
       });
 
       if (response.ok) {
-        // Update the registration status in both arrays
         setRegistrations((prev) =>
           prev.map((reg) =>
             reg._id === id
@@ -193,7 +196,7 @@ export default function RegistrationList() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <LoadingExample />
       </div>
     );
@@ -211,126 +214,150 @@ export default function RegistrationList() {
   ).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header Section */}
-        <div className="mb-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-            <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Registration Dashboard
-              </h1>
-              <p className="text-gray-600 mt-2 text-lg">
-                Manage and monitor all conference registrations
-              </p>
-            </div>
+    <div className="min-h-screen bg-slate-50/50 pb-12">
+      <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        
+        {/* Breadcrumb Navigation */}
+        <div className="mb-6 flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+          <Link href="/admin/dashboard" className="hover:text-primary transition-colors">Admin</Link>
+          <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60" />
+          <span className="text-foreground">Registration List</span>
+        </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link href={"/admin/abstractList"}>
-                <button className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-xl hover:from-emerald-600 hover:to-teal-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                  <FileText size={20} />
-                  Abstract List
-                </button>
-              </Link>
-              <button
-                onClick={handleExport}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                <Download size={20} />
-                Export to Excel
-              </button>
-            </div>
+        {/* Header Section */}
+        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              Registration Dashboard
+            </h1>
+            <p className="text-muted-foreground mt-1.5 text-sm sm:text-base">
+              Manage, monitor, and confirm conference registrations.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <Link href="/admin/abstractList" passHref>
+              <Button variant="outline" className="h-10 text-xs sm:text-sm font-semibold rounded-xl bg-white shadow-sm gap-2">
+                <FileText className="h-4 w-4" />
+                Abstract List
+              </Button>
+            </Link>
+            <Button
+              onClick={handleExport}
+              className="h-10 text-xs sm:text-sm font-semibold rounded-xl gap-2 shadow-sm"
+            >
+              <Download className="h-4 w-4" />
+              Export to Excel
+            </Button>
           </div>
         </div>
 
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">
-                  Total Registrations
-                </p>
-                <p className="text-3xl font-bold text-gray-900">
-                  {totalRegistrations}
-                </p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Total Registrations
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                <Users className="h-4.5 w-4.5 text-blue-600" />
               </div>
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl">
-                <Users className="text-white" size={24} />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-slate-900">
+                {totalRegistrations}
               </div>
-            </div>
-          </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Active participants registered
+              </p>
+            </CardContent>
+          </Card>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Confirmed</p>
-                <p className="text-3xl font-bold text-green-600">
-                  {confirmedRegistrations}
-                </p>
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Confirmed Registrations
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                <CheckCircle className="h-4.5 w-4.5 text-emerald-600" />
               </div>
-              <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl">
-                <TrendingUp className="text-white" size={24} />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-emerald-600">
+                {confirmedRegistrations}
               </div>
-            </div>
-          </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                {totalRegistrations > 0
+                  ? `${Math.round((confirmedRegistrations / totalRegistrations) * 100)}% of total entries`
+                  : "0% of total entries"}
+              </p>
+            </CardContent>
+          </Card>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Pending</p>
-                <p className="text-3xl font-bold text-orange-600">
-                  {pendingRegistrations}
-                </p>
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Pending Approval
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                <Clock className="h-4.5 w-4.5 text-amber-600" />
               </div>
-              <div className="p-3 bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl">
-                <Calendar className="text-white" size={24} />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-amber-600">
+                {pendingRegistrations}
               </div>
-            </div>
-          </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Awaiting administrative check
+              </p>
+            </CardContent>
+          </Card>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">
-                  Payments Completed
-                </p>
-                <p className="text-3xl font-bold text-purple-600">
-                  {completedPayments}
-                </p>
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Payments Completed
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                <CreditCard className="h-4.5 w-4.5 text-purple-600" />
               </div>
-              <div className="p-3 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl">
-                <TrendingUp className="text-white" size={24} />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-purple-600">
+                {completedPayments}
               </div>
-            </div>
-          </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Verified payment logs
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
-        {/* Search and Filters */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 mb-8">
-          <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <div className="relative flex-1">
+        {/* Search, Info & Filtering controls */}
+        <Card className="border border-border/60 bg-white/80 shadow-sm mb-6">
+          <CardContent className="p-4 sm:p-5 flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div className="relative w-full sm:max-w-md">
               <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                size={20}
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground/80"
+                size={18}
               />
-              <input
+              <Input
                 type="text"
-                placeholder="Search registrations by name, email, or any field..."
+                placeholder="Search by name, email, institution, phone..."
                 value={searchTerm}
                 onChange={handleSearch}
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-400 transition-all duration-200"
+                className="w-full pl-9 h-10 border border-input rounded-xl focus-visible:ring-1 focus-visible:ring-primary shadow-sm bg-white"
               />
             </div>
-            <div className="text-sm text-gray-600">
-              Showing {filteredRegistrations.length} of {registrations.length}{" "}
-              registrations
+            <div className="text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap bg-slate-100/75 border px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+              <TrendingUp className="h-4 w-4 text-primary" />
+              <span>Showing <strong>{filteredRegistrations.length}</strong> of <strong>{registrations.length}</strong> records</span>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        {/* Table Section */}
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        {/* Registration Table Container */}
+        <div className="shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden border border-border">
           <RegistrationTable
             registrations={filteredRegistrations}
             onDelete={handleDelete}
@@ -338,6 +365,7 @@ export default function RegistrationList() {
             onConfirmIndividual={handleConfirmIndividual}
           />
         </div>
+
       </div>
     </div>
   );

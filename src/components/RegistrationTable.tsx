@@ -6,7 +6,21 @@ import {
   AlertCircle,
   Clock,
   UserCheck,
+  Building2,
+  Mail,
+  Phone,
+  Calendar,
 } from "lucide-react";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 interface Registration {
   _id: string;
@@ -36,7 +50,6 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
   onConfirmIndividual,
 }) => {
   const handleDelete = async (id: string, paymentStatus: string) => {
-    // Prevent deletion if payment is completed
     if (paymentStatus === "Completed") {
       alert("Cannot delete registration with completed payment status");
       return;
@@ -59,224 +72,208 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
     }
   };
 
+  const getPaymentBadge = (status: string) => {
+    switch (status) {
+      case "Completed":
+        return (
+          <Badge variant="success" className="gap-1 px-2.5 py-1">
+            <CheckCircle className="h-3 w-3" />
+            Completed
+          </Badge>
+        );
+      case "Pending":
+        return (
+          <Badge variant="warning" className="gap-1 px-2.5 py-1">
+            <Clock className="h-3 w-3" />
+            Pending
+          </Badge>
+        );
+      case "Failed":
+        return (
+          <Badge variant="destructive" className="gap-1 px-2.5 py-1">
+            <AlertCircle className="h-3 w-3" />
+            Failed
+          </Badge>
+        );
+      default:
+        return <Badge variant="outline" className="px-2.5 py-1">{status}</Badge>;
+    }
+  };
+
+  const getRegistrationBadge = (status: string) => {
+    switch (status) {
+      case "Confirmed":
+        return (
+          <Badge variant="success" className="gap-1 px-2.5 py-1">
+            <UserCheck className="h-3 w-3" />
+            Confirmed
+          </Badge>
+        );
+      case "Pending":
+        return (
+          <Badge variant="warning" className="gap-1 px-2.5 py-1">
+            <Clock className="h-3 w-3" />
+            Pending
+          </Badge>
+        );
+      default:
+        return <Badge variant="outline" className="px-2.5 py-1">{status}</Badge>;
+    }
+  };
+
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full">
-        <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-          <tr>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Regn ID
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Name
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Email
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Registration Type
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Payment Status
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Registration Status
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              College Name
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Mobile No.
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Regn Date
-            </th>
-            <th className="px-6 py-4 text-left text-sm font-semibold tracking-wide">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-100">
+    <div className="rounded-xl border border-border bg-white overflow-hidden shadow-sm">
+      <Table>
+        <TableHeader>
+          <TableRow className="bg-slate-50/75 hover:bg-slate-50/75">
+            <TableHead className="font-bold py-4">Regn ID</TableHead>
+            <TableHead className="font-bold py-4">Participant Details</TableHead>
+            <TableHead className="font-bold py-4">Registration Type</TableHead>
+            <TableHead className="font-bold py-4">Payment Status</TableHead>
+            <TableHead className="font-bold py-4">Registration Status</TableHead>
+            <TableHead className="font-bold py-4">Institution / Organization</TableHead>
+            <TableHead className="font-bold py-4">Date</TableHead>
+            <TableHead className="font-bold py-4 text-right pr-6">Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {registrations.length === 0 ? (
-            <tr>
-              <td colSpan={10} className="px-6 py-12 text-center">
-                <div className="flex flex-col items-center justify-center text-gray-500">
-                  <AlertCircle size={48} className="mb-4 text-gray-300" />
-                  <p className="text-lg font-medium">
-                    No matching registrations found
-                  </p>
-                  <p className="text-sm">Try adjusting your search criteria</p>
+            <TableRow>
+              <TableCell colSpan={8} className="h-24 text-center">
+                <div className="flex flex-col items-center justify-center py-6 text-muted-foreground">
+                  <AlertCircle size={36} className="mb-2 text-muted-foreground/60" />
+                  <p className="font-medium text-base">No registrations found</p>
+                  <p className="text-xs">Adjust your search parameters and try again.</p>
                 </div>
-              </td>
-            </tr>
+              </TableCell>
+            </TableRow>
           ) : (
             registrations.map((registration) => (
-              <tr
+              <TableRow
                 key={registration._id}
-                className={`hover:bg-gray-50 transition-colors duration-150 ${
+                className={`transition-colors border-b hover:bg-slate-50/50 ${
                   registration.includeGalaDinner
-                    ? "bg-pink-50 hover:bg-pink-100"
+                    ? "bg-pink-50/30 hover:bg-pink-50/50"
                     : ""
                 }`}
               >
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-gray-900">
-                    {registration.registrationCode || "Pending"}
+                {/* Registration Code */}
+                <TableCell className="font-mono text-xs font-semibold py-3.5">
+                  {registration.registrationCode || (
+                    <span className="text-muted-foreground italic font-sans font-normal text-xs">Pending</span>
+                  )}
+                </TableCell>
+
+                {/* Participant Info */}
+                <TableCell className="py-3.5">
+                  <div className="flex flex-col">
+                    <Link
+                      href={`/abstractForm/${registration._id}`}
+                      className="font-semibold text-primary hover:text-primary/80 hover:underline text-sm transition-all flex items-center gap-1"
+                    >
+                      {registration.name}
+                    </Link>
+                    <div className="flex flex-col gap-1 mt-1 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <Mail className="h-3 w-3 text-muted-foreground/75" />
+                        {registration.email}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Phone className="h-3 w-3 text-muted-foreground/75" />
+                        {registration.whatsappNumber}
+                      </span>
+                    </div>
                   </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <Link
-                    href={`/abstractForm/${registration._id}`}
-                    className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150"
-                  >
-                    {registration.name}
-                  </Link>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {registration.email}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                      registration.registrationType === "Group"
-                        ? "bg-purple-100 text-purple-800"
-                        : "bg-blue-100 text-blue-800"
-                    }`}
+                </TableCell>
+
+                {/* Registration Type */}
+                <TableCell className="py-3.5">
+                  <Badge
+                    variant={registration.registrationType === "Group" ? "secondary" : "outline"}
+                    className="px-2.5 py-0.5"
                   >
                     {registration.registrationType}
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getPaymentStatusColor(
-                      registration.paymentStatus
-                    )}`}
-                  >
-                    {registration.paymentStatus === "Completed" && (
-                      <CheckCircle size={12} className="mr-1" />
-                    )}
-                    {registration.paymentStatus === "Pending" && (
-                      <Clock size={12} className="mr-1" />
-                    )}
-                    {registration.paymentStatus === "Failed" && (
-                      <AlertCircle size={12} className="mr-1" />
-                    )}
-                    {registration.paymentStatus}
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getRegistrationStatusColor(
-                      registration.registrationStatus
-                    )}`}
-                  >
-                    {registration.registrationStatus === "Confirmed" && (
-                      <UserCheck size={12} className="mr-1" />
-                    )}
-                    {registration.registrationStatus === "Pending" && (
-                      <Clock size={12} className="mr-1" />
-                    )}
-                    {registration.registrationStatus}
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {registration.affiliation}
+                  </Badge>
+                </TableCell>
+
+                {/* Payment Status */}
+                <TableCell className="py-3.5">
+                  {getPaymentBadge(registration.paymentStatus)}
+                </TableCell>
+
+                {/* Registration Status */}
+                <TableCell className="py-3.5">
+                  {getRegistrationBadge(registration.registrationStatus)}
+                </TableCell>
+
+                {/* Affiliation / Institution */}
+                <TableCell className="py-3.5 max-w-[200px] truncate">
+                  <div className="flex items-center gap-1.5 text-sm" title={registration.affiliation}>
+                    <Building2 className="h-3.5 w-3.5 text-muted-foreground/75 flex-shrink-0" />
+                    <span className="truncate">{registration.affiliation || "N/A"}</span>
                   </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {registration.whatsappNumber}
+                </TableCell>
+
+                {/* Registration Date */}
+                <TableCell className="py-3.5 whitespace-nowrap text-muted-foreground text-xs">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" />
+                    {new Date(registration.createdAt).toLocaleDateString(undefined, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
                   </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {new Date(registration.createdAt).toLocaleDateString()}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex space-x-2">
+                </TableCell>
+
+                {/* Actions */}
+                <TableCell className="py-3.5 text-right pr-6">
+                  <div className="flex items-center justify-end gap-2">
                     {registration.registrationType === "Group" &&
                       registration.registrationStatus === "Pending" && (
-                        <button
+                        <Button
                           onClick={() => handleConfirmGroup(registration._id)}
-                          className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600 transition-all duration-200 shadow-sm hover:shadow-md"
-                          title="Confirm Group Registration"
+                          variant="success"
+                          size="sm"
+                          className="h-8 text-xs font-semibold px-2.5 gap-1 rounded-lg"
                         >
-                          <CheckCircle size={12} className="mr-1" />
+                          <CheckCircle className="h-3 w-3" />
                           Confirm Group
-                        </button>
+                        </Button>
                       )}
                     {registration.registrationType !== "Group" &&
                       registration.registrationStatus === "Pending" && (
-                        <button
-                          onClick={() =>
-                            handleConfirmIndividual(registration._id)
-                          }
-                          className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 shadow-sm hover:shadow-md border border-blue-400"
-                          title="Confirm Individual Registration (₹1 Payment)"
+                        <Button
+                          onClick={() => handleConfirmIndividual(registration._id)}
+                          variant="default"
+                          size="sm"
+                          className="h-8 text-xs font-semibold px-2.5 gap-1 rounded-lg"
                         >
-                          <UserCheck size={12} className="mr-1" />
-                          Confirm Individual
-                        </button>
+                          <UserCheck className="h-3 w-3" />
+                          Confirm Ind.
+                        </Button>
                       )}
-                    <button
+                    <Button
                       onClick={() =>
-                        handleDelete(
-                          registration._id,
-                          registration.paymentStatus
-                        )
+                        handleDelete(registration._id, registration.paymentStatus)
                       }
                       disabled={registration.paymentStatus === "Completed"}
-                      className={`inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
-                        registration.paymentStatus === "Completed"
-                          ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                          : "bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600 shadow-sm hover:shadow-md"
-                      }`}
-                      title={
-                        registration.paymentStatus === "Completed"
-                          ? "Cannot delete - Payment completed"
-                          : "Delete Registration"
-                      }
+                      variant="destructive"
+                      size="sm"
+                      className="h-8 text-xs font-semibold px-2.5 gap-1 rounded-lg"
                     >
-                      <Trash2 size={12} className="mr-1" />
+                      <Trash2 className="h-3 w-3" />
                       Delete
-                    </button>
+                    </Button>
                   </div>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))
           )}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </div>
   );
 };
-
-function getPaymentStatusColor(status: string): string {
-  switch (status) {
-    case "Completed":
-      return "bg-green-100 text-green-800";
-    case "Pending":
-      return "bg-yellow-100 text-yellow-800";
-    case "Failed":
-      return "bg-red-100 text-red-800";
-    default:
-      return "bg-gray-100 text-gray-800";
-  }
-}
-
-function getRegistrationStatusColor(status: string): string {
-  switch (status) {
-    case "Confirmed":
-      return "bg-green-100 text-green-800";
-    case "Pending":
-      return "bg-orange-100 text-orange-800";
-    default:
-      return "bg-gray-100 text-gray-800";
-  }
-}
 
 export default RegistrationTable;

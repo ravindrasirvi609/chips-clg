@@ -6,6 +6,21 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Abstract, exportAbstractsToExcel } from "@/lib/excelExport";
 import AbstractTable from "./AbstractTable";
+import {
+  Search,
+  Download,
+  Users,
+  CheckCircle,
+  Clock,
+  AlertCircle,
+  ChevronRight,
+  TrendingUp,
+  FileText,
+  SlidersHorizontal,
+} from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 interface Filters {
   Status: string;
@@ -21,11 +36,9 @@ export function AbstractList() {
   const [filters, setFilters] = useState<Filters>({
     Status: "all",
     search: "",
-    sortBy: "createdAt", // Changed to sort by creation date by default
-    sortOrder: "desc", // Changed to descending order to show newest first
+    sortBy: "createdAt",
+    sortOrder: "desc",
   });
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isSortOpen, setIsSortOpen] = useState(false);
 
   const fetchAbstracts = async () => {
     try {
@@ -144,131 +157,211 @@ export function AbstractList() {
     return result;
   }, [abstracts, filters]);
 
+  // Calculate statistics
+  const totalAbstracts = abstracts.filter((a) => a.Status !== "Delete").length;
+  const acceptedAbstracts = abstracts.filter((a) => a.Status === "Accepted").length;
+  const pendingAbstracts = abstracts.filter((a) => a.Status === "Pending").length;
+  const revisionAbstracts = abstracts.filter((a) => a.Status === "Revision").length;
+
   return (
-    <div className="flex flex-col h-screen bg-[#F2F2F2]">
+    <div className="min-h-screen bg-slate-50/50 pb-12">
       <ToastContainer position="top-right" autoClose={3000} />
-      <header className="bg-[#021373] text-white px-6 py-4 flex items-center justify-between shadow-md">
-        <h1 className="text-2xl font-bold">Abstract Management</h1>
-        <div className="flex items-center gap-4">
-          <Link href={"/admin/registrationList"} className="">
-            <button className="bg-danger text-white px-4 py-2 text-sm font-medium rounded hover:bg-primary-dark">
-              Registration List
-            </button>
-          </Link>
-          <button
-            onClick={handleExportToExcel}
-            className="bg-pink-500 text-white px-4 py-2 text-sm font-medium rounded hover:bg-green-700 transition duration-300 ease-in-out"
-          >
-            Export to Excel
-          </button>
-          <div className="relative">
-            <button
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="px-4 py-2 bg-[#034C8C] text-white rounded-md text-sm font-medium hover:bg-[#022873] transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#034C8C]"
-            >
-              Filter
-            </button>
-            {isFilterOpen && (
-              <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                <div
-                  className="py-1"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="options-menu"
-                >
-                  {["all", "Pending", "InReview", "Revision", "Accepted"].map(
-                    (status) => (
-                      <button
-                        key={status}
-                        onClick={() => {
-                          setFilters((prev) => ({ ...prev, Status: status }));
-                          setIsFilterOpen(false);
-                        }}
-                        className="block px-4 py-2 text-sm text-[#021373] hover:bg-[#F2F2F2] hover:text-[#034C8C] w-full text-left transition duration-300 ease-in-out"
-                        role="menuitem"
-                      >
-                        {status === "all" ? "All" : status}
-                      </button>
-                    )
-                  )}
-                </div>
-              </div>
-            )}
+      
+      <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        
+        {/* Breadcrumb Navigation */}
+        <div className="mb-6 flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+          <Link href="/admin/dashboard" className="hover:text-primary transition-colors">Admin</Link>
+          <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60" />
+          <span className="text-foreground">Abstract Management</span>
+        </div>
+
+        {/* Header Section */}
+        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              Abstract List
+            </h1>
+            <p className="text-muted-foreground mt-1.5 text-sm sm:text-base">
+              Manage, review, and evaluate scientific abstracts submitted for the conference.
+            </p>
           </div>
-          <input
-            type="search"
-            placeholder="Search abstracts..."
-            className="px-4 py-2 border border-[#CACACA] rounded-md focus:ring-[#034C8C] focus:border-[#034C8C] bg-white text-[#021373]"
-            value={filters.search}
-            onChange={(e) =>
-              setFilters((prev) => ({ ...prev, search: e.target.value }))
-            }
-          />
-          <div className="relative">
-            <button
-              onClick={() => setIsSortOpen(!isSortOpen)}
-              className="px-4 py-2 bg-[#034C8C] text-white rounded-md text-sm font-medium hover:bg-[#022873] transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#034C8C]"
+
+          <div className="flex flex-wrap items-center gap-2">
+            <Link href="/admin/registrationList" passHref>
+              <Button variant="outline" className="h-10 text-xs sm:text-sm font-semibold rounded-xl bg-white shadow-sm gap-2">
+                <Users className="h-4 w-4" />
+                Registration List
+              </Button>
+            </Link>
+            <Button
+              onClick={handleExportToExcel}
+              className="h-10 text-xs sm:text-sm font-semibold rounded-xl gap-2 shadow-sm bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 border-0 text-white"
             >
-              Sort
-            </button>
-            {isSortOpen && (
-              <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                <div
-                  className="py-1"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="options-menu"
-                >
-                  {[
-                    "createdAt",
-                    "title",
-                    "name",
-                    "email",
-                    "whatsappNumber",
-                    "Status",
-                  ].map((sortOption) => (
-                    <button
-                      key={sortOption}
-                      onClick={() => {
-                        setFilters((prev) => ({
-                          ...prev,
-                          sortBy: sortOption as keyof Abstract,
-                        }));
-                        setIsSortOpen(false);
-                      }}
-                      className="block px-4 py-2 text-sm text-[#021373] hover:bg-[#F2F2F2] hover:text-[#034C8C] w-full text-left transition duration-300 ease-in-out"
-                      role="menuitem"
-                    >
-                      {sortOption === "createdAt"
-                        ? "Creation Date"
-                        : sortOption === "whatsappNumber"
-                        ? "WhatsApp Number"
-                        : sortOption.charAt(0).toUpperCase() +
-                          sortOption.slice(1)}
-                    </button>
-                  ))}
-                  <hr className="my-1 border-[#CACACA]" />
-                  <button
-                    onClick={() => {
-                      setFilters((prev) => ({
-                        ...prev,
-                        sortOrder: prev.sortOrder === "asc" ? "desc" : "asc",
-                      }));
-                      setIsSortOpen(false);
-                    }}
-                    className="block px-4 py-2 text-sm text-[#021373] hover:bg-[#F2F2F2] hover:text-[#034C8C] w-full text-left transition duration-300 ease-in-out"
-                    role="menuitem"
-                  >
-                    {filters.sortOrder === "asc" ? "Descending" : "Ascending"}
-                  </button>
-                </div>
-              </div>
-            )}
+              <Download className="h-4 w-4" />
+              Export to Excel
+            </Button>
           </div>
         </div>
-      </header>
-      <main className="flex-1 overflow-auto">
-        <div className="container mx-auto py-6">
+
+        {/* Statistics Cards */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Total Abstracts
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                <FileText className="h-4.5 w-4.5 text-blue-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-slate-900">
+                {totalAbstracts}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Submitted scientific entries
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Accepted
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                <CheckCircle className="h-4.5 w-4.5 text-emerald-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-emerald-600">
+                {acceptedAbstracts}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                {totalAbstracts > 0
+                  ? `${Math.round((acceptedAbstracts / totalAbstracts) * 100)}% approval rate`
+                  : "0% approval rate"}
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Pending Review
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                <Clock className="h-4.5 w-4.5 text-amber-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-amber-600">
+                {pendingAbstracts}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Awaiting referee assignment
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border border-border/60 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Revision Required
+              </span>
+              <div className="h-8 w-8 rounded-lg bg-rose-500/10 flex items-center justify-center">
+                <AlertCircle className="h-4.5 w-4.5 text-rose-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-extrabold tracking-tight text-rose-600">
+                {revisionAbstracts}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Sent back for corrections
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Search, Info & Filtering controls */}
+        <Card className="border border-border/60 bg-white/80 shadow-sm mb-6">
+          <CardContent className="p-4 sm:p-5 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div className="relative w-full md:max-w-md">
+              <Search
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground/80"
+                size={18}
+              />
+              <Input
+                type="text"
+                placeholder="Search by title, presenter name, email..."
+                value={filters.search}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, search: e.target.value }))
+                }
+                className="w-full pl-9 h-10 border border-input rounded-xl focus-visible:ring-1 focus-visible:ring-primary shadow-sm bg-white"
+              />
+            </div>
+            
+            {/* Filter and Sort Options */}
+            <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+              {/* Status Filter */}
+              <div className="flex items-center gap-1.5 w-full sm:w-auto">
+                <SlidersHorizontal className="h-4 w-4 text-muted-foreground/80 hidden sm:inline" />
+                <select
+                  value={filters.Status}
+                  onChange={(e) =>
+                    setFilters((prev) => ({ ...prev, Status: e.target.value }))
+                  }
+                  className="w-full sm:w-40 h-10 border border-input rounded-xl px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-primary bg-white shadow-sm"
+                >
+                  <option value="all">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="InReview">In Review</option>
+                  <option value="Revision">Revision</option>
+                  <option value="Accepted">Accepted</option>
+                </select>
+              </div>
+
+              {/* Sort By Field */}
+              <select
+                value={filters.sortBy}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, sortBy: e.target.value as keyof Abstract }))
+                }
+                className="w-full sm:w-40 h-10 border border-input rounded-xl px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-primary bg-white shadow-sm"
+              >
+                <option value="createdAt">Sort by Creation Date</option>
+                <option value="title">Sort by Title</option>
+                <option value="name">Sort by Name</option>
+                <option value="email">Sort by Email</option>
+                <option value="whatsappNumber">Sort by WhatsApp</option>
+                <option value="Status">Sort by Review Status</option>
+              </select>
+
+              {/* Sort Order Direction */}
+              <select
+                value={filters.sortOrder}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, sortOrder: e.target.value as "asc" | "desc" }))
+                }
+                className="w-full sm:w-32 h-10 border border-input rounded-xl px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-primary bg-white shadow-sm"
+              >
+                <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
+              </select>
+
+              <div className="text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap bg-slate-100/75 border px-3 py-1.5 rounded-lg flex items-center gap-1.5 ml-auto sm:ml-0">
+                <TrendingUp className="h-4 w-4 text-primary" />
+                <span>Showing <strong>{filteredAndSortedAbstracts.length}</strong> of <strong>{abstracts.filter(a => a.Status !== "Delete").length}</strong></span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Abstract Table Container */}
+        <div className="shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden border border-border">
           <AbstractTable
             abstracts={filteredAndSortedAbstracts}
             loading={loading}
@@ -277,7 +370,8 @@ export function AbstractList() {
             handleStatusUpdate={handleStatusUpdate}
           />
         </div>
-      </main>
+
+      </div>
     </div>
   );
 }
