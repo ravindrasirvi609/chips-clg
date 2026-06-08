@@ -1,7 +1,7 @@
 "use client";
 
 import { designationOptions, indianStates, subjectOptions } from "@/app/data";
-import { useFirebaseStorage } from "@/app/hooks/useFirebaseStorage";
+import { useCloudflareStorage } from "@/app/hooks/useCloudflareStorage";
 import axios, { AxiosError } from "axios";
 import { useState, ChangeEvent, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
@@ -30,7 +30,7 @@ export function AbstractForm() {
     uploadProgress,
     isUploading,
     error: uploadError,
-  } = useFirebaseStorage();
+  } = useCloudflareStorage();
 
   const [email, setEmail] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("");

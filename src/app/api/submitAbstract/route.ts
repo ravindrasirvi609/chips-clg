@@ -4,16 +4,16 @@ import AbstractModel from "@/Model/AbstractModel";
 import RegistrationModel from "@/Model/RegistrationModel";
 import QRCode from "qrcode";
 import { sendEmail } from "@/lib/mailer";
-import { uploadQRCodeToFirebase } from "@/lib/firebase";
+import { uploadQRCodeToCloudflare } from "@/lib/cloudflare";
 
 connect();
 
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    const file = formData.get("abstractFile") as File;
+    const abstractFileUrl = formData.get("abstractFile") as string;
 
-    if (!file) {
+    if (!abstractFileUrl) {
       return NextResponse.json(
         { message: "Abstract file is required" },
         { status: 400 }
@@ -45,12 +45,12 @@ export async function POST(req: NextRequest) {
       !registrationMode ||
       !title ||
       !subject ||
-      !file ||
       !address ||
       !city ||
       !state ||
       !pincode ||
-      !articleType
+      !articleType ||
+      !abstractFileUrl
     ) {
       return NextResponse.json(
         { message: "All required fields must be provided" },
@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     const temporyAbstractCode = await abstractCodeGeneration();
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/abstractForm/${temporyAbstractCode}`;
     const qrCodeBuffer = await QRCode.toBuffer(url);
-    const qrCodeUrl = await uploadQRCodeToFirebase(
+    const qrCodeUrl = await uploadQRCodeToCloudflare(
       qrCodeBuffer,
       `${temporyAbstractCode}.png`
     );
@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
       designation,
       title,
       subject,
-      abstractFileUrl: file,
+      abstractFileUrl,
       address,
       city,
       state,

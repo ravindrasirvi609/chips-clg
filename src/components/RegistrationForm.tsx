@@ -1,5 +1,5 @@
 import { indianStates } from "@/app/data";
-import { useFirebaseStorage } from "@/app/hooks/useFirebaseStorage";
+import { useCloudflareStorage } from "@/app/hooks/useCloudflareStorage";
 import { RegistrationFormData } from "@/lib/interface";
 import axios from "axios";
 import Image from "next/image";
@@ -79,7 +79,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = React.memo(
       uploadProgress,
       isUploading,
       error: uploadError,
-    } = useFirebaseStorage();
+    } = useCloudflareStorage();
     const [imageFile, setImageFile] = useState<File | null>(null);
     const [abstractError, setAbstractError] = useState("");
     const [isAbstractFetching, setIsAbstractFetching] = useState(false);

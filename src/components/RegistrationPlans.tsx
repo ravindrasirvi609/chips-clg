@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { Plan, RegistrationFormData } from "@/lib/interface";
-import { useFirebaseStorage } from "@/app/hooks/useFirebaseStorage";
+import { useCloudflareStorage } from "@/app/hooks/useCloudflareStorage";
 import axios from "axios";
 import Link from "next/link";
 import RegistrationForm from "./RegistrationForm";
 import { plans } from "@/app/data";
 
 const RegistrationPlans: React.FC = () => {
-  const { uploadFile } = useFirebaseStorage();
+  const { uploadFile } = useCloudflareStorage();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");

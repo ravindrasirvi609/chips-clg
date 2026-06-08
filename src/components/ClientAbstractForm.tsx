@@ -1,7 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { useFirebaseStorage } from "@/app/hooks/useFirebaseStorage";
+import { useCloudflareStorage } from "@/app/hooks/useCloudflareStorage";
 import { useDropzone } from "react-dropzone";
 import { formatDate } from "@/lib/utils";
 import { RegistrationInfo } from "@/lib/interface";
@@ -20,7 +20,7 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
     uploadProgress,
     isUploading,
     error: uploadError,
-  } = useFirebaseStorage();
+  } = useCloudflareStorage();
 
   useEffect(() => {
     const fetchData = async () => {

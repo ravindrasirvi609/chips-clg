@@ -1,5 +1,5 @@
 import { connect } from "@/dbConfig/dbConfig";
-import { uploadQRCodeToFirebase } from "@/lib/firebase";
+import { uploadQRCodeToCloudflare } from "@/lib/cloudflare";
 import AbstractModel from "@/Model/AbstractModel";
 import RegistrationModel from "@/Model/RegistrationModel";
 import { NextRequest, NextResponse } from "next/server";
@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     if (!abstractId) {
       const url = `${process.env.NEXT_PUBLIC_BASE_URL}/abstractForm/${savedRegistration._id}`;
       const qrCodeBuffer = await QRCode.toBuffer(url);
-      qrCodeUrl = await uploadQRCodeToFirebase(
+      qrCodeUrl = await uploadQRCodeToCloudflare(
         qrCodeBuffer,
         `${savedRegistration._id}.png`
       );

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connect } from "@/dbConfig/dbConfig";
 import { sendEmail } from "@/lib/mailer";
-import { uploadQRCodeToFirebase } from "@/lib/firebase";
+import { uploadQRCodeToCloudflare } from "@/lib/cloudflare";
 import QRCode from "qrcode";
 import RegistrationModel from "@/Model/RegistrationModel";
 import AbstractModel from "@/Model/AbstractModel";
@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
     // Generate QR Code
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/abstractForm/${registration._id}`;
     const qrCodeBuffer = await QRCode.toBuffer(url);
-    const qrCodeUrl = await uploadQRCodeToFirebase(
+    const qrCodeUrl = await uploadQRCodeToCloudflare(
       qrCodeBuffer,
       `individual_${registration._id}.png`
     );
