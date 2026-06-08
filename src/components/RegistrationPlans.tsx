@@ -6,6 +6,8 @@ import axios from "axios";
 import Link from "next/link";
 import RegistrationForm from "./RegistrationForm";
 import { plans } from "@/app/data";
+import { X } from "lucide-react";
+import { createPortal } from "react-dom";
 
 const RegistrationPlans: React.FC = () => {
   const { uploadFile } = useCloudflareStorage();
@@ -52,6 +54,19 @@ const RegistrationPlans: React.FC = () => {
       return () => clearInterval(timer);
     }
   }, [isProcessingTransaction, countdown]);
+
+  useEffect(() => {
+    if (!showModal) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [showModal]);
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -158,8 +173,7 @@ const RegistrationPlans: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     if (!selectedPlan) {
       alert("Please select a plan before submitting.");
       return;
@@ -354,85 +368,123 @@ const RegistrationPlans: React.FC = () => {
         </div>
       </div>
 
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-white text-foreground">
-            {isProcessingTransaction ? (
-              <div className="flex flex-col items-center justify-center p-10">
-                <div className="mb-6 h-20 w-20 animate-spin rounded-full border-b-4 border-t-4 border-primary" />
-                <p className="mb-2 text-lg font-bold text-primary">
-                  Processing your transaction...
-                </p>
-                <p className="text-center text-sm text-muted-foreground">
-                  Please wait for <span className="font-semibold text-primary">{countdown}</span> seconds.
-                </p>
-              </div>
-            ) : (
-              <div className="p-8">
-                <h2 className="mb-6 text-2xl font-bold text-primary">
-                  Register for {selectedPlan?.name}
-                </h2>
-                <RegistrationForm
-                  formData={formData}
-                  onInputChange={handleInputChange}
-                  onImageUpload={handleImageUpload}
-                  errors={formErrors}
-                  onBatchUpdate={handleBatchUpdate}
-                />
-                {submitError && (
-                  <div className="mb-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-                    {submitError}
-                  </div>
-                )}
-                <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-                  <button
-                    onClick={handleSubmit}
-                    disabled={isSubmitting}
-                    className={`flex-1 rounded-xl px-6 py-3 font-semibold transition ${
-                      isSubmitting
-                        ? "cursor-not-allowed bg-gray-300 text-gray-600"
-                        : "bg-primary text-primary-foreground hover:bg-primary/90"
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center justify-center">
-                        <svg
-                          className="animate-spin h-5 w-5 mr-3 text-white"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                            fill="none"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          />
-                        </svg>
-                        Submitting...
-                      </div>
-                    ) : (
-                      `Register and Pay (INR ${selectedPlan?.earlyBird})`
-                    )}
-                  </button>
-                  <button
-                    onClick={closeModal}
-                    className="flex-1 rounded-xl border border-border px-6 py-3 font-semibold text-foreground hover:bg-secondary/40"
-                  >
-                    Close
-                  </button>
+      {showModal &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 p-0 backdrop-blur-sm sm:p-4"
+            role="presentation"
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="registration-dialog-title"
+              className="flex h-[100dvh] w-full max-w-3xl flex-col overflow-hidden border border-border bg-white text-foreground shadow-2xl sm:h-auto sm:max-h-[calc(100dvh-2rem)] sm:rounded-2xl"
+            >
+              {isProcessingTransaction ? (
+                <div className="flex min-h-[100dvh] flex-col items-center justify-center p-6 text-center sm:min-h-[420px] sm:p-10">
+                  <div className="mb-6 h-20 w-20 animate-spin rounded-full border-b-4 border-t-4 border-primary" />
+                  <p className="mb-2 text-lg font-bold text-primary">
+                    Processing your transaction...
+                  </p>
+                  <p className="text-center text-sm text-muted-foreground">
+                    Please wait for{" "}
+                    <span className="font-semibold text-primary">
+                      {countdown}
+                    </span>{" "}
+                    seconds.
+                  </p>
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+              ) : (
+                <>
+                  <div className="flex flex-shrink-0 items-start justify-between gap-4 border-b border-border bg-white px-5 py-4 sm:px-8 sm:py-5">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        Delegate Registration
+                      </p>
+                      <h2
+                        id="registration-dialog-title"
+                        className="mt-1 text-xl font-bold leading-tight text-primary sm:text-2xl"
+                      >
+                        Register for {selectedPlan?.name}
+                      </h2>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={closeModal}
+                      className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:bg-secondary/60 hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                      aria-label="Close registration dialog"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+
+                  <div className="min-h-0 flex-1 overflow-y-auto px-5 py-5 overscroll-contain sm:px-8 sm:py-6">
+                    <RegistrationForm
+                      formData={formData}
+                      onInputChange={handleInputChange}
+                      onImageUpload={handleImageUpload}
+                      errors={formErrors}
+                      onBatchUpdate={handleBatchUpdate}
+                    />
+                    {submitError && (
+                      <div className="mt-2 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+                        {submitError}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex flex-shrink-0 flex-col gap-3 border-t border-border bg-white px-5 py-4 shadow-[0_-10px_25px_rgba(15,23,42,0.06)] sm:flex-row sm:px-8">
+                    <button
+                      type="button"
+                      onClick={handleSubmit}
+                      disabled={isSubmitting}
+                      className={`min-h-12 flex-1 rounded-xl px-5 py-3 text-sm font-semibold transition sm:text-base ${
+                        isSubmitting
+                          ? "cursor-not-allowed bg-gray-300 text-gray-600"
+                          : "bg-primary text-primary-foreground hover:bg-primary/90"
+                      }`}
+                    >
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center">
+                          <svg
+                            className="mr-3 h-5 w-5 animate-spin text-white"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="none"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          Submitting...
+                        </span>
+                      ) : (
+                        `Register and Pay (INR ${selectedPlan?.earlyBird})`
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={closeModal}
+                      className="min-h-12 flex-1 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-secondary/40 sm:text-base"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 };
