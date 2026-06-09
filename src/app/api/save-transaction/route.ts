@@ -26,11 +26,27 @@ export async function POST(req: NextRequest) {
 
     const savedTransaction = await newTransaction.save();
 
-    // Find the corresponding registration and update its payment status
-    const registrationCode = await getNextRegistrationCode();
+    // Find the corresponding registration first
+    const registration = await Registration.findOne({ email: transactionDetails.customerEmail }).sort({ createdAt: -1 });
+    if (!registration) {
+      console.error(
+        "No matching registration found for email:",
+        transactionDetails.customerEmail
+      );
+      return NextResponse.json(
+        { error: "No matching registration found" },
+        { status: 404 }
+      );
+    }
 
-    const updatedRegistration = await Registration.findOneAndUpdate(
-      { email: transactionDetails.customerEmail },
+    // Generate registration code only if not already assigned
+    let registrationCode = registration.registrationCode;
+    if (!registrationCode) {
+      registrationCode = await getNextRegistrationCode();
+    }
+
+    const updatedRegistration = await Registration.findByIdAndUpdate(
+      registration._id,
       {
         paymentStatus: "Completed",
         paymentAmount: transactionDetails.amount,
@@ -39,7 +55,7 @@ export async function POST(req: NextRequest) {
         registrationStatus: "Confirmed",
         registrationCode,
       },
-      { new: true, sort: { createdAt: -1 } } // Assuming 'createdAt' is the field to sort by. Use 'updatedAt' if that's more appropriate.
+      { new: true }
     );
 
     if (updatedRegistration && updatedRegistration.abstractId) {
@@ -90,7 +106,9 @@ export async function POST(req: NextRequest) {
 }
 
 async function getNextRegistrationCode(): Promise<string> {
-  const lastRegistration = await RegistrationModel.findOne().sort({
+  const lastRegistration = await RegistrationModel.findOne({
+    registrationCode: /^P/,
+  }).sort({
     registrationCode: -1,
   });
 

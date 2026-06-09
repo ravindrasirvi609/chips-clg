@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
-import { Plan, RegistrationFormData } from "@/lib/interface";
+import { Plan, RegistrationFormData, IRegistration } from "@/lib/interface";
 import { useCloudflareStorage } from "@/app/hooks/useCloudflareStorage";
 import axios from "axios";
 import Link from "next/link";
@@ -216,7 +216,7 @@ const RegistrationPlans: React.FC = () => {
 
   const makePayment = async (
     plan: Plan,
-    registration: RegistrationFormData
+    registration: IRegistration
   ) => {
     const res = await initializeRazorpay();
 
@@ -233,7 +233,10 @@ const RegistrationPlans: React.FC = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amount: totalAmount }),
+        body: JSON.stringify({
+          amount: totalAmount,
+          registrationId: registration._id,
+        }),
       });
 
       if (!orderResponse.ok) {

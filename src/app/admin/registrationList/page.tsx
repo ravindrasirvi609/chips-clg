@@ -194,6 +194,53 @@ export default function RegistrationList() {
     }
   };
 
+  const handleSyncStatus = async (id: string) => {
+    try {
+      const response = await fetch("/api/verify-payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ registrationId: id }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setRegistrations((prev) =>
+          prev.map((reg) =>
+            reg._id === id
+              ? {
+                  ...reg,
+                  registrationStatus: "Confirmed",
+                  paymentStatus: "Completed",
+                  registrationCode: data.registration.registrationCode,
+                }
+              : reg
+          )
+        );
+        setFilteredRegistrations((prev) =>
+          prev.map((reg) =>
+            reg._id === id
+              ? {
+                  ...reg,
+                  registrationStatus: "Confirmed",
+                  paymentStatus: "Completed",
+                  registrationCode: data.registration.registrationCode,
+                }
+              : reg
+          )
+        );
+        alert("Payment verified and registration confirmed successfully!");
+      } else {
+        alert(`Failed to sync status: ${data.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error syncing payment status:", error);
+      alert("Failed to sync payment status. Please try again.");
+    }
+  };
+
   if (loading)
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
@@ -363,6 +410,7 @@ export default function RegistrationList() {
             onDelete={handleDelete}
             onConfirmGroup={handleConfirmGroup}
             onConfirmIndividual={handleConfirmIndividual}
+            onSyncStatus={handleSyncStatus}
           />
         </div>
 

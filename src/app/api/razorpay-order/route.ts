@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import Razorpay from "razorpay";
+import { connect } from "@/dbConfig/dbConfig";
+import RegistrationModel from "@/Model/RegistrationModel";
 
 export async function POST(req: NextRequest) {
   try {
     // Parse the request body
-    const { amount } = await req.json();
+    const { amount, registrationId } = await req.json();
 
     if (!amount || isNaN(amount)) {
       return NextResponse.json({ error: "Invalid amount" }, { status: 400 });
@@ -22,9 +24,20 @@ export async function POST(req: NextRequest) {
       currency: "INR",
       receipt: `order_rcptid_${Date.now()}`,
       payment_capture: 1,
+      notes: {
+        registrationId,
+      },
     };
 
     const response = await razorpay.orders.create(options);
+
+    // Save the order ID to the registration in DB
+    if (registrationId) {
+      await connect();
+      await RegistrationModel.findByIdAndUpdate(registrationId, {
+        razorpayOrderId: response.id,
+      });
+    }
 
     return NextResponse.json(
       {

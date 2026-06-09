@@ -10,6 +10,7 @@ import {
   Mail,
   Phone,
   Calendar,
+  RefreshCw,
 } from "lucide-react";
 import {
   Table,
@@ -41,6 +42,7 @@ interface RegistrationTableProps {
   onDelete?: (id: string) => void;
   onConfirmGroup?: (id: string) => void;
   onConfirmIndividual?: (id: string) => void;
+  onSyncStatus?: (id: string) => void;
 }
 
 const RegistrationTable: React.FC<RegistrationTableProps> = ({
@@ -48,6 +50,7 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
   onDelete,
   onConfirmGroup,
   onConfirmIndividual,
+  onSyncStatus,
 }) => {
   const handleDelete = async (id: string, paymentStatus: string) => {
     if (paymentStatus === "Completed") {
@@ -69,6 +72,12 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
   const handleConfirmIndividual = async (id: string) => {
     if (onConfirmIndividual) {
       onConfirmIndividual(id);
+    }
+  };
+
+  const handleSyncStatus = async (id: string) => {
+    if (onSyncStatus) {
+      onSyncStatus(id);
     }
   };
 
@@ -243,15 +252,26 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
                       )}
                     {registration.registrationType !== "Group" &&
                       registration.registrationStatus === "Pending" && (
-                        <Button
-                          onClick={() => handleConfirmIndividual(registration._id)}
-                          variant="default"
-                          size="sm"
-                          className="h-8 text-xs font-semibold px-2.5 gap-1 rounded-lg"
-                        >
-                          <UserCheck className="h-3 w-3" />
-                          Confirm Ind.
-                        </Button>
+                        <>
+                          <Button
+                            onClick={() => handleSyncStatus(registration._id)}
+                            variant="outline"
+                            size="sm"
+                            className="h-8 text-xs font-semibold px-2.5 gap-1 rounded-lg border-primary text-primary hover:bg-primary/10"
+                          >
+                            <RefreshCw className="h-3 w-3" />
+                            Sync
+                          </Button>
+                          <Button
+                            onClick={() => handleConfirmIndividual(registration._id)}
+                            variant="default"
+                            size="sm"
+                            className="h-8 text-xs font-semibold px-2.5 gap-1 rounded-lg"
+                          >
+                            <UserCheck className="h-3 w-3" />
+                            Confirm Ind.
+                          </Button>
+                        </>
                       )}
                     <Button
                       onClick={() =>

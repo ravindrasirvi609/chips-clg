@@ -42,6 +42,7 @@ const registrationSchema = new Schema({
   paymentAmount: { type: Number },
   paymentDate: { type: Date },
   transactionId: { type: String },
+  razorpayOrderId: { type: String },
   memberId: { type: String },
 
   // Additional Conference Options
