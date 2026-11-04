@@ -167,7 +167,7 @@ export function AbstractList() {
     <div className="min-h-screen bg-slate-50/50 pb-12">
       <ToastContainer position="top-right" autoClose={3000} />
       
-      <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-8 xl:px-10">
         
         {/* Breadcrumb Navigation */}
         <div className="mb-6 flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
