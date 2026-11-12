@@ -12,8 +12,8 @@ import Link from "next/link";
 
 const Footer = () => {
   const keyDates = [
-    "Early bird registration closes: 02 Nov 2026",
-    "Abstract submission deadline: 02 Nov 2026",
+    "Early bird registration closes: 30 Nov 2026",
+    "Abstract submission deadline: 30 Nov 2026",
     "Acceptance intimation: 14 Nov 2026",
     "Late fee registration closes: 12 Dec 2026",
     "PPT/Oral submission closes: 12 Dec 2026",

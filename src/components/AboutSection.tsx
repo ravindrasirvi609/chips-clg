@@ -57,10 +57,10 @@ const AboutSection = () => {
 
             <div className="mt-6 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
               <p className="rounded-xl bg-secondary/50 p-3">
-                Early Bird Deadline: 02 Nov 2026
+                Early Bird Deadline: 30 Nov 2026
               </p>
               <p className="rounded-xl bg-secondary/50 p-3">
-                Abstract Submission: 02 Nov 2026
+                Abstract Submission: 30 Nov 2026
               </p>
               <p className="rounded-xl bg-secondary/50 p-3">
                 Acceptance Intimation: 14 Nov 2026

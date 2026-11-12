@@ -11,7 +11,7 @@ const AbstractFormPage: React.FC = () => {
           <h1 className="section-heading mt-4">Abstract Submission Portal</h1>
           <p className="section-subheading mx-auto">
             Submit your original findings for oral or E-poster presentation.
-            Last date for abstract submission: 02 Nov 2026.
+            Last date for abstract submission: 30 Nov 2026.
           </p>
         </div>
 

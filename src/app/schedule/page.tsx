@@ -50,8 +50,8 @@ const program: DayProgram[] = [
 ];
 
 const milestones = [
-  "02 Nov 2026 - Last date for early bird registrations",
-  "02 Nov 2026 - Last date for abstract submission",
+  "30 Nov 2026 - Last date for early bird registrations",
+  "30 Nov 2026 - Last date for abstract submission",
   "14 Nov 2026 - Intimation of abstract acceptance",
   "12 Dec 2026 - Last date for registration with late fee",
   "12 Dec 2026 - Last date for oral/PPT submission",

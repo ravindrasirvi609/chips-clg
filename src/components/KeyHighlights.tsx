@@ -92,7 +92,7 @@ const KeyHighlights = () => {
                   <h3 className="text-xl font-bold text-foreground">Important Milestones</h3>
                 </div>
                 <div className="space-y-2 text-sm text-muted-foreground">
-                  <p className="rounded-xl bg-secondary/50 p-3">02 Nov 2026: Early Bird and Abstract Deadline</p>
+                  <p className="rounded-xl bg-secondary/50 p-3">30 Nov 2026: Early Bird and Abstract Deadline</p>
                   <p className="rounded-xl bg-secondary/50 p-3">14 Nov 2026: Abstract Acceptance Intimation</p>
                   <p className="rounded-xl bg-secondary/50 p-3">12 Dec 2026: Late Registration and PPT Deadline</p>
                 </div>

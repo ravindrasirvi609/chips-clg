@@ -22,7 +22,7 @@ const CallForAbstracts = () => {
   ];
 
   const milestones = [
-    "02 Nov 2026 - Last date for abstract submission",
+    "30 Nov 2026 - Last date for abstract submission",
     "14 Nov 2026 - Intimation of acceptance",
     "12 Dec 2026 - Last date for oral/PPT submission",
     "Accepted abstracts will be published in the Abstract Book (ISBN)",
@@ -63,7 +63,7 @@ const CallForAbstracts = () => {
 
               <div className="mt-5 rounded-xl bg-secondary/50 p-4 text-sm text-muted-foreground">
                 Model abstract is available on the website. Abstract and paper
-                title should be submitted before 02 Nov 2026.
+                title should be submitted before 30 Nov 2026.
               </div>
             </CardContent>
           </Card>

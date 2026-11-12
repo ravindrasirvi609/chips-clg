@@ -21,7 +21,7 @@ const Registration = () => {
           <h2 className="text-2xl font-bold text-foreground">Important Notes</h2>
           <div className="mt-5 grid gap-3 text-sm text-muted-foreground md:grid-cols-2">
             <p className="rounded-xl bg-secondary/50 p-4">
-              Early bird registration closes on 02 Nov 2026.
+              Early bird registration closes on 30 Nov 2026.
             </p>
             <p className="rounded-xl bg-secondary/50 p-4">
               Last date for registration with late fee: 12 Dec 2026.
