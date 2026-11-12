@@ -166,7 +166,7 @@ const ContactPage = () => {
 
             <div className="modern-card p-0 overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4349823.3978435155!2d78.20565083117262!3d14.775039944979435!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a76e3229a1b83%3A0xb859ed4d0357991e!2sChebrolu%20Hanumaiah%20Institute%20Of%20Pharmaceutical%20Sciences%20(Autonomous)!5e1!3m2!1sen!2sin!4v1764999698040!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=Chebrolu%20Hanumaiah%20Institute%20of%20Pharmaceutical%20Sciences%2C%20Chowdavaram%2C%20Guntur%2C%20Andhra%20Pradesh%20522019&output=embed"
                 width="100%"
                 height="320"
                 style={{ border: 0 }}
