@@ -217,7 +217,7 @@ export const sendEmail = async ({
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "admin@opf.org.in",
+        from: "noreply@pharmanecia.org",
         to: EMAIL,
         subject: subject,
         html: emailHtml, // Now this is definitely a string
