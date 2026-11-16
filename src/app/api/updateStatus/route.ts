@@ -76,18 +76,17 @@ async function generateAbstractCode(
   presentationType: string
 ): Promise<string> {
   const subjectCodes: { [key: string]: string } = {
-    pharmaceuticalTechnology: "PT",
-    medChem: "PC",
-    pharmacognosy: "PG",
-    pharmacologyToxicology: "PH",
-    pharmaceuticalAnalysis: "PA",
-    biopharmaceutics: "BP",
-    biotechnology: "BT",
-    clinicalPharmacy: "CP",
-    pharmaceuticalEducation: "PE",
-    drugRegulatoryAffairs: "DR",
-    pharmacoeconomics: "PC",
-    aiBioinformatics: "AI",
+    // Keys must match the `value`s in src/app/abstractForm/subjectOptions.ts
+    pharmaceutics: "PT",
+    pharmchem_analysis: "PC",
+    pharmacognosy_biotech: "PG",
+    pharmacology_toxicology: "PH",
+    pharmacy_practice_education: "PP",
+    regulatory_affairs: "RA",
+    pharmacovigilance: "PV",
+    agri_biotechnology: "AB",
+    ai_ml_health: "AI",
+    other: "OT",
   };
 
   const subjectCode = subjectCodes[subject] || "XX";
