@@ -1,5 +1,7 @@
 import { Plan } from "@/lib/interface";
 
+export const REGISTRATION_FEE_INR = 750;
+
 export const plans: Plan[] = [
   {
     name: "Faculty / Scientist (Offline)",
@@ -21,9 +23,9 @@ export const plans: Plan[] = [
     name: "Online Mode",
     description:
       "Online participation mode for delegates across categories with virtual access to conference sessions.",
-    earlyBird: 600,
-    regular: 600,
-    spot: 600,
+    earlyBird: REGISTRATION_FEE_INR,
+    regular: REGISTRATION_FEE_INR,
+    spot: REGISTRATION_FEE_INR,
   },
 ];
 

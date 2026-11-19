@@ -34,8 +34,18 @@ const AbstractFormPage: React.FC = () => {
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
                 <li>Acceptance intimation: 14 Nov 2026.</li>
                 <li>Last date for oral/PPT submission: 12 Dec 2026.</li>
-                <li>Accepted abstracts of registered delegates will appear in Abstract Book (ISBN).</li>
-                <li>Top selected papers may be invited for full-length publication.</li>
+                <li>
+                  Accepted abstracts will be published in an ISBN-indexed Abstract Book. The best research papers will be published in a special issue of{" "}
+                  <a
+                    href="https://www.google.com/search?kgmid=%2Fm%2F04118lr&amp;q=Cann+you+give+me+the+all+the+content+here+current+trends+in+biotechnology+and+pharmacy"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-primary underline underline-offset-2"
+                  >
+                    <em>Current Trends in Biotechnology and Pharmacy</em>
+                  </a>{" "}
+                  (Scopus- Q3), with nominal publication charges.
+                </li>
                 <li>Presenting author must be a registered delegate.</li>
               </ul>
             </div>

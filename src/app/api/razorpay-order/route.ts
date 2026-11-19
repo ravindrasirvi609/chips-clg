@@ -2,15 +2,28 @@ import { NextRequest, NextResponse } from "next/server";
 import Razorpay from "razorpay";
 import { connect } from "@/dbConfig/dbConfig";
 import RegistrationModel from "@/Model/RegistrationModel";
+import { plans } from "@/app/data";
 
 export async function POST(req: NextRequest) {
   try {
-    // Parse the request body
-    const { amount, registrationId } = await req.json();
+    const { registrationId } = await req.json();
 
-    if (!amount || isNaN(amount)) {
-      return NextResponse.json({ error: "Invalid amount" }, { status: 400 });
+    if (!registrationId) {
+      return NextResponse.json({ error: "Registration ID is required" }, { status: 400 });
     }
+
+    await connect();
+    const registration = await RegistrationModel.findById(registrationId);
+    if (!registration) {
+      return NextResponse.json({ error: "Registration not found" }, { status: 404 });
+    }
+
+    const plan = plans.find(({ name }) => name === registration.registrationType);
+    if (!plan) {
+      return NextResponse.json({ error: "Invalid registration type" }, { status: 400 });
+    }
+
+    const amount = plan.earlyBird;
 
     // Initialize Razorpay object
     const razorpay = new Razorpay({
@@ -33,7 +46,6 @@ export async function POST(req: NextRequest) {
 
     // Save the order ID to the registration in DB
     if (registrationId) {
-      await connect();
       await RegistrationModel.findByIdAndUpdate(registrationId, {
         razorpayOrderId: response.id,
       });
