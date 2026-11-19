@@ -139,10 +139,22 @@ const HeroSection = () => {
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li>Theme-driven sessions on AI, ML and quantum applications.</li>
                 <li>Oral and E-poster presentations with scientific review.</li>
-                <li>Top abstracts published in Abstract Book (ISBN).</li>
-                <li>
-                  Top selected papers get full article opportunity in Current
-                  Trends in Biotechnology and Pharmacy (Scopus indexed).
+                <li className="rounded-xl border border-primary/30 bg-primary/10 p-3 leading-relaxed text-foreground">
+                  <strong className="font-semibold text-foreground">
+                    Publication Information:
+                  </strong>{" "}
+                  Accepted abstracts will be published in an ISBN-indexed
+                  Abstract Book. The best research papers will be published in
+                  a special issue of{" "}
+                  <a
+                    href="https://www.google.com/search?kgmid=%2Fm%2F04118lr&amp;q=Cann+you+give+me+the+all+the+content+here+current+trends+in+biotechnology+and+pharmacy"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-primary underline underline-offset-2"
+                  >
+                    <em>Current Trends in Biotechnology and Pharmacy</em>
+                  </a>{" "}
+                  (Scopus- Q3), with nominal publication charges.
                 </li>
               </ul>
               <Link href="/abstractForm" className="btn-outline mt-5 w-full text-center">
