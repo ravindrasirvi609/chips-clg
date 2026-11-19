@@ -98,11 +98,22 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-border/70 bg-secondary/30">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>
             Copyright 2026 ABAP Conference at CHIPS. All rights reserved.
           </p>
           <p>Built for conference management, registration and abstract workflows.</p>
+          <nav aria-label="Legal policies" className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/privacy-policy" className="hover:text-primary">
+              Privacy Policy
+            </Link>
+            <Link href="/refund-policy" className="hover:text-primary">
+              Refund Policy
+            </Link>
+            <Link href="/terms-and-conditions" className="hover:text-primary">
+              Terms and Conditions
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
